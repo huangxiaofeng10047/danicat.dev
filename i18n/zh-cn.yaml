@@ -1,0 +1,18 @@
+author:
+  byline_title: "作者"
+
+homepage:
+  latest_post_heading: "精选文章"
+  no_other_recent_posts: "暂无其他最近发布的文章。"
+no_upcoming_events: "目前没有安排的活动。请查看[活动日历](/events/)了解过去的参加情况！"
+next_events_title: "即将举办的活动"
+event_details_link: "活动详情 &rarr;"
+event_decks_label: "演示文稿"
+event_source_code_label: "源代码"
+event_recording_label: "录像"
+machineTranslated: "此页面从"
+originalArticle: "原始英文文章"
+reportIssue: "进行了机器翻译。如果您发现翻译有问题，请"
+reportIssueLink: "报告"
+reportIssueTitle: "页面翻译问题: %s"
+attention: "注意"
