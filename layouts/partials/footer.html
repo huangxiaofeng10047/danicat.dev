@@ -63,6 +63,20 @@
   <p class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
     {{ i18n "footer_disclaimer" | default "Disclaimer: The views expressed on this site are my own and do not necessarily represent those of my employer." }}
   </p>
+  <p class="mt-2 text-xs text-neutral-400 dark:text-neutral-500 flex flex-wrap items-center gap-x-2 gap-y-1" data-markdown-ignore="true">
+    <span>LLM &amp; Agent Resources:</span>
+    {{- with .OutputFormats.Get "MarkDown" }}
+      <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500 font-mono" href="{{ .RelPermalink }}">index.md</a>
+      <span>&middot;</span>
+    {{- end }}
+    <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500 font-mono" href="{{ "llms.txt" | relLangURL }}">llms.txt</a>
+    <span>&middot;</span>
+    <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500 font-mono" href="{{ "llms-full.txt" | relLangURL }}">llms-full.txt</a>
+    <span>&middot;</span>
+    <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500 font-mono" href="/.well-known/ai-catalog.json">ai-catalog.json</a>
+    <span>&middot;</span>
+    <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500 font-mono" href="/.well-known/agent-skills/index.json">agent-skills</a>
+  </p>
   {{ if and .IsPage (not (.Site.Params.disableImageZoom | default true)) }}
     <script>
       window.addEventListener("DOMContentLoaded", function () {

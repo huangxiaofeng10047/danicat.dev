@@ -1,0 +1,63 @@
+{{- $author := .Site.Data.identity.author -}}
+# {{ .Site.Title | plainify | htmlUnescape }} — {{ $author.name | default "Daniela Petruzalek" }} (Full Corpus)
+
+> {{ .Site.Params.Author.headline | default "Hands-on software engineering, AI agents, and cloud architecture" | plainify | htmlUnescape }} — {{ .Site.Params.Author.bio | default "Senior Developer Relations Engineer at Google" | plainify | htmlUnescape }}
+> For the compact index, see [llms.txt]({{ "llms.txt" | absLangURL }}).
+
+- Website: {{ .Permalink }}
+- Compact Index (llms.txt): {{ "llms.txt" | absLangURL }}
+- Full Corpus (llms-full.txt): {{ "llms-full.txt" | absLangURL }}
+- Language Editions: {{ range $i, $t := .AllTranslations }}{{ if $i }} | {{ end }}[{{ $t.Language.LanguageName | default $t.Language.LanguageCode }} (llms-full.txt)]({{ $t.Permalink }}llms-full.txt){{ end }}
+- Agent Skills Catalog: https://skills.danicat.dev/ (LLMs index: https://skills.danicat.dev/llms.txt | JSON manifest: https://skills.danicat.dev/catalog.json)
+
+---
+
+{{- range (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+{{- $summary := (.Params.description | default (.Summary | plainify | htmlUnescape)) | replaceRE "\\s+" " " }}
+
+# {{ .Title | plainify | htmlUnescape }}
+
+- **Markdown URL**: {{ .Permalink }}index.md
+- **HTML URL**: {{ .Permalink }}
+- **Date**: {{ .Date.Format "2006-01-02" }}
+{{- with .Params.categories }}
+- **Categories**: {{ delimit . ", " }}
+{{- end }}
+{{- with .Params.tags }}
+- **Tags**: {{ delimit . ", " }}
+{{- end }}
+{{- with .Params.series }}
+- **Series**: {{ index . 0 }}{{ with $.Params.series_order }} (Part {{ . }}){{ end }}
+{{- end }}
+{{- with $summary }}
+- **Summary**: {{ . }}
+{{- end }}
+
+{{- $body := .RawContent -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*mermaid\s*[%>]\}\}` "```mermaid" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*/mermaid\s*[%>]\}\}` "```" -}}
+{{- $body = $body | replaceRE `(\{\{[<%]\s*(?:rel)?ref\s+"[^"#]*?)(?:/index\.md|\.md)(#[^"]*)?("\s*[%>]\}\})` "${1}${2}${3}" -}}
+{{- $body = $body | replaceRE `(\{\{[<%]\s*(?:rel)?ref\s+"[^"#]*?)/(#[^"]*)?("\s*[%>]\}\})` "${1}${2}${3}" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*(?:rel)?ref\s+"/?([^"#]+)(#[^"]+)?"\s*[%>]\}\}` (printf "https://danicat.dev%s/${1}/${2}" site.LanguagePrefix) -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?id=["']([A-Za-z0-9_-]+)["'][^>]*?title=["']([^"']+)["'][^>]*?[%>]\}\}` "[YouTube Video: ${2}](https://www.youtube.com/watch?v=${1})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?title=["']([^"']+)["'][^>]*?id=["']([A-Za-z0-9_-]+)["'][^>]*?[%>]\}\}` "[YouTube Video: ${1}](https://www.youtube.com/watch?v=${2})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?id=["']?([A-Za-z0-9_-]+)["']?[^>]*?[%>]\}\}` "[YouTube Video](https://www.youtube.com/watch?v=${1})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+["']?([A-Za-z0-9_-]+)["']?\s*[%>]\}\}` "[YouTube Video](https://www.youtube.com/watch?v=${1})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*(?:x|twitter)\s+user=["']([^"']+)["']\s+id=["']([^"']+)["']\s*[%>]\}\}` "[Post on X](https://x.com/${1}/status/${2})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*gist\s+([^\s"']+)\s+([^\s"']+)(?:\s+["']?([^"'\s>}]+)["']?)?\s*[%>]\}\}` "[GitHub Gist: ${1}/${2}](https://gist.github.com/${1}/${2})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*github\s+user=["']([^"']+)["']\s+repo=["']([^"']+)["']\s+path=["']([^"']+)["'](?:\s+lang=["'][^"']+["'])?\s+start=["']([0-9]+)["']\s+end=["']([0-9]+)["']\s*[%>]\}\}` "[View on GitHub: ${1}/${2}/${3} (lines ${4}-${5})](https://github.com/${1}/${2}/blob/main/${3}#L${4}-L${5})" -}}
+{{- $body = $body | replaceRE `(?s)\{\{[<%]\s*lead\s*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/lead\s*[%>]\}\}` "${1}" -}}
+{{- $body = $body | replaceRE `(?s)\{\{[<%]\s*alert[^\}]*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/alert\s*[%>]\}\}` "> ${1}" -}}
+{{- $body = $body | replaceRE `(?s)\{\{[<%]\s*warning[^\}]*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/warning\s*[%>]\}\}` "> **Warning:** ${1}" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*figure\s+[^>]*src=["']([^"']+)["'][^>]*[%>]\}\}` "![Figure](${1})" -}}
+{{- $body = $body | replaceRE `(?s)\{\{[<%]\s*badge[^\}]*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/badge\s*[%>]\}\}` "${1}" -}}
+{{- $body = $body | replaceRE `(?s)\{\{[<%]\s*button[^\}]*href=["']([^"']+)["'][^\}]*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/button\s*[%>]\}\}` "[${2}](${1})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*katex\s*[%>]\}\}\n?` "" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*/?[a-zA-Z0-9_-]+[^>]*[%>]\}\}` "" -}}
+{{- $body = $body | replaceRE `\[([^\]]+)\]\((/[^)\s]*)\)` "[${1}](https://danicat.dev${2})" -}}
+{{- $body = $body | replaceRE `\[([^\]]+)\]\(([a-zA-Z0-9_.-]+\.[a-zA-Z0-9]+)\)` (printf "[${1}](%s${2})" .Permalink) -}}
+
+{{ $body }}
+
+---
+{{- end }}

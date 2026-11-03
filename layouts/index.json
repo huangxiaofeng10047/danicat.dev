@@ -1,0 +1,41 @@
+{{- $items := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- $desc := (.Params.description | default (.Params.summary | default "")) | plainify | htmlUnescape | replaceRE "\\s+" " " -}}
+  {{- $items = $items | append (dict
+    "title" (.Title | plainify | htmlUnescape)
+    "url" .Permalink
+    "markdown_url" (printf "%sindex.md" .Permalink)
+    "section" .Section
+    "date" (.Date.Format "2006-01-02")
+    "categories" (.Params.categories | default (slice))
+    "tags" (.Params.tags | default (slice))
+    "series" (.Params.series | default (slice))
+    "summary" $desc
+  ) -}}
+{{- end -}}
+{{- range .Site.Data.videos.videos -}}
+  {{- $items = $items | append (dict
+    "title" (.title | plainify | htmlUnescape)
+    "url" .url
+    "section" "videos"
+    "date" .date
+    "categories" (slice "Video")
+    "tags" (slice (.event | default .channelName | default "YouTube"))
+    "series" (slice)
+    "summary" ((.summary | default "") | plainify | htmlUnescape | replaceRE "\\s+" " ")
+  ) -}}
+{{- end -}}
+{{- range .Site.Data.talks.talks -}}
+  {{- $primaryUrl := .recording | default (.slides | default (.codelab | default (.materials | default (.source_code | default (.url | default ("events/" | absLangURL)))))) -}}
+  {{- $items = $items | append (dict
+    "title" (.title | plainify | htmlUnescape)
+    "url" $primaryUrl
+    "section" "events"
+    "date" (.date | default "")
+    "categories" (slice "Talk / Event")
+    "tags" (slice (.event | default ""))
+    "series" (slice)
+    "summary" ((.summary | default "") | plainify | htmlUnescape | replaceRE "\\s+" " ")
+  ) -}}
+{{- end -}}
+{{- $items | jsonify -}}

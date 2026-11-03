@@ -37,13 +37,13 @@
   {{ end }}
   <link rel="canonical" href="{{ .Permalink }}">
   {{ range .AlternativeOutputFormats }}
-    {{ if ne .MediaType.Type "text/markdown" }}
-      {{ printf `
-        <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink ($.Site.Title | emojify) |
-        safeHTML
-      }}
-    {{ end }}
+    {{ printf `
+      <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink ($.Site.Title | emojify) |
+      safeHTML
+    }}
   {{ end }}
+  <link rel="describedby" type="text/plain" href="{{ "llms.txt" | relLangURL }}" title="LLMs.txt" />
+  <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" title="AI Catalog" />
 
   {{/* Preload Homepage LCP Hero Image */}}
   {{ if and .IsHome (not (.Site.Params.disableImageOptimization | default false)) }}
@@ -249,6 +249,9 @@
   {{ $jsResources = $jsResources | append (resources.Get "js/button-likes.js") }}
   {{ $jsResources = $jsResources | append (resources.Get "js/katex-render.js") }}
   {{ $jsResources = $jsResources | append (resources.Get "js/print-support.js") }}
+  {{ with resources.Get "js/webmcp.js" }}
+    {{ $jsResources = $jsResources | append . }}
+  {{ end }}
   {{ if $jsResources }}
     {{ $bundleJS := $jsResources | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint $alg }}
     <script

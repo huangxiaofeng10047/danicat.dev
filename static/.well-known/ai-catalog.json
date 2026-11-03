@@ -1,0 +1,62 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "danicat.dev — Daniela Petruzalek",
+    "identifier": "did:web:danicat.dev"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:danicat.dev:docs:llms-txt",
+      "displayName": "danicat.dev LLMs Documentation Index",
+      "type": "text/plain",
+      "url": "https://danicat.dev/llms.txt",
+      "representativeQueries": [
+        "list articles by Daniela Petruzalek on AI agents and Go",
+        "find tutorials on Google Antigravity, ADK, and MCP",
+        "browse danicat.dev technical blog index for LLMs"
+      ]
+    },
+    {
+      "identifier": "urn:air:danicat.dev:docs:llms-full",
+      "displayName": "danicat.dev Full Markdown Corpus",
+      "type": "text/plain",
+      "url": "https://danicat.dev/llms-full.txt",
+      "representativeQueries": [
+        "read full text of all danicat.dev articles in markdown",
+        "retrieve complete engineering tutorials on Go and AI agents",
+        "fetch full documentation corpus from danicat.dev"
+      ]
+    },
+    {
+      "identifier": "urn:air:danicat.dev:docs:homepage-markdown",
+      "displayName": "danicat.dev Homepage (Markdown)",
+      "type": "text/markdown",
+      "url": "https://danicat.dev/index.md",
+      "representativeQueries": [
+        "get danicat.dev homepage in markdown",
+        "view latest posts and upcoming speaking events by Daniela Petruzalek"
+      ]
+    },
+    {
+      "identifier": "urn:air:danicat.dev:skills:agent-skills-index",
+      "displayName": "danicat.dev Agent Skills Discovery Index",
+      "type": "application/json",
+      "url": "https://danicat.dev/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "discover agent skills published on danicat.dev",
+        "install kungfu CLI gateway skill for AI coding agents",
+        "find Go, Ebitengine, and SEO agent skills from skills.danicat.dev"
+      ]
+    },
+    {
+      "identifier": "urn:air:danicat.dev:api:search-index",
+      "displayName": "danicat.dev Content Search Index (JSON)",
+      "type": "application/json",
+      "url": "https://danicat.dev/index.json",
+      "representativeQueries": [
+        "search danicat.dev articles, codelabs, videos, and conference talks",
+        "query posts by tag or category in JSON format"
+      ]
+    }
+  ]
+}

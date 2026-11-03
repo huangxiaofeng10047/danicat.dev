@@ -34,4 +34,6 @@ Disallow: /
 {{- end }}
 
 Sitemap: {{ "sitemap.xml" | absURL }}
+Agentmap: {{ ".well-known/ai-catalog.json" | absURL }}
 # LLMs Index (llms.txt): {{ "llms.txt" | absURL }}
+# LLMs Full Corpus (llms-full.txt): {{ "llms-full.txt" | absURL }}

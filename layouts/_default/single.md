@@ -42,8 +42,17 @@ url: {{ .Permalink }}
 
 # {{ .Title | plainify | htmlUnescape }}
 
+> For the complete documentation index, see [llms.txt]({{ "llms.txt" | absLangURL }}) or the full site corpus at [llms-full.txt]({{ "llms-full.txt" | absLangURL }}).
+
 - **URL**: {{ .Permalink }}
+- **Markdown URL**: {{ .Permalink }}index.md
 - **Author**: {{ .Site.Params.Author.name | default "Daniela Petruzalek" }}
+{{- with .Params.role }}
+- **Role**: {{ . }}
+{{- end }}
+{{- with .Params.badges }}
+- **Highlights**: {{ delimit . " · " }}
+{{- end }}
 {{- if not .Date.IsZero }}
 - **Date**: {{ .Date.Format "2006-01-02" }}
 {{- end }}
@@ -59,12 +68,12 @@ url: {{ .Permalink }}
 {{- $seriesTax := or (index $.Site.Taxonomies.series ($seriesName | lower)) (index $.Site.Taxonomies.series ($seriesName | urlize)) }}
 {{- with $seriesTax }}
 {{- range $post := .Pages.ByParam "series_order" }}
-  - {{ with $post.Params.series_order }}Part {{ . }}: {{ end }}[{{ $post.Title | plainify | htmlUnescape }}]({{ $post.Permalink }}) ([Markdown]({{ $post.Permalink }}index.md)){{ if eq $post.Permalink $.Permalink }} *(this article)*{{ end }}
+  - {{ with $post.Params.series_order }}Part {{ . }}: {{ end }}[{{ $post.Title | plainify | htmlUnescape }}]({{ $post.Permalink }}index.md) ([HTML]({{ $post.Permalink }})){{ if eq $post.Permalink $.Permalink }} *(this article)*{{ end }}
 {{- end }}
 {{- end }}
 {{- end }}
 {{- with .Translations }}
-- **Translations**: {{ range $i, $t := . }}{{ if $i }}, {{ end }}[{{ $t.Language.LanguageName }} ({{ $t.Language.LanguageCode }})]({{ $t.Permalink }}) ([Markdown]({{ $t.Permalink }}index.md)){{ end }}
+- **Translations**: {{ range $i, $t := . }}{{ if $i }}, {{ end }}[{{ $t.Language.LanguageName }} ({{ $t.Language.LanguageCode }})]({{ $t.Permalink }}index.md) ([HTML]({{ $t.Permalink }})){{ end }}
 {{- end }}
 {{- with $summary }}
 - **Summary**: {{ . }}
@@ -72,12 +81,13 @@ url: {{ .Permalink }}
 
 ---
 
+{{- $baseOrigin := strings.TrimSuffix "/" site.BaseURL -}}
 {{- $body := .RawContent -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*mermaid\s*[%>]\}\}` "```mermaid" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*/mermaid\s*[%>]\}\}` "```" -}}
 {{- $body = $body | replaceRE `(\{\{[<%]\s*(?:rel)?ref\s+"[^"#]*?)(?:/index\.md|\.md)(#[^"]*)?("\s*[%>]\}\})` "${1}${2}${3}" -}}
 {{- $body = $body | replaceRE `(\{\{[<%]\s*(?:rel)?ref\s+"[^"#]*?)/(#[^"]*)?("\s*[%>]\}\})` "${1}${2}${3}" -}}
-{{- $body = $body | replaceRE `\{\{[<%]\s*(?:rel)?ref\s+"/?([^"#]+)(#[^"]+)?"\s*[%>]\}\}` (printf "https://danicat.dev%s/${1}/${2}" site.LanguagePrefix) -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*(?:rel)?ref\s+"/?([^"#]+)(#[^"]+)?"\s*[%>]\}\}` (printf "%s%s/${1}/${2}" $baseOrigin site.LanguagePrefix) -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?id=["']([A-Za-z0-9_-]+)["'][^>]*?title=["']([^"']+)["'][^>]*?[%>]\}\}` "[YouTube Video: ${2}](https://www.youtube.com/watch?v=${1})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?title=["']([^"']+)["'][^>]*?id=["']([A-Za-z0-9_-]+)["'][^>]*?[%>]\}\}` "[YouTube Video: ${1}](https://www.youtube.com/watch?v=${2})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?id=["']?([A-Za-z0-9_-]+)["']?[^>]*?[%>]\}\}` "[YouTube Video](https://www.youtube.com/watch?v=${1})" -}}
@@ -93,5 +103,33 @@ url: {{ .Permalink }}
 {{- $body = $body | replaceRE `(?s)\{\{[<%]\s*button[^\}]*href=["']([^"']+)["'][^\}]*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/button\s*[%>]\}\}` "[${2}](${1})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*katex\s*[%>]\}\}\n?` "" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*/?[a-zA-Z0-9_-]+[^>]*[%>]\}\}` "" -}}
+{{- $body = $body | replaceRE `\[([^\]]+)\]\((/[^)\s]*)\)` (printf "[${1}](%s${2})" $baseOrigin) -}}
+{{- $body = $body | replaceRE `\[([^\]]+)\]\(([a-zA-Z0-9_.-]+\.[a-zA-Z0-9]+)\)` (printf "[${1}](%s${2})" .Permalink) -}}
 
 {{ $body }}
+{{- with .Params.speaking }}
+
+## {{ .heading }}
+{{- with .subtitle }}
+
+{{ . }}
+{{- end }}
+
+{{- range .cards }}
+{{- $cardUrl := .url | absURL }}
+- **{{ .icon }} [{{ .title }}]({{ $cardUrl }})** ({{ .cta }}): {{ .description }}
+{{- end }}
+{{- end }}
+{{- with .Params.projects }}
+
+## {{ .heading }}
+{{- with .subtitle }}
+
+{{ . }}
+{{- end }}
+
+{{- range .items }}
+{{- $itemUrl := .url | absURL }}
+- **[{{ .name }}]({{ $itemUrl }})** ({{ .badge }}): {{ .description }}
+{{- end }}
+{{- end }}
