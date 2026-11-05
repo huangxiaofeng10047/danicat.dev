@@ -72,7 +72,7 @@ Todos os prompts do Speedgrapher foram gerados com a ajuda do Gemini, mas para o
 
 Aqui está a versão atual do prompt, incorporada diretamente do código-fonte do Speedgrapher no GitHub:
 
-{{< github user="danicat" repo="speedgrapher" path="internal/prompts/review.go" start="18" end="28" >}}
+{{< github user="danicat" repo="speedgrapher" ref="ca95658" path="internal/prompts/review.go" start="18" end="28" >}}
 
 Com os prompts centrais definidos, chegou o momento de trabalhar na automação de outras partes importantes do meu trabalho.
 

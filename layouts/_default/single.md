@@ -82,18 +82,28 @@ url: {{ .Permalink }}
 ---
 
 {{- $baseOrigin := strings.TrimSuffix "/" site.BaseURL -}}
+{{- $assetBase := .Permalink | replaceRE "^(https?://[^/]+)/(?:pt-br|ja)/" "${1}/" -}}
 {{- $body := .RawContent -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*mermaid\s*[%>]\}\}` "```mermaid" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*/mermaid\s*[%>]\}\}` "```" -}}
-{{- $body = $body | replaceRE `(\{\{[<%]\s*(?:rel)?ref\s+"[^"#]*?)(?:/index\.md|\.md)(#[^"]*)?("\s*[%>]\}\})` "${1}${2}${3}" -}}
-{{- $body = $body | replaceRE `(\{\{[<%]\s*(?:rel)?ref\s+"[^"#]*?)/(#[^"]*)?("\s*[%>]\}\})` "${1}${2}${3}" -}}
-{{- $body = $body | replaceRE `\{\{[<%]\s*(?:rel)?ref\s+"/?([^"#]+)(#[^"]+)?"\s*[%>]\}\}` (printf "%s%s/${1}/${2}" $baseOrigin site.LanguagePrefix) -}}
+{{- range $match := findRE `\{\{[<%]\s*(?:rel)?ref\s+"[^"]+"\s*[%>]\}\}` $body -}}
+  {{- $rawRef := replaceRE `^\{\{[<%]\s*(?:rel)?ref\s+"/?([^"#]+)(?:#[^"]*)?"\s*[%>]\}\}$` "${1}" $match -}}
+  {{- $cleanRef := $rawRef | replaceRE `(?:/index(?:\.[a-z-]+)?\.md|\.md|/)$` "" -}}
+  {{- $frag := "" -}}
+  {{- if in $match "#" -}}
+    {{- $frag = replaceRE `^\{\{[<%]\s*(?:rel)?ref\s+"[^"#]+(#[^"]+)"\s*[%>]\}\}$` "${1}" $match -}}
+  {{- end -}}
+  {{- with $.Site.GetPage (printf "/%s" $cleanRef) -}}
+    {{- $body = replace $body $match (printf "%s%s" .Permalink $frag) -}}
+  {{- end -}}
+{{- end -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?id=["']([A-Za-z0-9_-]+)["'][^>]*?title=["']([^"']+)["'][^>]*?[%>]\}\}` "[YouTube Video: ${2}](https://www.youtube.com/watch?v=${1})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?title=["']([^"']+)["'][^>]*?id=["']([A-Za-z0-9_-]+)["'][^>]*?[%>]\}\}` "[YouTube Video: ${1}](https://www.youtube.com/watch?v=${2})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+[^>]*?id=["']?([A-Za-z0-9_-]+)["']?[^>]*?[%>]\}\}` "[YouTube Video](https://www.youtube.com/watch?v=${1})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*youtube\s+["']?([A-Za-z0-9_-]+)["']?\s*[%>]\}\}` "[YouTube Video](https://www.youtube.com/watch?v=${1})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*(?:x|twitter)\s+user=["']([^"']+)["']\s+id=["']([^"']+)["']\s*[%>]\}\}` "[Post on X](https://x.com/${1}/status/${2})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*gist\s+([^\s"']+)\s+([^\s"']+)(?:\s+["']?([^"'\s>}]+)["']?)?\s*[%>]\}\}` "[GitHub Gist: ${1}/${2}](https://gist.github.com/${1}/${2})" -}}
+{{- $body = $body | replaceRE `\{\{[<%]\s*github\s+user=["']([^"']+)["']\s+repo=["']([^"']+)["']\s+ref=["']([^"']+)["']\s+path=["']([^"']+)["'](?:\s+lang=["'][^"']+["'])?\s+start=["']([0-9]+)["']\s+end=["']([0-9]+)["']\s*[%>]\}\}` "[View on GitHub: ${1}/${2}/${4} (lines ${5}-${6})](https://github.com/${1}/${2}/blob/${3}/${4}#L${5}-L${6})" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*github\s+user=["']([^"']+)["']\s+repo=["']([^"']+)["']\s+path=["']([^"']+)["'](?:\s+lang=["'][^"']+["'])?\s+start=["']([0-9]+)["']\s+end=["']([0-9]+)["']\s*[%>]\}\}` "[View on GitHub: ${1}/${2}/${3} (lines ${4}-${5})](https://github.com/${1}/${2}/blob/main/${3}#L${4}-L${5})" -}}
 {{- $body = $body | replaceRE `(?s)\{\{[<%]\s*lead\s*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/lead\s*[%>]\}\}` "${1}" -}}
 {{- $body = $body | replaceRE `(?s)\{\{[<%]\s*alert[^\}]*[%>]\}\}\s*(.*?)\s*\{\{[<%]\s*/alert\s*[%>]\}\}` "> ${1}" -}}
@@ -104,7 +114,7 @@ url: {{ .Permalink }}
 {{- $body = $body | replaceRE `\{\{[<%]\s*katex\s*[%>]\}\}\n?` "" -}}
 {{- $body = $body | replaceRE `\{\{[<%]\s*/?[a-zA-Z0-9_-]+[^>]*[%>]\}\}` "" -}}
 {{- $body = $body | replaceRE `\[([^\]]+)\]\((/[^)\s]*)\)` (printf "[${1}](%s${2})" $baseOrigin) -}}
-{{- $body = $body | replaceRE `\[([^\]]+)\]\(([a-zA-Z0-9_.-]+\.[a-zA-Z0-9]+)\)` (printf "[${1}](%s${2})" .Permalink) -}}
+{{- $body = $body | replaceRE `\[([^\]]+)\]\(([a-zA-Z0-9_.-]+\.[a-zA-Z0-9]+)\)` (printf "[${1}](%s${2})" $assetBase) -}}
 
 {{ $body }}
 {{- with .Params.speaking }}

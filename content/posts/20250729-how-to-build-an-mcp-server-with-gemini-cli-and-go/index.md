@@ -44,7 +44,7 @@ In this post, I'll walk you through the story of building GoDoctor. This is less
 
 Before writing a single line of code, the first step was to set the ground rules. While `GEMINI.md` is a file specific to the Gemini CLI, the practice of creating a context file is common for many AI coding agents (for example, Jules uses `AGENTS.md` and Claude uses `CLAUDE.md`). In fact, there's an emerging effort to standardise this with a file called [`AGENT.md`](https://ampcode.com/AGENT.md). This file is crucial because it provides the AI with a foundational understanding of your project's standards and your expectations for its behaviour.
 
-Since this project was brand new, I didn't have any specific architectural details to share yet. Therefore, I started with a generic set of guidelines focused on creating high-quality, idiomatic Go code. As a project evolves, it's common to add more specific instructions about the project's structure, build commands, or key libraries. For an example of a more project-specific file, you can see the `GEMINI.md` I use for my [`testquery` project](https://github.com/danicat/testquery/blob/main/GEMINI.md).
+Since this project was brand new, I didn't have any specific architectural details to share yet. Therefore, I started with a generic set of guidelines focused on creating high-quality, idiomatic Go code. As a project evolves, it's common to add more specific instructions about the project's structure, build commands, or key libraries. For an example of a more project-specific file, you can see the `GEMINI.md` I use for my [`testquery` project](https://github.com/danicat/testquery/blob/29a3c0a/GEMINI.md).
 
 Here is the initial `GEMINI.md` that served as our constitution for the AI in this journey:
 

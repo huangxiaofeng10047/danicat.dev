@@ -56,7 +56,7 @@ A *Mona Lisa* de Da Vinci é universalmente aceita como bela-arte, mas e a *Mona
 | :---: | :---: |
 | ![Ecce Homo Original](ecce_homo_original.jpg) | ![Ecce Homo Restaurado](ecce_homo_restored.jpg) |
 
-O que a maioria consideraria uma tentativa desastrada de restaurar um afresco deteriorado acabou se tornando um acidente feliz para a pequena comunidade de Borja, na Espanha. Graças à internet, o interesse pelo [Ecce Homo](https://pt.wikipedia.org/wiki/Ecce_Homo_de_Borja) (pintado por Elías García Martínez por volta de 1930) cresceu exponencialmente, transformando-se em um fenômeno da cultura pop e destino turístico internacional. Este é um caso em que a visão da artista-restauradora amadora Cecilia Giménez não correspondeu à sua técnica, mas a tentativa em si virou arte, mesmo que a intenção original dela não fosse tomar essa forma.
+O que a maioria consideraria uma tentativa desastrada de restaurar um afresco deteriorado acabou se tornando um acidente feliz para a pequena comunidade de Borja, na Espanha. Graças à internet, o interesse pelo [Ecce Homo](https://pt.wikipedia.org/wiki/Ecce_Homo_(El%C3%ADas_Garc%C3%ADa_Mart%C3%ADnez%29) (pintado por Elías García Martínez por volta de 1930) cresceu exponencialmente, transformando-se em um fenômeno da cultura pop e destino turístico internacional. Este é um caso em que a visão da artista-restauradora amadora Cecilia Giménez não correspondeu à sua técnica, mas a tentativa em si virou arte, mesmo que a intenção original dela não fosse tomar essa forma.
 
 | *Girl with Balloon* (Banksy) | *Love is in the Bin* (Banksy) |
 | :---: | :---: |

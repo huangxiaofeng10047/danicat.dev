@@ -102,7 +102,7 @@ description: >
 
 このプロンプトはまだ少し粗削りな部分がありますが、私のコードベースに非推奨の古いモデルが入り込むのを防ぐ上で、かなりの成果を上げています。
 
-🔗 [`latest-version` スキルの全文を見る](https://github.com/danicat/skills/tree/main/latest-version)
+🔗 [`latest-version` スキルの全文を見る](https://github.com/danicat/skills/tree/main/coding/latest-version)
 
 ### 2. `pyhd`
 
@@ -128,7 +128,7 @@ When editing Python files, you **MUST** follow this cycle for **EVERY** file mod
 
 このスキルによって、Python ファイルの編集直後に必ず標準的な lint とフォーマットが実行されるようになり、初期段階でのミスを素早く検知できるようになりました。本格的な "pydoctor" を実装する時間が取れるまでは、これが私の Python 開発における定番スキルになっています。
 
-🔗 [`pyhd` スキルの全文を見る](https://github.com/danicat/skills/tree/main/pyhd)
+🔗 [`pyhd` スキルの全文を見る](https://github.com/danicat/skills/tree/main/coding/pyhd)
 
 ### 3. `find-examples`
 
@@ -147,7 +147,7 @@ Once cloned, use `list_files`, `smart_read`, or `grep_search` to find relevant i
 
 また、マルチ言語対応（ポリグロット）の SDK 向けに、別言語でのコード例も探し出せる機能を追加しました。最近作ったばかりのスキルなのでまだ使い込んではいませんが、面白いユースケースの例として紹介しました。
 
-🔗 [`find-examples` スキルの全文を見る](https://github.com/danicat/skills/tree/main/find-examples)
+🔗 [`find-examples` スキルの全文を見る](https://github.com/danicat/skills/tree/ce2efe5/coding/find-examples)
 
 ### 4. `de-sloppify`
 
@@ -155,7 +155,7 @@ Once cloned, use `list_files`, `smart_read`, or `grep_search` to find relevant i
 
 NLTK を使って品詞タグ付けを行い、無修正のモデル出力によく見られる名詞の過密使用や受動態の多用を検出します。スクリプトはローカル環境で実行され、検出された具体的なマーカーをレポートとして出力してくれます。
 
-🔗 [`de-sloppify` スキルの全文を見る](https://github.com/danicat/skills/tree/main/de-sloppify)
+🔗 [`de-sloppify` スキルの全文を見る](https://github.com/danicat/skills/tree/main/writing/deslopify)
 
 ## まとめ
 

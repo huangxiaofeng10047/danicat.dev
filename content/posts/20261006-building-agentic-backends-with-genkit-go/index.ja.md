@@ -99,7 +99,7 @@ kungfu catalog add genkit-ai/skills
 kungfu catalog add google-gemini/gemini-skills
 ```
 
-スキルの代わりにMCPサーバーを使いたい場合は、CLIに[MCPサーバー](https://genkit.dev/docs/go/mcp-server/)（`genkit mcp`）も同梱されています。最近の私は個人的にスキルの方へ傾倒していますが、特定のニッチなユースケース（ドキュメント検索など）においてはMCPにも依然として価値があります。
+スキルの代わりにMCPサーバーを使いたい場合は、CLIに[MCPサーバー](https://genkit.dev/docs/model-context-protocol/)（`genkit mcp`）も同梱されています。最近の私は個人的にスキルの方へ傾倒していますが、特定のニッチなユースケース（ドキュメント検索など）においてはMCPにも依然として価値があります。
 
 ## コアコンセプト
 

@@ -33,7 +33,7 @@ It has been quite a long time since my last article as I've been quite busy trav
 
 Nevertheless, it is thanks to meeting amazing people on the road that I get inspiration for my blog, and blog posts often become new talks, so one wouldn't really exist without the other.
 
-This time I want to build up on the ["Emergency Diagnostic Agent" in Part 3]({{< ref "/posts/20250611-system-prompt" >}}) of this series. We are going to refactor the agent to use the [Agent Development Kit (ADK)](https://github.com/google/agent-development-kit) framework instead of using the lower level [Vertex AI SDK](https://cloud.google.com/vertex-ai/docs/python-sdk/overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog). You will see that this brings us many benefits including having a lot of the boilerplate code we've written before given to us out of the box for free.
+This time I want to build up on the ["Emergency Diagnostic Agent" in Part 3]({{< ref "/posts/20250611-system-prompt" >}}) of this series. We are going to refactor the agent to use the [Agent Development Kit (ADK)](https://github.com/google/adk-python) framework instead of using the lower level [Vertex AI SDK](https://cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog). You will see that this brings us many benefits including having a lot of the boilerplate code we've written before given to us out of the box for free.
 
 This doesn't mean the knowledge from those articles is obsolete though. It is quite useful to know how things work under the hood specially when problems happen and you need to diagnose. Think about ADK as a higher abstraction layer that will make our lives much easier when developing agents.
 
@@ -52,7 +52,7 @@ Essentially the agent is composed by the following components:
 
 Given the fact that osquery is multi-platform and its schema can vary depending on the host system, we also added a small optisation of giving the osquery table schema to Gemini in the system prompt.
 
-A few notable omissions of the previous implementation is that we never gave the model any specific instructions about each diagnostic procedure we want to perform, and we also never fully specified the schema beyond table names. those are some of the limitations we are going to address in this article, using the power of ADK, [Vertex AI RAG](https://cloud.google.com/vertex-ai/docs/generative-ai/rag?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog) and a few other tricks. But first, the refactoring!
+A few notable omissions of the previous implementation is that we never gave the model any specific instructions about each diagnostic procedure we want to perform, and we also never fully specified the schema beyond table names. those are some of the limitations we are going to address in this article, using the power of ADK, [Vertex AI RAG](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog) and a few other tricks. But first, the refactoring!
 
 ## Refactoring the agent for ADK
 
@@ -364,7 +364,7 @@ In the next part of this series, [Beyond the Dev-UI: How to Build an Interface f
 
 ## References
 
-*   [Agent Development Kit (ADK)](https://github.com/google/agent-development-kit)
+*   [Agent Development Kit (ADK)](https://github.com/google/adk-python)
 *   [osquery](https://osquery.io/)
 *   [osquery GitHub page](https://github.com/osquery/osquery)
-*   [Vertex AI RAG](https://cloud.google.com/vertex-ai/docs/generative-ai/rag?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog)
+*   [Vertex AI RAG](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog)

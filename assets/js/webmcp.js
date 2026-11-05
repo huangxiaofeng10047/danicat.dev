@@ -122,7 +122,7 @@
     ctx.registerTool({
       name: "get_agent_resources",
       description:
-        "Retrieve machine-readable entrypoints for danicat.dev (llms.txt, llms-full.txt, ai-catalog.json, agent-skills index, and current page Markdown URL).",
+        "Retrieve machine-readable entrypoints for danicat.dev (llms.txt, llms-full.txt, ai-catalog.json, and current page Markdown URL).",
       inputSchema: {
         type: "object",
         properties: {},
@@ -143,7 +143,6 @@
                   llmsFullTxt: "/llms-full.txt",
                   aiCatalog: "/.well-known/ai-catalog.json",
                   apiCatalog: "/.well-known/api-catalog",
-                  agentSkillsIndex: "/.well-known/agent-skills/index.json",
                   searchIndex: "/index.json",
                 },
                 null,

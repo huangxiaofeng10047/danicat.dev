@@ -38,14 +38,14 @@
       ]
     },
     {
-      "identifier": "urn:air:danicat.dev:skills:agent-skills-index",
-      "displayName": "danicat.dev Agent Skills Discovery Index",
+      "identifier": "urn:air:skills.danicat.dev:catalog:agent-skills",
+      "displayName": "Danicat Agent Skills Discovery Index",
       "type": "application/json",
-      "url": "https://danicat.dev/.well-known/agent-skills/index.json",
+      "url": "https://skills.danicat.dev/.well-known/agent-skills/index.json",
       "representativeQueries": [
-        "discover agent skills published on danicat.dev",
-        "install kungfu CLI gateway skill for AI coding agents",
-        "find Go, Ebitengine, and SEO agent skills from skills.danicat.dev"
+        "discover all available AI agent skills in danicat/skills",
+        "list agent skill manifests and sha256 digests",
+        "find coding, game-dev, media, workflow, and writing skills"
       ]
     },
     {

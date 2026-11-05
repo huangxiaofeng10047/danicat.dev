@@ -125,13 +125,13 @@ The implementation of tools consists of two main components: registering the too
 
 The registration is made using the function `mcp.AddTool`:
 
-{{< github user="danicat" repo="godoctor" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="35" end="40" >}}
+{{< github user="danicat" repo="godoctor" ref="902e2ed" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="35" end="40" >}}
 
 The handler is an adapter that calls an API, command or function and returns the response in a way that is compatible with the protocol (an `mcp.CallToolResult` struct).
 
 Here is the handler for the documentation tool for GoDoctor:
 
-{{< github user="danicat" repo="godoctor" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="49" end="86" >}}
+{{< github user="danicat" repo="godoctor" ref="902e2ed" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="49" end="86" >}}
 
 ### Prompts
 
@@ -141,7 +141,7 @@ To see this in action, let's look at a different MCP server I wrote called `spee
 
 One of the simplest prompts in `speedgrapher` is `/haiku`. Just like with tools, the process involves defining the prompt and then implementing a handler for it.
 
-{{< github user="danicat" repo="speedgrapher" path="internal/prompts/haiku.go" lang="golang" start="24" end="54" >}}
+{{< github user="danicat" repo="speedgrapher" ref="1324c60" path="internal/prompts/haiku.go" lang="golang" start="24" end="54" >}}
 
 ### Resources
 
@@ -200,7 +200,7 @@ The Model Context Protocol provides a standardised way to extend the capabilitie
 
 If you'd like to get started, I've created a Google Codelab that will walk you through the process of building your own MCP server from scratch.
 
-[**How to Build a Coding Assistant with Gemini CLI, MCP and Go**](https://codelabs.developers.google.com/codelabs/gemini-cli-mcp-go)
+[**How to Build a Coding Assistant with Gemini CLI, MCP and Go**](https://codelabs.developers.google.com/cloud-gemini-cli-mcp-go)
 
 ## Final Words
 

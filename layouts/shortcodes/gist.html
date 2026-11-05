@@ -6,8 +6,8 @@
 <script type="application/javascript" src="https://gist.github.com/{{ .Get 0 }}/{{ .Get 1 }}.js{{ with .Get 2 }}?file={{ . }}{{ end }}"></script>
 <script>
   (function() {
-    const GIST_THEME_LIGHT = 'https://cdn.jsdelivr.net/npm/gist-syntax-themes@5.0.0/css/themes/atom-one-light.css';
-    const GIST_THEME_DARK = 'https://cdn.jsdelivr.net/npm/gist-syntax-themes@5.0.0/css/themes/atom-one-dark.css';
+    const GIST_THEME_LIGHT = 'https://cdn.jsdelivr.net/npm/gist-syntax-themes@1.1.0/stylesheets/solarized-light.css';
+    const GIST_THEME_DARK = 'https://cdn.jsdelivr.net/npm/gist-syntax-themes@1.1.0/stylesheets/one-dark.css';
 
     function updateGistTheme() {
       const gistStylesheet = document.querySelector('link[href*="gist-embed"]');

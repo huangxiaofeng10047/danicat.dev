@@ -52,7 +52,7 @@ Here is a good example of such a file that defines a process for the CLI to foll
 
 The nested GEMINI.md files, on the other hand, can be useful to explain different parts of the code base. Maybe you have a monorepo that has frontend and backend code in the same place, so you can have a GEMINI.md customised for each of these components. Or you are writing a Go program that has many internal packages, where each has their own specificity that you want the CLI to respect. Whatever your use case is, having multiple GEMINI.md files can help you achieve fine-grained control over the context for certain tasks.
 
-Note: In the same way that Gemini CLI has GEMINI.md for context files, other AI tools like [Claude](https://www.anthropic.com/product/claude) and [Jules](https://jules.google) have their own markdown files (CLAUDE.md and AGENTS.md respectively). If you are not happy with the GEMINI.md name, or want to make sure all tools use the same file, you can always configure the name of the context file using the property `contextFileName` in `settings.json`: 
+Note: In the same way that Gemini CLI has GEMINI.md for context files, other AI tools like [Claude](https://www.anthropic.com/claude) and [Jules](https://jules.google) have their own markdown files (CLAUDE.md and AGENTS.md respectively). If you are not happy with the GEMINI.md name, or want to make sure all tools use the same file, you can always configure the name of the context file using the property `contextFileName` in `settings.json`: 
 
 ```json
 {
@@ -152,4 +152,4 @@ In this article we explored how to customise your Gemini CLI experience by both 
 As usual, I would love to hear your feedback, especially in regards to GEMINI.md or system prompts that worked for you.
 
 ---
-**Note:** If you are curious, you can check the `system.md` file I use for this blog in this [repository](https://github.com/danicat/danicat.dev/blob/main/system.md).
+**Note:** If you are curious, you can check the `system.md` file I use for this blog in this [repository](https://github.com/danicat/danicat.dev/blob/262628e/system.md).

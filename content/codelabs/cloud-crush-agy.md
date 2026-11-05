@@ -1,7 +1,7 @@
 ---
 title: "Build a Match 3 Arcade Game With Gemini and Antigravity"
 date: 2026-05-07
-externalUrl: "https://codelabs.developers.google.com/cloud-crush-agy#0"
+externalUrl: "https://codelabs.developers.google.com/gemini-match3-golang#0"
 featureimage: "/images/codelabs/placeholder.png"
 summary: "In this codelab, you will build CloudCrush, a match 3 arcade game, using Gemini 3 and Antigravity CLI, our command line coding agent."
 tags:

@@ -126,13 +126,13 @@ A implementação de tools consiste em dois componentes principais: registrar a 
 
 O registro é feito usando a função `mcp.AddTool`:
 
-{{< github user="danicat" repo="godoctor" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="35" end="40" >}}
+{{< github user="danicat" repo="godoctor" ref="902e2ed" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="35" end="40" >}}
 
 O *handler* é um adaptador que chama uma API, comando ou função e retorna a resposta de forma compatível com o protocolo (uma struct `mcp.CallToolResult`).
 
 Aqui está o handler para a ferramenta de documentação do GoDoctor:
 
-{{< github user="danicat" repo="godoctor" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="49" end="86" >}}
+{{< github user="danicat" repo="godoctor" ref="902e2ed" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="49" end="86" >}}
 
 ### Prompts
 
@@ -142,7 +142,7 @@ Para ver isso em ação, vamos olhar para outro servidor MCP que escrevi, chamad
 
 Um dos prompts mais simples no `speedgrapher` é o `/haiku`. Assim como nas tools, o processo envolve definir o prompt e depois implementar um *handler* para ele.
 
-{{< github user="danicat" repo="speedgrapher" path="internal/prompts/haiku.go" lang="golang" start="24" end="54" >}}
+{{< github user="danicat" repo="speedgrapher" ref="1324c60" path="internal/prompts/haiku.go" lang="golang" start="24" end="54" >}}
 
 ### Resources (Recursos)
 
@@ -201,7 +201,7 @@ O Model Context Protocol fornece uma forma padronizada de estender as capacidade
 
 Se quiser começar, criei um Google Codelab que guiará você passo a passo no processo de construir seu próprio servidor MCP do zero:
 
-[**Como Construir um Assistente de Programação com Gemini CLI, MCP e Go**](https://codelabs.developers.google.com/codelabs/gemini-cli-mcp-go)
+[**Como Construir um Assistente de Programação com Gemini CLI, MCP e Go**](https://codelabs.developers.google.com/cloud-gemini-cli-mcp-go)
 
 ## Considerações Finais
 

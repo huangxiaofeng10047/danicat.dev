@@ -109,7 +109,7 @@ description: Expertise in analysing Tenkai agent experiments. Use when asked to 
 3. **Comparative:** Always contrast the performance of alternatives.
 ```
 
-Nota: você pode clicar aqui para ver o arquivo [SKILL.md](https://github.com/danicat/skills/blob/main/experiment-analyst/SKILL.md) completo.
+Nota: você pode clicar aqui para ver o arquivo [SKILL.md](https://github.com/danicat/skills/blob/fe6275c/experiment-analyst/SKILL.md) completo.
 
 ### Os recursos da skill
 

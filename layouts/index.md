@@ -25,7 +25,7 @@ url: {{ .Permalink }}
 - **Markdown URL**: {{ .Permalink }}index.md
 - **LLMs Index**: {{ "llms.txt" | absLangURL }}
 - **LLMs Full Corpus**: {{ "llms-full.txt" | absLangURL }}
-- **Agent Skills Catalog**: https://skills.danicat.dev/ ([llms.txt](https://skills.danicat.dev/llms.txt) · [catalog.json](https://skills.danicat.dev/catalog.json))
+- **Agent Skills Catalog**: https://skills.danicat.dev/ ([llms.txt](https://skills.danicat.dev/llms.txt) · [Discovery Index](https://skills.danicat.dev/.well-known/agent-skills/index.json))
 {{- with .Translations }}
 - **Translations**: {{ range $i, $t := . }}{{ if $i }}, {{ end }}[{{ $t.Language.LanguageName }} ({{ $t.Language.LanguageCode }})]({{ $t.Permalink }}index.md) ([HTML]({{ $t.Permalink }})){{ end }}
 {{- end }}

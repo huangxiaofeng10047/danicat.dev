@@ -377,7 +377,7 @@
       "categories": [
         "Agentic Coding"
       ],
-      "codelab": "https://codelabs.developers.google.com/cloud-crush-agy#0"
+      "codelab": "https://codelabs.developers.google.com/gemini-match3-golang#0"
     },
     {
       "id": "2026-05-07-train-the-trainer-dubai-state-of-agentic-coding",
@@ -522,7 +522,7 @@
       "summary": "Inspired by the \"computer\" in Star Trek, in this talk we are going to create a natural language diagnostic agent that can answer questions about your computer, from asking the number of cores and amount of memory installed to running a \"Level 1 Diagnostic Procedure\". This AI agent will be built step by step using Python, Vertex AI, Gemini and OSQuery.",
       "slides": "https://speakerdeck.com/danicat/diagnostics-agent-with-adk-gemini-and-osquery",
       "recording": null,
-      "source_code": "https://github.com/GoogleCloudPlatform/devrel-demos/tree/main/agents/aicamp",
+      "source_code": "https://github.com/GoogleCloudPlatform/devrel-demos/tree/fe237cf/agents/aicamp",
       "image": "https://files.speakerdeck.com/presentations/fe547fbd11a34efaa7cb6187bc3be42d/preview_slide_0.jpg?38167487",
       "tags": [
         "ai",
@@ -585,7 +585,7 @@
       "event": "DevFest Birmingham 2025",
       "date": "2025-11-21",
       "location": "Birmingham, UK",
-      "url": "https://devfestbirmingham.com",
+      "url": "https://gdg.community.dev/gdg-birmingham/",
       "summary": "As vibe coding quickly becomes the new buzzword we Gophers could not be left out of this party. In this talk I'm going to share my experiences while developing testquery - a tool to extract information from Go tests - starting from product ideation to the implementation.",
       "slides": "https://speakerdeck.com/danicat/a-gophers-guide-to-vibe-coding-b7ee3039-5fc6-45a0-8e94-ef4ade3f1e73",
       "recording": null,
@@ -606,7 +606,7 @@
       "event": "DevFest @ Bletchley Park 2025",
       "date": "2025-11-15",
       "location": "Bletchley Park, UK",
-      "url": "https://www.tnmoc.org/events/2025/11/15/devfest-bletchley-park-2025",
+      "url": "https://www.tnmoc.org/",
       "summary": "Keynote presentation introducing the Model Context Protocol (MCP), exploring its core concepts, architecture, and the building blocks used to create AI-enabled applications with Go.",
       "slides": "https://speakerdeck.com/danicat/hello-mcp-world",
       "recording": null,
@@ -628,7 +628,7 @@
       "event": "DevFest @ Bletchley Park 2025",
       "date": "2025-11-15",
       "location": "Bletchley Park, UK",
-      "url": "https://www.tnmoc.org/events/2025/11/15/devfest-bletchley-park-2025",
+      "url": "https://www.tnmoc.org/",
       "summary": "Keynote presentation at DevFest @ Bletchley Park 2025. Exploring the intersection of Go and Generative AI, demonstrating how to build robust, production-ready AI applications using the Go ecosystem.",
       "slides": "https://speakerdeck.com/danicat/go-for-genai",
       "recording": null,
@@ -649,7 +649,7 @@
       "event": "DevFest @ Bletchley Park 2025",
       "date": "2025-11-15",
       "location": "Bletchley Park, UK",
-      "url": "https://www.tnmoc.org/events/2025/11/15/devfest-bletchley-park-2025",
+      "url": "https://www.tnmoc.org/",
       "summary": "Hands-on workshop on building and deploying a Model Context Protocol (MCP) server to extend the capabilities of the Gemini CLI, transforming it into a specialized development expert.",
       "slides": null,
       "codelab": "https://codelabs.developers.google.com/cloud-gemini-cli-mcp-go",
@@ -739,7 +739,7 @@
       "event": "TDC São Paulo 2025",
       "date": "2025-09-19",
       "location": "São Paulo, Brazil",
-      "url": "https://thedevconf.com/tdc/2025/saopaulo/",
+      "url": "https://thedevconf.com/tdc/2025/sao-paulo/",
       "summary": "This talk demonstrates how to build an AI agent step-by-step using Python, Vertex AI, Gemini, and Osquery. It explores how Osquery, a tool for exposing OS information via SQL, can be leveraged by large language models to enable advanced diagnostics through natural language queries, eliminating the need to memorize complex command lines.",
       "slides": "https://speakerdeck.com/danicat/como-criar-um-agente-de-diagnosticos-usando-gemini-e-osquery",
       "recording": "https://www.youtube.com/watch?v=jv_qWM5BqJg",

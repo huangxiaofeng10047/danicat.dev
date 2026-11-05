@@ -123,13 +123,13 @@ Tools の概念を実験するために私が作成したサーバーが GoDocto
 
 登録には `mcp.AddTool` 関数を使用します。
 
-{{< github user="danicat" repo="godoctor" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="35" end="40" >}}
+{{< github user="danicat" repo="godoctor" ref="902e2ed" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="35" end="40" >}}
 
 ハンドラーは、API やコマンド、関数を呼び出して、プロトコルと互換性のある形式（`mcp.CallToolResult` 構造体）でレスポンスを返すアダプターの役割を果たします。
 
 GoDoctor のドキュメント取得ツールのハンドラー実装は以下のようになっています。
 
-{{< github user="danicat" repo="godoctor" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="49" end="86" >}}
+{{< github user="danicat" repo="godoctor" ref="902e2ed" path="internal/tools/get_documentation/get_documentation.go" lang="golang" start="49" end="86" >}}
 
 ### Prompts（プロンプト）
 
@@ -139,7 +139,7 @@ Prompts は、パラメータを受け取ることができる再利用可能な
 
 `speedgrapher` の中でも最もシンプルなプロンプトのひとつが `/haiku` です。Tools と同様に、プロンプトの定義とそのハンドラーの実装を行います。
 
-{{< github user="danicat" repo="speedgrapher" path="internal/prompts/haiku.go" lang="golang" start="24" end="54" >}}
+{{< github user="danicat" repo="speedgrapher" ref="1324c60" path="internal/prompts/haiku.go" lang="golang" start="24" end="54" >}}
 
 ### Resources（リソース）
 
@@ -198,7 +198,7 @@ Model Context Protocol は、AI エージェントの機能を拡張するため
 
 実際に手を動かしてみたい方のために、独自の MCP サーバーをゼロから構築するステップを解説した Google Codelab を作成しました。
 
-[**How to Build a Coding Assistant with Gemini CLI, MCP and Go（Gemini CLI、MCP、Go でコーディングアシスタントを構築する）**](https://codelabs.developers.google.com/codelabs/gemini-cli-mcp-go)
+[**How to Build a Coding Assistant with Gemini CLI, MCP and Go（Gemini CLI、MCP、Go でコーディングアシスタントを構築する）**](https://codelabs.developers.google.com/cloud-gemini-cli-mcp-go)
 
 ## おわりに
 

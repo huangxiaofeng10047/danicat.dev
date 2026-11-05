@@ -72,7 +72,7 @@ All the prompts in Speedgrapher were generated with the help of Gemini, but for 
 
 Here is the current version of the prompt, embedded directly from the Speedgrapher source code on GitHub:
 
-{{< github user="danicat" repo="speedgrapher" path="internal/prompts/review.go" start="18" end="28" >}}
+{{< github user="danicat" repo="speedgrapher" ref="ca95658" path="internal/prompts/review.go" start="18" end="28" >}}
 
 With the core prompts in place, it was time to work on automating other important parts of my job.
 

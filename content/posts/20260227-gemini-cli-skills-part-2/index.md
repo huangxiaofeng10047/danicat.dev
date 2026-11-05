@@ -103,7 +103,7 @@ description: >
 
 This prompt still feels a bit sloppy but it has had moderate to high success in preventing some deprecated models from appearing in my code bases.
 
-🔗 [View the full `latest-version` skill](https://github.com/danicat/skills/tree/main/latest-version)
+🔗 [View the full `latest-version` skill](https://github.com/danicat/skills/tree/main/coding/latest-version)
 
 ### 2. `pyhd`
 
@@ -129,7 +129,7 @@ When editing Python files, you **MUST** follow this cycle for **EVERY** file mod
 
 This skill encourages that every Python edit is immediately followed by standard linting and formatting, which helps catching some early problems. Until I find time for a proper "pydoctor" implementation, this is my go-to skill for python development.
 
-🔗 [View the full `pyhd` skill](https://github.com/danicat/skills/tree/main/pyhd)
+🔗 [View the full `pyhd` skill](https://github.com/danicat/skills/tree/main/coding/pyhd)
 
 ### 3. `find-examples`
 
@@ -148,7 +148,7 @@ Once cloned, use `list_files`, `smart_read`, or `grep_search` to find relevant i
 
 I also added a feature where it tries to find examples in different languages for polyglot SDKs. It is one of my most recent skills so I haven't tested it much, but thought it was an interesting example to add.
 
-🔗 [View the full `find-examples` skill](https://github.com/danicat/skills/tree/main/find-examples)
+🔗 [View the full `find-examples` skill](https://github.com/danicat/skills/tree/ce2efe5/coding/find-examples)
 
 ### 4. `de-sloppify`
 
@@ -156,7 +156,7 @@ I use this skill to check for common AI writing patterns. It includes a script t
 
 It uses NLTK to tag parts of speech, which helps identify the high noun density and passive voice often found in unedited model outputs. The script runs locally and provides a report on the specific markers it found.
 
-🔗 [View the full `de-sloppify` skill](https://github.com/danicat/skills/tree/main/de-sloppify)
+🔗 [View the full `de-sloppify` skill](https://github.com/danicat/skills/tree/main/writing/deslopify)
 
 ## Conclusions
 

@@ -102,7 +102,7 @@ description: >
 
 Esse prompt ainda parece um pouco rústico, mas tem tido um sucesso razoável a alto em evitar que modelos obsoletos apareçam na minha base de código.
 
-🔗 [Veja a skill `latest-version` completa](https://github.com/danicat/skills/tree/main/latest-version)
+🔗 [Veja a skill `latest-version` completa](https://github.com/danicat/skills/tree/main/coding/latest-version)
 
 ### 2. `pyhd`
 
@@ -128,7 +128,7 @@ When editing Python files, you **MUST** follow this cycle for **EVERY** file mod
 
 Essa skill garante que toda alteração em arquivos Python seja imediatamente seguida de linting e formatação padronizados, o que ajuda a pegar problemas logo no início. Enquanto não encontro tempo para implementar um "pydoctor" completo, essa é a minha skill de cabeceira para desenvolvimento em Python.
 
-🔗 [Veja a skill `pyhd` completa](https://github.com/danicat/skills/tree/main/pyhd)
+🔗 [Veja a skill `pyhd` completa](https://github.com/danicat/skills/tree/main/coding/pyhd)
 
 ### 3. `find-examples`
 
@@ -147,7 +147,7 @@ Once cloned, use `list_files`, `smart_read`, or `grep_search` to find relevant i
 
 Também adicionei um recurso em que ela tenta encontrar exemplos em diferentes linguagens para SDKs poliglotas. Como é uma das minhas skills mais recentes, ainda não a testei tão a fundo, mas achei um ótimo exemplo para compartilhar aqui.
 
-🔗 [Veja a skill `find-examples` completa](https://github.com/danicat/skills/tree/main/find-examples)
+🔗 [Veja a skill `find-examples` completa](https://github.com/danicat/skills/tree/ce2efe5/coding/find-examples)
 
 ### 4. `de-sloppify`
 
@@ -155,7 +155,7 @@ Uso essa skill para identificar padrões comuns de escrita gerada por IA. Ela tr
 
 O script usa o NLTK para realizar tagging morfossintático (POS tagging), o que ajuda a detectar a alta densidade de substantivos e o uso excessivo de voz passiva típicos de textos de IA sem edição. Ele roda localmente e gera um relatório detalhado dos marcadores encontrados.
 
-🔗 [Veja a skill `de-sloppify` completa](https://github.com/danicat/skills/tree/main/de-sloppify)
+🔗 [Veja a skill `de-sloppify` completa](https://github.com/danicat/skills/tree/main/writing/deslopify)
 
 ## Conclusões
 

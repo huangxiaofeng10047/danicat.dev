@@ -99,7 +99,7 @@ kungfu catalog add genkit-ai/skills
 kungfu catalog add google-gemini/gemini-skills
 ```
 
-If you prefer using an MCP server instead of skills, the CLI also ships an [MCP server](https://genkit.dev/docs/go/mcp-server/) (`genkit mcp`). These days I personally have been leaning more towards skills, but MCPs still have value for certain niche use cases (e.g. documentation retrieval).
+If you prefer using an MCP server instead of skills, the CLI also ships an [MCP server](https://genkit.dev/docs/model-context-protocol/) (`genkit mcp`). These days I personally have been leaning more towards skills, but MCPs still have value for certain niche use cases (e.g. documentation retrieval).
 
 ## Core concepts
 

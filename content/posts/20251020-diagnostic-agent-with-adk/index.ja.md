@@ -31,7 +31,7 @@ dependencies:
 
 それでも、旅先で素晴らしい人たちと出会えるからこそブログへのインスピレーションが湧きますし、ブログ記事が新たな登壇のきっかけになることもよくあるので、どちらか一方だけでは成り立ちません。
 
-今回は、本シリーズの[第3部「緊急診断エージェント」]({{< ref "/posts/20250611-system-prompt" >}}) をさらに発展させていきます。低レベルな [Vertex AI SDK](https://cloud.google.com/vertex-ai/docs/python-sdk/overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog) の代わりに、[Agent Development Kit (ADK)](https://github.com/google/agent-development-kit) フレームワークを使うようにエージェントをリファクタリングします。これにより、以前に手作業で書いていたボイラープレートコードの多くが最初から標準で提供されるなど、数多くのメリットが得られることが実感できるはずです。
+今回は、本シリーズの[第3部「緊急診断エージェント」]({{< ref "/posts/20250611-system-prompt" >}}) をさらに発展させていきます。低レベルな [Vertex AI SDK](https://cloud.google.com/vertex-ai/docs/python-sdk/use-vertex-ai-python-sdk?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog) の代わりに、[Agent Development Kit (ADK)](https://github.com/google/adk-python) フレームワークを使うようにエージェントをリファクタリングします。これにより、以前に手作業で書いていたボイラープレートコードの多くが最初から標準で提供されるなど、数多くのメリットが得られることが実感できるはずです。
 
 だからといって、過去の記事で得た知識が無駄になるわけではありません。特に問題が発生して診断・トラブルシューティングが必要になったときには、内部で何が起きているのかを把握しておくことが大いに役立ちます。ADK は、エージェントを開発する際の生活をずっと楽にしてくれる上位の抽象化レイヤーだと考えてください。
 
@@ -50,7 +50,7 @@ dependencies:
 
 osquery がマルチプラットフォーム対応であり、ホストシステムによってスキーマが異なる場合がある点を踏まえ、前回はシステムプロンプト内で osquery のテーブルスキーマを Gemini に渡すというちょっとした最適化も加えました。
 
-前回の実装で対応できていなかった点としては、実行したい個々の診断手順に関する具体的な指示をモデルに一切与えていなかったことや、テーブル名以外のスキーマを完全には指定していなかったことなどが挙げられます。今回は、ADK の力、[Vertex AI RAG](https://cloud.google.com/vertex-ai/docs/generative-ai/rag?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog)、そしていくつかのテクニックを駆使して、これらの制限に取り組んでいきます。それではまず、リファクタリングから始めましょう！
+前回の実装で対応できていなかった点としては、実行したい個々の診断手順に関する具体的な指示をモデルに一切与えていなかったことや、テーブル名以外のスキーマを完全には指定していなかったことなどが挙げられます。今回は、ADK の力、[Vertex AI RAG](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog)、そしていくつかのテクニックを駆使して、これらの制限に取り組んでいきます。それではまず、リファクタリングから始めましょう！
 
 ## ADK へのエージェントのリファクタリング
 
@@ -362,7 +362,7 @@ You MUST run schema discovery for all requests unless the schema is already know
 
 ## 参考リンク
 
-*   [Agent Development Kit (ADK)](https://github.com/google/agent-development-kit)
+*   [Agent Development Kit (ADK)](https://github.com/google/adk-python)
 *   [osquery](https://osquery.io/)
 *   [osquery GitHub page](https://github.com/osquery/osquery)
-*   [Vertex AI RAG](https://cloud.google.com/vertex-ai/docs/generative-ai/rag?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog)
+*   [Vertex AI RAG](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog)

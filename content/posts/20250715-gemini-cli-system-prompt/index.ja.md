@@ -51,7 +51,7 @@ Gemini CLI を自分にとってより生産的な挙動に仕上げるため、
 
 一方、ネストされた（サブフォルダー内の）`GEMINI.md` ファイルは、コードベースの特定部分を個別に説明するのに役立ちます。たとえば、フロントエンドとバックエンドのコードが同居するモノレポ構成の場合、各コンポーネントに特化した `GEMINI.md` を個別に配置できます。あるいは、多数の内部パッケージを持つ Go プログラムにおいて、各パッケージ固有の制約や前提条件を CLI に守らせたい場合にも有効です。ユースケースに関わらず、複数の `GEMINI.md` ファイルを活用することで、特定のタスクに応じたきめ細かいコンテキスト制御が可能になります。
 
-注記: Gemini CLI がコンテキストファイルとして `GEMINI.md` を使用するのと同様に、[Claude](https://www.anthropic.com/product/claude) や [Jules](https://jules.google) などの他の AI ツールも独自の Markdown ファイル（それぞれ `CLAUDE.md` と `AGENTS.md`）を持っています。もし `GEMINI.md` というファイル名が気に入らない場合や、すべてのツールで同一のファイル名を使いたい場合は、`settings.json` の `contextFileName` プロパティでコンテキストファイル名をいつでも変更できます：
+注記: Gemini CLI がコンテキストファイルとして `GEMINI.md` を使用するのと同様に、[Claude](https://www.anthropic.com/claude) や [Jules](https://jules.google) などの他の AI ツールも独自の Markdown ファイル（それぞれ `CLAUDE.md` と `AGENTS.md`）を持っています。もし `GEMINI.md` というファイル名が気に入らない場合や、すべてのツールで同一のファイル名を使いたい場合は、`settings.json` の `contextFileName` プロパティでコンテキストファイル名をいつでも変更できます：
 
 ```json
 {
@@ -155,4 +155,4 @@ $ gemini
 皆さんからのフィードバックもお待ちしています。特に「こんな `GEMINI.md` のルールやシステムプロンプトが効果的だった」という実践例があれば、ぜひ教えてください。
 
 ---
-**注記:** 興味がある方は、このブログの開発で私が実際に使用している `system.md` ファイルを [GitHub リポジトリ](https://github.com/danicat/danicat.dev/blob/main/system.md) で公開していますので、参考にしてみてください。
+**注記:** 興味がある方は、このブログの開発で私が実際に使用している `system.md` ファイルを [GitHub リポジトリ](https://github.com/danicat/danicat.dev/blob/262628e/system.md) で公開していますので、参考にしてみてください。

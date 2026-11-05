@@ -39,8 +39,9 @@
 {{ $end := int $end_str }}
 
 {{ $lang := .Get "lang" | default (path.Ext $path | strings.TrimPrefix ".") }}
-{{ $rawURL := printf "https://raw.githubusercontent.com/%s/%s/main/%s" $user $repo $path }}
-{{ $fileURL := printf "https://github.com/%s/%s/blob/main/%s#L%d-L%d" $user $repo $path $start $end }}
+{{ $ref := .Get "ref" | default "main" }}
+{{ $rawURL := printf "https://raw.githubusercontent.com/%s/%s/%s/%s" $user $repo $ref $path }}
+{{ $fileURL := printf "https://github.com/%s/%s/blob/%s/%s#L%d-L%d" $user $repo $ref $path $start $end }}
 
 {{ $fileContent := resources.GetRemote $rawURL }}
 

@@ -70,7 +70,7 @@ Speedgrapher のプロンプトはすべて Gemini の支援を受けて生成�
 
 以下は、GitHub上の Speedgrapher ソースコードから直接埋め込んだプロンプトの最新版です。
 
-{{< github user="danicat" repo="speedgrapher" path="internal/prompts/review.go" start="18" end="28" >}}
+{{< github user="danicat" repo="speedgrapher" ref="ca95658" path="internal/prompts/review.go" start="18" end="28" >}}
 
 主要なプロンプトが揃ったところで、私の仕事の他の重要な部分の自動化に取り掛かる時が来ました。
 

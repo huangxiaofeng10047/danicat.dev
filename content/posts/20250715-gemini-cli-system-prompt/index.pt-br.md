@@ -51,7 +51,7 @@ Aqui está um ótimo exemplo de arquivo que define um processo para o CLI seguir
 
 Por outro lado, arquivos GEMINI.md aninhados podem ser úteis para explicar partes específicas da base de código. Se você tem um monorepo com código de frontend e backend no mesmo lugar, pode ter um GEMINI.md customizado para cada um desses componentes. Ou se estiver escrevendo um programa em Go com vários pacotes internos, onde cada um tem suas particularidades que você deseja que o CLI respeite. Qualquer que seja o seu caso de uso, ter múltiplos arquivos GEMINI.md ajuda a alcançar um controle granular sobre o contexto para tarefas específicas.
 
-Nota: Da mesma forma que o Gemini CLI usa o GEMINI.md como arquivo de contexto, outras ferramentas de IA como [Claude](https://www.anthropic.com/product/claude) e [Jules](https://jules.google) têm seus próprios arquivos markdown (CLAUDE.md e AGENTS.md, respectivamente). Se você não gostar do nome GEMINI.md ou quiser garantir que todas as ferramentas usem o mesmo arquivo, é possível configurar o nome do arquivo de contexto usando a propriedade `contextFileName` no `settings.json`:
+Nota: Da mesma forma que o Gemini CLI usa o GEMINI.md como arquivo de contexto, outras ferramentas de IA como [Claude](https://www.anthropic.com/claude) e [Jules](https://jules.google) têm seus próprios arquivos markdown (CLAUDE.md e AGENTS.md, respectivamente). Se você não gostar do nome GEMINI.md ou quiser garantir que todas as ferramentas usem o mesmo arquivo, é possível configurar o nome do arquivo de contexto usando a propriedade `contextFileName` no `settings.json`:
 
 ```json
 {
@@ -151,4 +151,4 @@ Neste artigo, exploramos como customizar sua experiência com o Gemini CLI, tant
 Como de costume, adoraria ouvir seu feedback — especialmente sobre quais regras de GEMINI.md ou ajustes de system prompt funcionaram melhor para você.
 
 ---
-**Nota:** Se tiver curiosidade, você pode conferir o arquivo `system.md` que utilizo para este blog no [repositório](https://github.com/danicat/danicat.dev/blob/main/system.md).
+**Nota:** Se tiver curiosidade, você pode conferir o arquivo `system.md` que utilizo para este blog no [repositório](https://github.com/danicat/danicat.dev/blob/262628e/system.md).

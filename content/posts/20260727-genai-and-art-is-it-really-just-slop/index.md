@@ -55,7 +55,7 @@ Da Vinci's *Mona Lisa* is universally accepted as fine art, but what about Romer
 | :---: | :---: |
 | ![Original Ecce Homo](ecce_homo_original.jpg) | ![Restored Ecce Homo](ecce_homo_restored.jpg) |
 
-What would be considered by most a sloppy effort in restoring a decayed fresco ended up becoming a happy accident for the small community of Borja, Spain. Thanks to the internet, the interest on [Ecce Homo](https://en.wikipedia.org/wiki/Ecce_Homo_(Garc%C3%ADa_Mart%C3%ADnez_and_Gim%C3%A9nez)) (painted by Elías García Martínez circa 1930) grew exponentially and it became a pop art hit and international tourist destination. This is a case where the vision of the amateur artist-restorer Cecilia Gimenez didn't match her technique, but the attempt itself became art, even if it wasn't her original intention that it would take this form.
+What would be considered by most a sloppy effort in restoring a decayed fresco ended up becoming a happy accident for the small community of Borja, Spain. Thanks to the internet, the interest on [Ecce Homo](https://en.wikipedia.org/wiki/Ecce_Homo_(Garc%C3%ADa_Mart%C3%ADnez_and_Gim%C3%A9nez%29) (painted by Elías García Martínez circa 1930) grew exponentially and it became a pop art hit and international tourist destination. This is a case where the vision of the amateur artist-restorer Cecilia Gimenez didn't match her technique, but the attempt itself became art, even if it wasn't her original intention that it would take this form.
 
 | *Girl with Balloon* (Banksy) | *Love is in the Bin* (Banksy) |
 | :---: | :---: |
