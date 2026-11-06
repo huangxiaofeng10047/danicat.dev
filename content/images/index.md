@@ -101,4 +101,15 @@ This is an unlisted directory of profile photos, avatars, and campaign media ass
 
 ![Beyond Writing Code: SICP Wizard Book](/images/socials/2026-10-beyond-writing-code-sicp.jpg)
 
+---
+
+### LLM Tiers: Flash vs. Argon (November 2026)
+- **Campaign:** *LLM Tiers: Why Latency Matters More Than Raw Capability for Developer Flow*
+- **Direct URL:** [`https://danicat.dev/images/socials/2026-11-llm-tiers-flash-vs-argon.png`](https://danicat.dev/images/socials/2026-11-llm-tiers-flash-vs-argon.png)
+- **Format:** PNG (1376×768 px, 16:9, ~1.7 MB)
+- **Alt Text:** `A watercolor illustration of the Go Gopher dressed in a comically accurate The Flash costume running on a track and overtaking Batman, who represents Gemini 4 Argon. The Gopher says 'On your left!' in a speech bubble.`
+
+![LLM Tiers: Flash vs. Argon](/images/socials/2026-11-llm-tiers-flash-vs-argon.png)
+
+
 
