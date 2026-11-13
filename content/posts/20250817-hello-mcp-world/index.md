@@ -26,11 +26,11 @@ dependencies:
 
 In this article, we are going to explore the Model Context Protocol (MCP), a protocol developed by Anthropic to standardise the communications between Large Language Models (LLMs) and applications. This article is based on the [keynote of the same name I delivered at Gophercon UK](https://speakerdeck.com/danicat/hello-mcp-world) last week.
 
-To build a clear understanding, we'll start with the fundamentals, then explain the main architectural components, transports and building blocks (tools, prompts and resources). We are going to throw some practical examples along the way based on the servers I wrote previously (godoctor and speedgrapher) Finally, we are going to see how you can write your own server using the Go SDK for MCP through a simple, "vibe-coded" example using the Gemini CLI.
+To build a clear understanding, we'll start with the fundamentals, then explain the main architectural components, transports and building blocks (tools, prompts and resources). We are going to throw some practical examples along the way based on the servers I wrote previously (godoctor and speedgrapher). Finally, we are going to see how you can write your own server using the Go SDK for MCP through a simple, "vibe-coded" example using the Gemini CLI.
 
 Whether this is the first time you are hearing about this protocol, or you have already written a server or two, this article aims to provide helpful information for various levels of experience.
 
-## A New Standard is Born
+## A new standard is born
 
 Whenever we talk about standards, this XKCD comic is the first thing that comes to my mind:
 
@@ -43,9 +43,9 @@ From the specification, MCP is:
 
 > MCP is an open protocol that standardizes how applications provide context to large language models (LLMs). Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools. MCP enables you to build agents and complex workflows on top of LLMs and connects your models with the world.
 
-While I understand the analogy with USB-C, I prefer to think of MCP as the new HTTP/REST. Just as HTTP provided a universal language for web services to communicate, MCP provides a common framework for AI models to interact with external systems. As engineers, we have spent roughly the last two decades making everything "API-first", enabling our software systems to become interconnected and powering new levels of automation. Maybe it won't be for the next 20 years, but I believe that for the next 5 to 10 years we will spend quite a lot of engineering power to retrofit all those systems (and creating new ones) to become AI-enabled, and MCP is a key compoenent of this process.
+While I understand the analogy with USB-C, I prefer to think of MCP as the new HTTP/REST. Just as HTTP provided a universal language for web services to communicate, MCP provides a common framework for AI models to interact with external systems. As engineers, we have spent roughly the last two decades making everything "API-first", enabling our software systems to become interconnected and powering new levels of automation. Maybe it won't be for the next 20 years, but I believe that for the next 5 to 10 years we will spend quite a lot of engineering power to retrofit all those systems (and creating new ones) to become AI-enabled, and MCP is a key component of this process.
 
-## MCP Architecture
+## MCP architecture
 
 Looking at the diagram below, the MCP architecture might look more complex than actually is:
 
@@ -60,7 +60,7 @@ The main components of the MCP architecture are:
 
 In essence, a host application creates and manages multiple clients, with each client having a 1:1 relationship with a particular server.
 
-## MCP Layers
+## MCP layers
 
 The communication happens over two layers:
 
@@ -72,7 +72,7 @@ The communication happens over two layers:
 
 The data layer is managed by the SDK and except for testing purposes you won't need to build the messages manually. The choice of transport will depend on your use case, but in general I recommend starting with stdio and adding HTTPS later. There are even open source adaptors that convert stdio MCPs to HTTPS and vice-versa, but adding this feature is so trivial that I would only use those for servers that I don't control the source code.
 
-## Initialization Flow
+## Initialization flow
 
 The client and server perform a handshake to establish a connection. This involves three key messages:
 
@@ -101,7 +101,7 @@ If I am coding an MCP server via a coding agent, like for example Gemini CLI, I 
 
 I like to do this to make sure the implementation is sound, as before I fully understood this flow my coding agents would often make wrong assumptions like "the server needs more time to boot up, so I'm going to add a sleep before the tool call". The sooner you teach your coding agent how to properly communicate with the MCP server you are developing the better!
 
-## The Building Blocks of an MCP Server
+## The building blocks of an MCP server
 
 At its core, an MCP server's functionality is exposed through three fundamental building blocks, sometimes also called "primitives" or "server concepts":
 
@@ -149,7 +149,7 @@ Resources expose data from files, APIs, or databases, providing the context an A
 
 That said, in the real world I haven't seen a good implementation of resources yet, as most developers are using tools to expose data (as you would in an API with a GET request). I think this is one of the cases where the spec might be trying to be too clever, but maybe in the future we are going to see good uses for resources once the community gets more comfortable with them.
 
-## Client Concepts
+## Client concepts
 
 Besides the server building blocks, the protocol also defines **Client Concepts**, which are capabilities the server can request from the client. These include:
 
@@ -159,7 +159,7 @@ Besides the server building blocks, the protocol also defines **Client Concepts*
 
 This is another case where most real-world applications I have explored haven't caught up with the spec yet, including both servers and clients. It might take a while until we get these features widely available. It is one of the problems with working with bleeding edge technology... For example, Gemini CLI added roots support about one week ago: https://github.com/google-gemini/gemini-cli/pull/5856
 
-## Live Demo: Vibe Coding an MCP Server
+## Live demo: Vibe coding an MCP server
 
 Here is a prompt you can give to your favourite coding agent to produce a "Hello World" kind of server. As agents nowadays are non-deterministic, it might not work 100% on the first try and you might need to guide the LLM with a few extra prompts after the initial one, but it is a good start:
 
@@ -180,21 +180,21 @@ To test the server, use shell commands like these:
 
 If the agent is successful completing this task, ask it to execute a "method tools/call" to your new tool to see the results!
 
-## A Peek at the Future
+## A peek at the future
 
 The Go community is actively investing in the MCP ecosystem. Two key projects to watch are:
 
 *   **The Go SDK for MCP:** The official SDK I used in the demo, which is a partnership between Google and Anthropic. It is still experimental (current version is 0.20) but is functional and under active development. You can find it at [github.com/modelcontextprotocol/go-sdk](https://github.com/modelcontextprotocol/go-sdk).
 *   **MCP Support for `gopls`:** The Go language server, `gopls`, is gaining MCP support to provide enhanced Go coding capabilities to models. The project is still in its early stages, and you can follow its progress at [tip.golang.org/gopls/features/mcp](https://tip.golang.org/gopls/features/mcp).
 
-## Useful MCP Servers
+## Useful MCP servers
 
 Here are a couple of notable servers built by the community:
 
 *   **Playwright:** Maintained by Microsoft, this server allows an AI agent to navigate web pages, take screenshots, and automate browser tasks. You can find it at [https://github.com/microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp).
 *   **Context7:** Similar to GoDoctor, this server provides documentation to models to mitigate hallucinations and improve responses. It retrieves documentation from a crowdsourced repository. Learn more at [https://context7.com/](https://context7.com/).
 
-## What About Building Your Own?
+## What about building your own?
 
 The Model Context Protocol provides a standardised way to extend the capabilities of AI agents. By building your own servers, you can create specialized, context-aware assistants tailored to your specific workflows.
 
@@ -202,6 +202,6 @@ If you'd like to get started, I've created a Google Codelab that will walk you t
 
 [**How to Build a Coding Assistant with Gemini CLI, MCP and Go**](https://codelabs.developers.google.com/cloud-gemini-cli-mcp-go)
 
-## Final Words
+## Final words
 
 I hope you enjoyed this article. If you have any questions or comments, feel free to reach out in the comments section below or any of my socials. Thank you!

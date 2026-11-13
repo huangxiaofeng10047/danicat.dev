@@ -32,7 +32,7 @@ _宇宙、それは人類に残された最後の開拓地である。そこに�
 
 特に印象的なのは、劇中のエンジニアたちがコンピューターとやり取りする方法です。キーボードを叩いたりボタンを押したりする場面も時折見られますが、多くのコマンドは自然言語の音声で指示されます。「レベル1診断手順（level 1 diagnostic procedure）を実行せよ」といった象徴的な命令は、あまりに頻繁に登場するため、熱心なファンの間では[定番のネタ（ジョーク）](https://www.youtube.com/watch?v=cYzByQjzTb0)になっているほどです。
 
-それから30年以上が経ち、私たちはインターネット以上の変革をもたらすと言われる「AI の時代」を迎えています。AI が仕事に与える影響を不安視する声も多くありますが（[先週の記事「誰でもvibe codeできるのか？」]({{< ref "/posts/20250528-vibe-coding" >}}) でも触れました）、スタートレックを見て育った私には、今後数年でエンジニアの役割がどのように変化していくのかが自然とイメージできます。コードを1行ずつ書き、コンパイラを通じて手動で指示を与える代わりに、私たちは間もなくコンピューターと直接対話し、ブレインストーミングを行いながら開発を進めるようになるでしょう。
+それから30年以上が経ち、私たちはインターネット以上の変革をもたらすと言われる「AI の時代」を迎えています。AI が仕事に与える影響を不安視する声も多くありますが（[先週の記事「誰でも vibe code できるのか？ ソフトウェアエンジニアの未来」]({{< ref "/posts/20250528-vibe-coding" >}}) でも触れました）、スタートレックを見て育った私には、今後数年でエンジニアの役割がどのように変化していくのかが自然とイメージできます。コードを1行ずつ書き、コンパイラを通じて手動で指示を与える代わりに、私たちは間もなくコンピューターと直接対話し、ブレインストーミングを行いながら開発を進めるようになるでしょう。
 
 これを具体的にイメージできるように、今回は現在利用可能なテクノロジーを使って、自然言語で自分のマシンと対話できる小さな診断エージェントを作成してみます。
 
@@ -261,7 +261,7 @@ osagent = agent_engines.LangchainAgent(
     system_instruction=f"""
     You are an agent that answers questions about the machine you are running in.
     You should run SQL queries using one or more of the tables to answer the user questions.
-    Always return human readable values (e.g. megabytes instead of bytes, and formatted time instead of miliseconds)
+    Always return human readable values (e.g. megabytes instead of bytes, and formatted time instead of milliseconds)
     Be very flexible in your interpretation of the requests. For example, if the user ask for application information, it is acceptable to return information about processes and services. If the user requests resource usage, return BOTH memory and cpu information.
     Do not ask the user for clarification.
     You have the following tables available to you: 
@@ -326,7 +326,7 @@ Here is the level 1 diagnostic information:
 *   **Platform:** darwin
 *   **Architecture:** arm64
 
-... ommitted for brevity ...
+... omitted for brevity ...
 
 **Uptime:**
 *   **Total Seconds:** 261164

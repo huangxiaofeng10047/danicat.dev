@@ -59,7 +59,7 @@ After entering the prompt, Gemini will think for a while and after a few seconds
 
 ![Gemini response with architecture diagram](images/image004.png "Gemini response with architecture diagram")
 
-The built-in visualisation gives us an idea, but we can better interact with the design if we click on the “Edit app design” button. This will open the design in an expanded view so we can further refine it. (Please note that the remainder of this article assumes the “Edit app design” button opens the Preview window. If in your case it doesn`t, check the notes at the bottom of the article)
+The built-in visualisation gives us an idea, but we can better interact with the design if we click on the “Edit app design” button. This will open the design in an expanded view so we can further refine it. (Please note that the remainder of this article assumes the “Edit app design” button opens the Preview window. If in your case it doesn't, check the notes at the bottom of the article)
 
 This is how it looks on the “Preview” window:
 
@@ -123,7 +123,7 @@ I’m not entirely satisfied with this, so I’m going to ask why:
 
 > Why do you consider MySQL more cost effective than PostgreSQL?
 
-![Asking Gemini why it things MySQL is more cost-effective than Postgres](images/image014.png "Asking Gemini why it things MySQL is more cost-effective than Postgres")
+![Asking Gemini why it thinks MySQL is more cost-effective than Postgres](images/image014.png "Asking Gemini why it thinks MySQL is more cost-effective than Postgres")
 
 The response suggests that MySQL is more cost effective than Postgres due to:
 1. Licensing differences
@@ -140,7 +140,7 @@ Final inspection: I'm happy with Cloud SQL running Postgres on a smaller databas
 
 This one makes a lot of sense, but it was also not mentioned in the dialogue. This is another reminder to “trust but verify” whatever your AI tooling is telling you. We don’t want any surprises running in production.
 
-## Retrieving the Terraform Files
+## Retrieving the Terraform files
 
 Once you are happy with the design you can click on the “&lt;&gt; Get Code” button on the top-right corner of the UI. This will pack the underlying terraform code into a zip file for you to download to your local machine.
 
@@ -153,7 +153,7 @@ For people who are using corporate accounts with a full organization hierarchy, 
 
 The “Edit app design” button will have different behaviors depending on how your cloud console is set up. If you are testing this prompt from your personal account and your personal account is not attached to an organization, it will open a Preview window where you can see the design and download the corresponding terraform code, but you won’t have access to the full user interface for App Design Center.
 
-To use the full interface you need to be part of an organization, as the App Design Center setup needs an special kind of folder configured refered as an “app design center enabled” folder. There is no way to add folders to accounts without an organization and within an organization this folder needs to be set up by the cloud administrator.
+To use the full interface you need to be part of an organization, as the App Design Center setup needs an special kind of folder configured referred as an “app design center enabled” folder. There is no way to add folders to accounts without an organization and within an organization this folder needs to be set up by the cloud administrator.
 
 Unfortunately, this means that user accounts that do not belong to any organizations will be effectively locked out of the full set of ADC features, at least for the time being.
 

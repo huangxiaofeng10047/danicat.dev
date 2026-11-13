@@ -30,7 +30,7 @@ superseded_by: "/posts/20260829-the-pragmatic-guide-to-agent-skills"
 **Update (2026):** Gemini CLI has evolved into **Google Antigravity 2.0**. While the core Agent Skills concepts and structure covered in this article remain foundational, check out [The Hitchhiker's Guide to Antigravity 2.0]({{< ref "/posts/20260521-the-hitchhikers-guide-to-antigravity-2-0" >}}) for an overview of the platform, and read [The Pragmatic Guide to Agent Skills]({{< ref "/posts/20260829-the-pragmatic-guide-to-agent-skills" >}}) for modern production patterns, skill catalogs, and token optimization.
 {{< /alert >}}
 
-When I wrote about [Tenkai]({{< ref "/posts/20260120-improving-agentic-coding-with-science/" >}}) last week I didn't cover one important aspect about experiment analysis: how to extract insights from experiments. Even though I have a nice frontend with summaries and statistical metrics and tests, it is really hard to capture the nuances of each configuration from just a summary.
+When I wrote about [Tenkai]({{< ref "/posts/20260120-improving-agentic-coding-with-science" >}}) last week I didn't cover one important aspect about experiment analysis: how to extract insights from experiments. Even though I have a nice frontend with summaries and statistical metrics and tests, it is really hard to capture the nuances of each configuration from just a summary.
 
 For example, I often find that read operations (e.g. `read_file` or godoctor's `smart_read`) are strongly correlated with scenarios that either failed or took longer to complete. Is this because the read operations are bad? No, this is because to recover from an error, the agent had to refresh its knowledge of the source code by reading it again. So, while there is a strong correlation between read and slowness and failure, by no means is this a relation of causality or, as statisticians like to say, "correlation doesn't mean causation".
 
@@ -65,7 +65,7 @@ description: <what the skill does and when Gemini should use it>
 <your instructions for how the agent should behave / use the skill>
 ```
 
-To add an skill to your project, you can create a folder under `.gemini/skills`. For example, the `my-skill` above would live in `.gemini/skills/my-skill`. Gemini CLI will automatically look for skills in the following order of precedence:
+To add a skill to your project, you can create a folder under `.gemini/skills`. For example, the `my-skill` above would live in `.gemini/skills/my-skill`. Gemini CLI will automatically look for skills in the following order of precedence:
 
 1. Workspace (<my-project-name>/.gemini/skills)
 2. User (~/.gemini/skills)
@@ -115,7 +115,7 @@ Note: you can click here to see the full [SKILL.md](https://github.com/danicat/s
 
 You are going to hear me talking a lot about this over the next few weeks, but when dealing with agents, which are inherently **non-deterministic**, the only way we can ensure quality is to give them **deterministic** tooling. Skills fit nicely into this philosophy because we can bundle them with scripts to perform tasks in a consistent way instead of leaving up to the agent to "guess" how it is done.
 
-For the experiment analysis skill I wanted the agent to have freedom to explore, but also I don't want it to re-invent the well all the time, so it comes with some pre-packaged scripts:
+For the experiment analysis skill I wanted the agent to have freedom to explore, but also I don't want it to re-invent the wheel all the time, so it comes with some pre-packaged scripts:
 
 - `analyse_experiment.py`: reproduces an experiment summary similar to what I have in the frontend, but includes some grouping in tool calls for shell commands
 - `analyse_patterns.py`: extracts samples from the agent conversation to try to identify tool usage patterns
@@ -134,6 +134,6 @@ In my case, the `experiment-analyst` skill was helpful to turn a repetitive task
 
 I’m excited to see what the community builds. So, take a look at your own workflows. Where are you constantly repeating instructions? Where do you need a specialist? That's your next skill waiting to be written.
 
-**Update:** You can now read [Part 2: Building Agent Skills with skill-creator]({{< ref "/posts/20260227-gemini-cli-skills-part-2/" >}}) where we dive into practical examples.
+**Update:** You can now read [Part 2: Building Agent Skills with skill-creator]({{< ref "/posts/20260227-gemini-cli-skills-part-2" >}}) where we dive into practical examples.
 
 Happy coding!

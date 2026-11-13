@@ -29,7 +29,7 @@ superseded_by: "/posts/20260521-the-hitchhikers-guide-to-antigravity-2-0"
 
 Muitos de vocês já devem estar familiarizados com o [Gemini CLI](https://cloud.google.com/gemini/docs/codeassist/gemini-cli?utm_campaign=CDR_0x72884f69_default_b432031389&utm_medium=external&utm_source=blog) a esta altura, mas caso ainda não estejam, confiram o [post oficial de lançamento](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/) para uma visão geral rápida.
 
-Escrevi sobre como o incluí no meu fluxo de trabalho no meu post anterior ["Um Fluxo de Trabalho de Desenvolvimento Moderno para o Mundo Habilitado por IA"]({{< ref "/posts/20250714-developer-workflow" >}}), mas desta vez quero explorar algo ligeiramente diferente. Se você já usa o CLI há algum tempo, deve ter notado que ele é muito "proativo", inferindo os próximos passos com base até nos prompts mais ambíguos e imediatamente partindo para a execução de ações com base nessas inferências.
+Escrevi sobre como o incluí no meu fluxo de trabalho no meu post anterior ["Um Fluxo de Trabalho Moderno para o Mundo Habilitado por IA"]({{< ref "/posts/20250714-developer-workflow" >}}), mas desta vez quero explorar algo ligeiramente diferente. Se você já usa o CLI há algum tempo, deve ter notado que ele é muito "proativo", inferindo os próximos passos com base até nos prompts mais ambíguos e imediatamente partindo para a execução de ações com base nessas inferências.
 
 A intenção é dar à conversa um fluxo mais humano. Por exemplo, se você instrui o modelo a escrever alguns testes, mas ele esqueceu de atualizar o README com as instruções para rodar esses testes, você pode querer fazer uma pergunta de acompanhamento como "Você não deveria atualizar o README para adicionar as instruções de execução dos testes?", e o CLI vai assumir que a pergunta é retórica e partir direto para o comando de atualizar o arquivo README.
 
@@ -100,7 +100,7 @@ Felizmente, lendo o código, encontrei variáveis de ambiente não documentadas 
 1. `GEMINI_SYSTEM_MD` permite sobrescrever o system prompt padrão com um arquivo markdown customizado. Uso:
     1. `GEMINI_SYSTEM_MD=SYSTEM.md`: lê o system prompt a partir do arquivo customizado `SYSTEM.md`.
     2. `GEMINI_SYSTEM_MD=1`: lê o system prompt de `~/.gemini/system.md`.
-    2. `GEMINI_SYSTEM_MD=0` ou `GEMINI_SYSTEM_MD=""`: o system prompt é [construído durante o boot](https://github.com/google-gemini/gemini-cli/blob/main/packages/core/src/core/prompts.ts) (Padrão).
+    3. `GEMINI_SYSTEM_MD=0` ou `GEMINI_SYSTEM_MD=""`: o system prompt é [construído durante o boot](https://github.com/google-gemini/gemini-cli/blob/main/packages/core/src/core/prompts.ts) (Padrão).
 2. `GEMINI_WRITE_SYSTEM_MD` permite salvar o system prompt em disco no caminho especificado. Uso:
     1. `GEMINI_WRITE_SYSTEM_MD=SYSTEM.md`: grava o conteúdo do system prompt em um arquivo `system.md` (o uso de maiúsculas/minúsculas não é preservado).
     2. `GEMINI_WRITE_SYSTEM_MD=1`: grava o conteúdo do system prompt em `~/.gemini/system.md` ou no local definido por `GEMINI_SYSTEM_MD`, se configurado.

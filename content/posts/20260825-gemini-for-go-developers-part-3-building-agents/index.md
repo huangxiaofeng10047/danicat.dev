@@ -833,7 +833,7 @@ Key architectural and operational advantages of Cloud Run for Go agents include:
 * **Bidirectional Streaming & WebSockets:** Cloud Run natively supports HTTP/2 chunked transfer encoding, Server-Sent Events (SSE), and WebSockets. For voice-to-voice or real-time multimodal agents interacting with the Gemini Live API, WebSockets allow continuous, bidirectional streaming between client and server.
 * **Session Affinity (Sticky Sessions):** If your agent maintains temporary in-memory caches or local context across consecutive conversational turns, you can enable session affinity (`--session-affinity`) via client IP or cookies to consistently route follow-up requests to the same container instance.
 * **Stateless Resilience:** For production deployments, state should be decoupled into external managed datastores (such as Firestore, Redis, or Cloud SQL). If a network disconnect occurs during a long-running turn, the agent can resume execution via its interaction ID without losing context.
-* **Secretless Workload Identity IAM:** Zero hardcoded API keys or credentials. Your Go agent authenticates seamlessly to Gemini Developer API, Vertex AI, and Cloud storage using the ambient Cloud Run service account.
+* **Secretless Workload Identity IAM:** Zero hardcoded API keys or credentials. Your Go agent authenticates seamlessly to Gemini Developer API, Vertex AI, and Cloud Storage using the ambient Cloud Run service account.
 
 ### Gemini Enterprise Agent Platform: managed sessions and enterprise RAG
 

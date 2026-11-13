@@ -22,7 +22,7 @@ dependencies:
   - "Agent Skills"
 ---
 
-Já se passaram mais de seis meses desde que publiquei o artigo [Taming Vibe Coding]({{< ref "/posts/20251206-taming-vibe-coding" >}}), que consolidou as principais práticas que eu vinha utilizando para aumentar minha produtividade com agentes de programação.
+Já se passaram mais de seis meses desde que publiquei o artigo [Domando o Vibe Coding]({{< ref "/posts/20251206-taming-vibe-coding" >}}), que consolidou as principais práticas que eu vinha utilizando para aumentar minha produtividade com agentes de programação.
 
 Embora a maior parte do conteúdo daquele artigo continue relevante hoje, muita coisa aconteceu nessa área no último semestre. Por isso, decidi publicar uma atualização rápida sobre como minha forma de pensar evoluiu desde então.
 

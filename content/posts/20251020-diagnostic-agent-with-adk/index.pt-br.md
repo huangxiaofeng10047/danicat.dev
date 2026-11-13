@@ -74,7 +74,7 @@ $ uv add google-adk
 ```
 A única diferença entre essas duas abordagens é que com o pip a CLI do ADK fica exposta como o comando `adk`, enquanto no `uv`, por padrão, você precisará chamá-la usando `uv run adk`.
 
-Terminada a instalação, você pode criar um agente a partir de um template com `adk create [agent-name]` (ou `uv adk create [agent-name]`):
+Terminada a instalação, você pode criar um agente a partir de um template com `adk create [agent-name]` (ou `uv run adk create [agent-name]`):
 
 ```sh
 (.venv) $ adk create hello-agent
@@ -110,7 +110,7 @@ Os arquivos importantes são o `.env`, que contém a configuração do seu ambie
 
 O conteúdo do arquivo `agent.py` gerado é bastante enxuto. Você pode vê-lo na íntegra abaixo:
 
-```
+```py
 from google.adk.agents.llm_agent import Agent
 
 root_agent = Agent(
@@ -143,7 +143,7 @@ Note que no ADK você pode ter múltiplos agentes na mesma estrutura de pastas. 
 
 A interface web do ADK reconhece todas as subpastas como agentes separados e, se você tiver mais de um, pode alternar entre eles com uma caixa de seleção no canto superior direito da interface:
 
-![agent selection combo](image.png)
+![Seletor de agentes](image.png)
 
 Agora vamos atualizar o `agent.py` com o código necessário para chamar o `osquery` e as instruções corretas do agente:
 
@@ -267,7 +267,7 @@ Uma maneira muito conveniente de criar um corpus é fazer o upload de uma pasta 
 
 ![Assistente de criação de corpus no Vertex AI RAG](image-3.png)
 
-Para este caso em particular, clonei o repositório do osquery no GitHub para minha máquina e copiei a pasta `spec` para um bucket do Google Cloud Storage; em seguida, usei o Cloud Console para criar o corpus a partir do bucket. A única coisa com a qual você precisa ter atenção é que, como as definições de tabela em `spec` têm a extensão `.table`, será necessário renomear todos os arquivos para `.txt` para que o Vertex AI RAG possa reconhecê-los e processá-los.
+Para este caso em particular, clonei o repositório do osquery no GitHub para minha máquina e copiei a pasta `specs` para um bucket do Google Cloud Storage; em seguida, usei o Cloud Console para criar o corpus a partir do bucket. A única coisa com a qual você precisa ter atenção é que, como as definições de tabela em `specs` têm a extensão `.table`, será necessário renomear todos os arquivos para `.txt` para que o Vertex AI RAG possa reconhecê-los e processá-los.
 
 Você pode usar um comando simples de shell para realizar essa operação de renomeação em lote:
 ```sh
@@ -333,11 +333,12 @@ root_agent = Agent(
     model='gemini-2.5-flash',
     name='emergency_diagnostic_agent',
     description='A helpful assistant for diagnosing computer problems.',
-    instruction=... # omitted for brevity
+    instruction=..., # omitted for brevity
     tools=[
         FunctionTool(run_osquery),
         FunctionTool(discover_schema), # new tool definition
     ],
+)
 ```
 
 Por fim, não é estritamente necessário, mas eu gosto de forçar a descoberta de schema nos meus agentes, então adicionei a seguinte frase às minhas instruções:
@@ -350,7 +351,7 @@ Você pode adicioná-la no final ou logo antes de definir os níveis de diagnós
 
 Agora, se você reiniciar seu agente e executá-lo novamente com `adk web`, deverá começar a ver a descoberta de schema em ação:
 
-![Diagnostic agent with RAG schema discovery enabled](image-6.png)
+![Agente de diagnóstico com descoberta de schema via RAG habilitada](image-6.png)
 
 Recomendo fortemente que você brinque com isso e compare as respostas com e sem a descoberta de schema. Durante meus testes, a diferença na qualidade foi muito significativa.
 
@@ -358,7 +359,7 @@ Recomendo fortemente que você brinque com isso e compare as respostas com e sem
 
 Nossa! Este foi longo, mas espero que você tenha gostado da leitura! Se tiver algum desafio na hora de configurar o seu próprio agente de diagnóstico, por favor me avise. Costumo responder com bastante frequência no [LinkedIn](https://www.linkedin.com/in/petruzalek), a menos que esteja super atarefada com algum evento. Eu também adoraria saber como você expandiria este agente e quais experimentos você tentou.
 
-Na próxima parte desta série, [Além da Dev-UI: Como Criar uma Interface para um Agente ADK]({{< ref "/posts/20251031-building-aida" >}}), vamos dar um passo além da interface padrão de debug do `adk web` e construir um runtime customizado com streaming em FastAPI e uma UI retrô interativa com avatar (AIDA).
+Na próxima parte desta série, [Além da Dev-UI: Construindo uma Interface Personalizada para Agentes ADK]({{< ref "/posts/20251031-building-aida" >}}), vamos dar um passo além da interface padrão de debug do `adk web` e construir um runtime customizado com streaming em FastAPI e uma UI retrô interativa com avatar (AIDA).
 
 ## Referências
 

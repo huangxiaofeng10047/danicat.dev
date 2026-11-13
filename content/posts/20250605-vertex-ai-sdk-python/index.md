@@ -39,7 +39,7 @@ We are going to cover two main topics:
 
 Note that if you are a Python developer this doesn’t mean you won’t get anything from this article either. Actually, understanding the flow of the conversation will be important to use more advanced concepts of the SDK (like the Live API) and working with LLMs in general.
 
-## Understanding How the API works
+## Understanding how the API works
 
 Agents typically work in the same way as client server applications - you have a client component who is responsible for preparing and making the requests and a server process that hosts the model runtime and processes the client requests.
 
@@ -74,7 +74,7 @@ I am doing well, thank you for asking! As a large language model, I don't experi
 
 The first thing we need to do is instantiate the client, either using the Vertex AI mode (`vertexai=True`) or using a Gemini API key. In this case I’m using Vertex AI mode.
 
-Once the client is initialized, we can send it a prompt using the `client.models.generate_content` method. We need to specify which model we are calling (in this case `gemini-2.0-flash)` and the prompt in the contents argument (e.g. `"How are you today?"`).
+Once the client is initialized, we can send it a prompt using the `client.models.generate_content` method. We need to specify which model we are calling (in this case `gemini-2.0-flash`) and the prompt in the contents argument (e.g. `"How are you today?"`).
 
 Looking at this code it might be hard to imagine what is going on under the hood, as we are getting many abstractions for free thanks to Python. The most important thing in this case is that the **content is not a string**.
 
@@ -86,7 +86,7 @@ from google.genai import types
 
 contents = [types.Content(
   role = "user",
-  parts = [ types.Part_from_text("How are you today?")
+  parts = [types.Part.from_text(text="How are you today?")]
 )]
 ```
 
@@ -178,8 +178,8 @@ Binary data can be both inline or be fetched from an URI. You can differentiate 
 from google.genai import types
 
 contents = types.Part.from_uri(
-  file_uri: 'gs://generativeai-downloads/images/scones.jpg',
-  mime_type: 'image/jpeg',
+  file_uri='gs://generativeai-downloads/images/scones.jpg',
+  mime_type='image/jpeg',
 )
 ```
 
@@ -187,8 +187,8 @@ Or inlined:
 
 ```python
 contents = types.Part.from_bytes(
-  data: my_cat_picture, # binary data
-  mime_type: 'image/jpeg',
+  data=my_cat_picture, # binary data
+  mime_type='image/jpeg',
 )
 ```
 
@@ -246,7 +246,7 @@ get_random_number_decl = {
 }
 ```
 
-You can see other examples of function declarations in the [Vertex AI function calling documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling#schema-examples?utm_campaign=CDR_0x72884f69_awareness_b422727650&utm_medium=external&utm_source=blog).
+You can see other examples of function declarations in the [Vertex AI function calling documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/function-calling?utm_campaign=CDR_0x72884f69_awareness_b422727650&utm_medium=external&utm_source=blog#schema-examples).
 
 Next we need to tell the model it has access to this function. We do this through the model configuration, adding the function as a tool.
 

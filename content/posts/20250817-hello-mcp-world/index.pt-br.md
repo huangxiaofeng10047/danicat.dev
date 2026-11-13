@@ -192,7 +192,7 @@ A comunidade Go está investindo ativamente no ecossistema MCP. Dois projetos fu
 
 Aqui estão alguns servidores notáveis construídos pela comunidade:
 
-*   **Playwright:** Mantido pela Microsoft, este servidor permite que um agente de IA navegue por páginas web, capture capturas de tela e automatize tarefas no navegador. Você pode encontrá-lo em [https://github.com/microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp).
+*   **Playwright:** Mantido pela Microsoft, este servidor permite que um agente de IA navegue por páginas web, faça capturas de tela e automatize tarefas no navegador. Você pode encontrá-lo em [https://github.com/microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp).
 *   **Context7:** Similar ao GoDoctor, este servidor fornece documentação aos modelos para reduzir alucinações e melhorar as respostas. Ele obtém documentação a partir de um repositório colaborativo (*crowdsourced*). Saiba mais em [https://context7.com/](https://context7.com/).
 
 ## Que Tal Construir o Seu Próprio?

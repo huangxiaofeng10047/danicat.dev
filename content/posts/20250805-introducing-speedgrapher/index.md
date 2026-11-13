@@ -31,7 +31,7 @@ The journey to Speedgrapher began right after I published my last article, "[How
 
 In a fortunate coincidence, the same day I was exploring the idea of a prompt server, the Gemini CLI team announced a new feature that makes prompts exposed by MCP servers available as [native slash commands](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/). It meant my idea for a portable, backend toolkit could have a first-class, user-friendly interface right in my terminal. The concept for Speedgrapher was now clear: a dedicated MCP server to house a writing toolkit, exposed as simple slash commands.
 
-## Vibe Writing Explained
+## Vibe writing explained
 
 Before we dive into the technical journey of building Speedgrapher, I want to take a moment to explain what I mean by "vibe writing." You've likely heard the term "vibe coding" floating around — it describes the increasingly common practice of developers using natural language prompts to guide an AI in generating code. It's a fluid, conversational approach where the developer sets the high-level direction, and the AI handles the boilerplate and implementation details.
 
@@ -39,7 +39,7 @@ Before we dive into the technical journey of building Speedgrapher, I want to ta
 
 While I'm not the first person to use this term, it's still an emerging concept. It represents a fundamental shift in how we approach content creation, moving from a purely manual process to a human-AI partnership.
 
-## Starting Simple: A Haiku Generator
+## Starting simple: A haiku generator
 
 Every good technical journey starts with a "Hello, World." For Speedgrapher, my "Hello, World" was a haiku. I needed a simple, low-stakes way to prove that I could expose a prompt as a slash command. What could be simpler than asking an AI to write a poem?
 
@@ -62,7 +62,7 @@ prompt = fmt.Sprintf("The user wants to have some fun and has requested a haiku 
 
 While I'm not sure this is the best way to phrase my intent, it did fit my purpose, and the model consistently produced haikus after that. With the core concept proven, I was ready to build more practical prompts.
 
-## Building a Writer's Toolkit
+## Building a writer's toolkit
 
 The haiku experiment confirmed that the core concept was sound, so I moved on to more practical applications. My `GEMINI.md` files had become a collection of useful but non-portable prompts for tasks like reviewing, translating, and outlining my articles. Because they were tied to specific projects, I would often forget to copy them to new ones. An MCP server was a logical next step to make these tools portable.
 
@@ -76,7 +76,7 @@ Here is the current version of the prompt, embedded directly from the Speedgraph
 
 With the core prompts in place, it was time to work on automating other important parts of my job.
 
-## Readability Matters
+## Readability matters
 
 As a technical writer, my biggest challenge is finding the sweet spot between clarity and complexity. If a text is too simple, it can feel childish. If it's too complex, it becomes unreadable. Readability isn't just about making things easy; it's about making them engaging and intellectually stimulating.
 
@@ -98,7 +98,7 @@ Or, for the mathematically inclined, this algorithm translates to the following 
 
 While the original intent of the fog index is to estimate the years of education required to understand the text, I think it is not helpful to frame it specifically in terms of years of education, so I took the liberty to customise it for my own needs. First, I simplified the calculation to ignore special cases: one of the most complex parts of the algorithm is how to define if a word is complex (pun intended). While the base case is to consider a word complex if it has three or more syllables, it creates special cases where you ignore certain word terminations like -ing, -ed and -es.
 
-This created a surprising amount of problems during implementation. I didn't need to be precise and  I was happy with overestimating complexity on behalf of simplicity. For this purpose, I ignored all special cases and considered two basic rules for counting syllables: 1) the number of sylables in a word is estimated by the number of vowel groups, and 2) complex words are words that have three or more syllables (no exceptions)
+This created a surprising amount of problems during implementation. I didn't need to be precise and I was happy with overestimating complexity on behalf of simplicity. For this purpose, I ignored all special cases and considered two basic rules for counting syllables: 1) the number of syllables in a word is estimated by the number of vowel groups, and 2) complex words are words that have three or more syllables (no exceptions).
 
 I also created a classification system that shifts the focus from years of education towards a more pragmatic approach to readability.
 
@@ -112,7 +112,7 @@ I also created a classification system that shifts the focus from years of educa
 
 With the customized Gunning Fog Index implemented as a `fog` tool, the final step was to create a user-friendly interface for it. I created a `/readability` prompt that calls the `fog` tool and presents the results in a clear format. This follows my design guidelines for Speedgrapher: building focused, single-purpose tools and then composing them into more powerful, user-friendly workflows.
 
-## Automating the Writer Workflow
+## Automating the writer workflow
 
 The individual prompts were helpful, but I still had a lot to automate until I got my dream workflow. For the next few iterations I would test drive the prompts and map the process gaps to come with new prompts and/or fine tune the existing ones. Here are the prompts I'm currently using:
 
@@ -154,7 +154,7 @@ Just as we use linters and tests to bring structure to our code, we can apply si
 
 This is the value of a tool like Speedgrapher: “vibe writing” is not about replacing the writer, but about augmenting the writing process. By adding an MCP server to the mix, it brings a helpful layer of structure to a sometimes disorganized workflow, ensuring that best practices are followed. The same can be applied to any AI-assisted process: by treating your own prompts as reusable, portable assets, you can create a system that evolves with your process, allowing you to focus on the creative aspects of your work, one prompt at a time.
 
-## What's Next?
+## What's next?
 
 The journey with Speedgrapher is far from over. While the current toolkit is focused on text, the next logical step is to embrace multimodality. I'm exploring how to integrate tools for generating hero images, creating more sophisticated diagrams from the text, and even suggesting layout optimizations. The goal is to continue building a personal toolkit that handles more of the non-writing tasks, freeing me up to focus on the content itself.
 

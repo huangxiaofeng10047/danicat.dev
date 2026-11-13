@@ -12,7 +12,7 @@ tags:
   - python
   - tutorial
   - vertex-ai
-title: "How I turned my computer into \"USS Enterprise\" using AI Agents"
+title: "How I Turned My Computer into \"USS Enterprise\" Using AI Agents"
 slug: "diagnostic-agent-uss-enterprise"
 aliases:
   - "/posts/20250531-diagnostic-agent/"
@@ -31,7 +31,7 @@ When growing up, thanks to the influence of my father, I got used to hearing the
 
 Star Trek was always ahead of its time. It showed the [first interracial kiss in U.S television](https://en.wikipedia.org/wiki/Kirk_and_Uhura%27s_kiss), in times when such a scene caused much controversy. It also depicted many pieces of “futuristic” technology that today are commodities, like smartphones and video conferencing.
 
-One thing that is really remarkable is how the engineers in the series interact with the computers. While we do see some keyboards and button presses now and then, many of the commands are vocalised in natural language. Some of the commands they give to the computer are quite iconic, like for example when they request the computer to run a “ level 1 diagnostic procedure”, which happened so many times that it practically became [a joke](https://www.youtube.com/watch?v=cYzByQjzTb0) among the most hardcore fans.
+One thing that is really remarkable is how the engineers in the series interact with the computers. While we do see some keyboards and button presses now and then, many of the commands are vocalised in natural language. Some of the commands they give to the computer are quite iconic, like for example when they request the computer to run a “level 1 diagnostic procedure”, which happened so many times that it practically became [a joke](https://www.youtube.com/watch?v=cYzByQjzTb0) among the most hardcore fans.
 
 Fast forward 30+ years and here we are, in the Age of AI, a technology revolution that promises to be bigger than the internet. Of course a lot of people are scared of how AI might impact their jobs ([I wrote about it last week]({{< ref "/posts/20250528-vibe-coding" >}})), but growing up watching Star Trek makes it easier for me to see how the role of the engineer will change in the next few years. Instead of commanding the computer through text, manually instructing each step of the way through lines of code and compilers, we will very soon move towards talking and brainstorming with our computers.
 
@@ -47,7 +47,7 @@ For the development language we will be using Python in a Jupyter Notebook, as i
 
 The examples below will use Gemini Flash 2.0, but you can use any [Gemini model variant](https://ai.google.dev/gemini-api/docs/models). We won't deploy this agent to Google Cloud this time as we want to use it to answer questions about the local machine and not about the server in the cloud.
 
-## Agent Overview
+## Agent overview
 
 If you are already familiar with how agent technology works you can skip this section.
 
@@ -115,7 +115,7 @@ Which could return something like this:
 
 Depending on your settings, prompt and the randomness of the universe, the model can either give you a response saying it cannot tell you the time, or it can “hallucinate” and make up a timestamp. But in fact, since the AI doesn’t have a clock, it will not be able to answer this question... unless you give it a clock!
 
-## Function Calls
+## Function calls
 
 One of the most convenient ways of extending our agent capabilities is to give it python functions to call. The process is pretty simple, but it’s important to highlight that the better the documentation you have for the function, the easier it will be for the agent to get its call right. Let’s define our function to check the time:
 
@@ -161,7 +161,7 @@ The output will look similar to this:
 
 Now the agent can rely on the tool to answer the question with real data. Pretty cool, huh?
 
-## Gathering System Information
+## Gathering system information
 
 For our diagnostic agent we are going to give it capabilities to query information about the machine it is running in using a tool called [osquery](https://www.osquery.io/). Osquery is an open source tool developed by Facebook to allow the user to make SQL queries to “virtual tables” that expose information about the underlying operating system of the machine.
 
@@ -263,7 +263,7 @@ osagent = agent_engines.LangchainAgent(
     system_instruction=f"""
     You are an agent that answers questions about the machine you are running in.
     You should run SQL queries using one or more of the tables to answer the user questions.
-    Always return human readable values (e.g. megabytes instead of bytes, and formatted time instead of miliseconds)
+    Always return human readable values (e.g. megabytes instead of bytes, and formatted time instead of milliseconds)
     Be very flexible in your interpretation of the requests. For example, if the user ask for application information, it is acceptable to return information about processes and services. If the user requests resource usage, return BOTH memory and cpu information.
     Do not ask the user for clarification.
     You have the following tables available to you: 
@@ -328,7 +328,7 @@ Here is the level 1 diagnostic information:
 *   **Platform:** darwin
 *   **Architecture:** arm64
 
-... ommitted for brevity ...
+... omitted for brevity ...
 
 **Uptime:**
 *   **Total Seconds:** 261164

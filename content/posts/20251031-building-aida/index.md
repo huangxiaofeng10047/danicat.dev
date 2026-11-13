@@ -51,7 +51,7 @@ I didn't have to do this before because I was relying on the ADK development UI,
 
 ![ADK dev UI](image-1.png)
 
-The development UI is very convenient as it provides many debug tools, allowing you to inspect requests and responses from the models and create evaluation sets, plus out out-of-box multi-modal capabilities to deal with images and even bidirectional streaming.
+The development UI is very convenient as it provides many debug tools, allowing you to inspect requests and responses from the models and create evaluation sets, plus out-of-box multi-modal capabilities to deal with images and even bidirectional streaming.
 
 The Dev-UI is partially to blame for why it took me so long to explore the ADK runtime, as since everything worked out of the box I was happily focused on building the agent capabilities and tooling. Now that I need a proper UI, I had to replace the Dev-UI with something custom, which meant dealing with the agent runner on my own.
 
@@ -91,7 +91,7 @@ We have a small frontend written in HTML/CSS and JavaScript that will make reque
 
 The root agent is the "brains" of AIDA and is responsible for processing the requests (routing them to an LLM) and making the required tool calls. Whenever the root agent is done it emits events that the runtime will process.
 
-Let's have a look at a barebones implementation first. For the sake of brevity, I'm going to omit the root agent definition as it was explained on the [previous article]({{< ref "/posts/20251020-diagnostic-agent-with-adk/index.md" >}}).
+Let's have a look at a barebones implementation first. For the sake of brevity, I'm going to omit the root agent definition as it was explained on the [previous article]({{< ref "/posts/20251020-diagnostic-agent-with-adk" >}}).
 
 We are going to need the `Runner` class and a session service to control user sessions. There are many implementations of session services that you can explore, but in this case the agent is meant to be used by a single user and the sessions are ephemeral, so we are going to use the `InMemorySessionService` and hardcode the user and session ids for simplicity.
 
@@ -259,9 +259,9 @@ Note that I'm keeping everything in a single file for simplicity, but in the rea
 
 ## Making it beautiful
 
-I'm not going to lie, everything from here on out is pure Gemini CLI doing its magic. My goal was to have a retro-cyberpunk-cute-anime interface just like the one Sita-san created, but with my personal twist.
+I'm not going to lie, everything from here on out is pure Gemini CLI doing its magic. My goal was to have a retro-cyberpunk-cute-anime interface just like the one Sito-san created, but with my personal twist.
 
-So I cheated, and asked Gemini CLI to replicate the style in the screenshot I took from Sita-san's tweet. I saved the screenshot as `image.png` and gave the CLI the following prompt:
+So I cheated, and asked Gemini CLI to replicate the style in the screenshot I took from Sito-san's tweet. I saved the screenshot as `image.png` and gave the CLI the following prompt:
 
 > I would like to update the UI in @demo.py to an aesthetic that resembles this interface @image.png 
 

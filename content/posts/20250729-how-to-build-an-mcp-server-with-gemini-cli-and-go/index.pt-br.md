@@ -209,7 +209,7 @@ Meu prompt focou no objetivo, e não na implementação:
 
 O agente ainda precisava aprender o Go SDK de `genai`, mas dessa vez ele contava com a nossa ferramenta `godoc` na sua caixa de ferramentas. Eu conseguia vê-lo usando a ferramenta para consultar a documentação do SDK, corrigir seus próprios erros e aprender em tempo real. O processo ainda foi iterativo, mas muito mais rápido e eficiente.
 
-O resultado mais importante não foi apenas a ferramenta em si, mas a nova capacidade que ela desbloqueou. Pela primeira vez, eu podia usar a ferramenta para revisar o próprio código que ela gerava, destravando outro patamar de desenvolvimento orientado por IA. **Eu havia criado um loop de feedback positivo.**
+O resultado mais importante não foi apenas a ferramenta em si, mas a nova capacidade que ela desbloqueou. Pela primeira vez, eu podia usar a ferramenta para revisar o seu próprio código, destravando outro patamar de desenvolvimento orientado por IA. **Eu havia criado um loop de feedback positivo.**
 
 Meu fluxo de trabalho agora contava com um novo passo poderoso. Depois que o agente gerava um trecho de código, eu podia pedir imediatamente que ele fizesse uma crítica ao próprio trabalho:
 

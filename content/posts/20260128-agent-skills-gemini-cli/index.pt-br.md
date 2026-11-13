@@ -30,7 +30,7 @@ superseded_by: "/posts/20260829-the-pragmatic-guide-to-agent-skills"
 **Atualização (2026):** A Gemini CLI evoluiu para o **Google Antigravity 2.0**. Embora os conceitos fundamentais e a estrutura de Agent Skills abordados neste artigo continuem sendo a base, confira [O Guia do Mochileiro para o Antigravity 2.0]({{< ref "/posts/20260521-the-hitchhikers-guide-to-antigravity-2-0" >}}) para uma visão geral da plataforma, e leia [O Guia Pragmático para Agent Skills]({{< ref "/posts/20260829-the-pragmatic-guide-to-agent-skills" >}}) para padrões modernos de produção, catálogos de skills e otimização de tokens.
 {{< /alert >}}
 
-Quando escrevi sobre o [Tenkai]({{< ref "/posts/20260120-improving-agentic-coding-with-science/" >}}) na semana passada, deixei de abordar um aspecto importante na análise de experimentos: como extrair insights deles. Embora eu tenha uma interface agradável com resumos, métricas estatísticas e testes, é muito difícil capturar as nuances de cada configuração apenas a partir de um resumo.
+Quando escrevi sobre o [Tenkai]({{< ref "/posts/20260120-improving-agentic-coding-with-science" >}}) na semana passada, deixei de abordar um aspecto importante na análise de experimentos: como extrair insights deles. Embora eu tenha uma interface agradável com resumos, métricas estatísticas e testes, é muito difícil capturar as nuances de cada configuração apenas a partir de um resumo.
 
 Por exemplo: frequentemente percebo que operações de leitura (como `read_file` ou o `smart_read` do godoctor) estão fortemente correlacionadas com cenários que falharam ou levaram mais tempo para concluir. Isso acontece porque as operações de leitura são ruins? Não: é porque, para se recuperar de um erro, o agente precisou atualizar seu conhecimento do código-fonte relendo-o. Portanto, embora haja uma forte correlação entre leitura, lentidão e falhas, isso de modo algum indica uma relação de causalidade ou, como os estatísticos adoram dizer, "correlação não implica causalidade".
 
@@ -134,6 +134,6 @@ No meu caso, a skill `experiment-analyst` foi fundamental para transformar uma t
 
 Estou animada para ver o que a comunidade vai construir. Então, dê uma olhada em seus próprios fluxos de trabalho: onde você está constantemente repetindo instruções? Onde você precisa de um especialista? Essa é a sua próxima skill esperando para ser escrita.
 
-**Atualização:** Você já pode conferir a [Parte 2: Criando Agent Skills com o skill-creator]({{< ref "/posts/20260227-gemini-cli-skills-part-2/" >}}), onde mergulhamos em exemplos práticos.
+**Atualização:** Você já pode conferir a [Parte 2: Criando Agent Skills com o skill-creator]({{< ref "/posts/20260227-gemini-cli-skills-part-2" >}}), onde mergulhamos em exemplos práticos.
 
 Bons códigos!

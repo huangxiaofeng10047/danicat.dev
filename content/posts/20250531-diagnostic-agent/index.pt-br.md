@@ -28,7 +28,7 @@ _Espaço: a fronteira final. Estas são as viagens da nave estelar Enterprise. E
 
 Quando eu era criança, graças à influência do meu pai, me acostumei a ouvir essas palavras quase todos os dias. Suspeito que a paixão dele por Star Trek tenha tido um papel enorme na minha decisão de seguir a carreira de engenharia de software. (Para quem não conhece Star Trek, essa introdução passava no início de cada episódio da série clássica).
 
-Star Trek sempre esteve à frente de seu tempo. Mostrou o [primeiro beijo interracial da televisão americana](https://en.wikipedia.org/wiki/Kirk_and_Uhura%27s_kiss), em uma época em que uma cena dessas causava imensa controvérsia. Também retratou inúmeras tecnologias "futuristas" que hoje são rotineiras, como smartphones e videoconferências.
+Star Trek sempre esteve à frente de seu tempo. Mostrou o [primeiro beijo inter-racial da televisão americana](https://en.wikipedia.org/wiki/Kirk_and_Uhura%27s_kiss), em uma época em que uma cena dessas causava imensa controvérsia. Também retratou inúmeras tecnologias "futuristas" que hoje são rotineiras, como smartphones e videoconferências.
 
 Uma coisa realmente marcante é a forma como os engenheiros da série interagem com os computadores. Embora a gente veja teclados e botões sendo pressionados de vez em quando, muitos dos comandos são dados por voz, em linguagem natural. Alguns dos comandos são icônicos, como quando pedem ao computador para executar um "procedimento de diagnóstico de nível 1", algo que aconteceu tantas vezes que praticamente virou [uma piada](https://www.youtube.com/watch?v=cYzByQjzTb0) entre os fãs mais apaixonados.
 
@@ -111,7 +111,7 @@ O retorno será algo como:
 {'input': 'que horas são agora?', 'output': 'Como uma IA, não tenho uma noção de horário "atual" ou localização da mesma forma que um ser humano. Meus conhecimentos não são atualizados em tempo real.\n\nPara verificar o horário atual, você pode:\n\n*   **Checar seu dispositivo:** Seu computador, celular ou tablet exibe a hora atual.\n*   **Fazer uma busca rápida:** Pesquise "que horas são" em um mecanismo de busca como o Google.'}
 ```
 
-Dependendo das configurações, do prompt e da aleatoriedade do modelo, ele pode responder que não sabe a hora ou pode "alucinar" e inventar um timestamp. Como o modelo não tem um relógio interno, ele não consegue responder a essa pergunta... a menos que a gente entregue um relógio a ele!
+Dependendo das configurações, do prompt e da aleatoriedade do universo, o modelo pode responder que não sabe informar a hora ou pode "alucinar" e inventar um timestamp. Mas o fato é que, como a IA não tem um relógio, ela não conseguirá responder a essa pergunta... a menos que você dê um relógio a ela!
 
 ## Function Calling (Chamadas de Funções)
 
@@ -167,7 +167,7 @@ Isso é muito vantajoso porque nos dá uma interface única e padronizada para i
 
 Você encontra as instruções de instalação do Osquery na [documentação oficial](https://osquery.readthedocs.io/en/stable/). Não vou reproduzi-las aqui porque os passos variam de acordo com o sistema operacional.
 
-Com o Osquery instalado, instale os bindings Python oficiais:
+Com o Osquery instalado, você precisará instalar os bindings em Python para o osquery. Como é típico em Python, basta um único `pip install`:
 
 ```shell
 pip install --upgrade --quiet osquery
@@ -243,7 +243,7 @@ A função em si é bem concisa, mas o ponto crucial é a docstring detalhada, q
 
 Durante os meus testes, notei que o agente muitas vezes tentava acessar tabelas que não existiam no meu sistema. Por exemplo, no macOS a tabela `memory_info` não está presente.
 
-Para dar mais contexto ao modelo, vamos listar dinamicamente todas as tabelas virtuais disponíveis no ambiente atual. Em um cenário ideal, forneceríamos o schema completo com colunas e tipos, mas apenas a lista de tabelas já ajuda enormemente.
+Para dar um pouco mais de contexto ao agente, vamos passar dinamicamente os nomes das tabelas disponíveis neste sistema. Em um cenário ideal, você forneceria até mesmo o schema completo com nomes de colunas e descrições, mas infelizmente isso não é trivial de se conseguir com o osquery.
 
 Como o motor interno do Osquery utiliza SQLite, podemos consultar os nomes das tabelas virtuais em `sqlite_temp_master`:
 
@@ -277,7 +277,7 @@ osagent = agent_engines.LangchainAgent(
 )
 ```
 
-Com isso, nosso agente de diagnóstico está pronto! Vamos colocá-lo à prova:
+Acredite se quiser, nosso agente está pronto para todas as nossas perguntas! Vamos testá-lo:
 
 ```python
 response = osagent.query(input="qual é a hora atual?")
@@ -307,7 +307,7 @@ O processo com maior consumo de memória é:
 Nome do Processo: Code Helper (Plugin), PID: 2987, Uso de Memória: 1537 MB
 ```
 
-E se pedirmos algo no espírito de Star Trek?
+E se eu for um pouco mais criativa?
 
 ```python
 response = osagent.query(input="computador, execute um procedimento de diagnóstico de nível 1")
@@ -336,9 +336,9 @@ Aqui está o relatório do diagnóstico de nível 1:
 *   **Segundos:** 44
 ```
 
-O agente montou um relatório de diagnóstico completo e estruturado por conta própria, sem que eu precisasse codificar as regras de um diagnóstico de nível 1!
+Uau! Eu nunca cheguei a definir o que é um procedimento de diagnóstico de nível 1, mas mesmo assim ele me entregou um relatório bem impressionante!
 
-Também testei perguntas de segurança:
+Tentei até ser um pouco mais esperta nas minhas perguntas, e as respostas não decepcionaram (na maioria das vezes):
 
 ```python
 response = osagent.query(input="computador, você vê algum sinal de malware em execução?")
@@ -353,9 +353,11 @@ Verifiquei processos não associados a arquivos em disco (um indicador comum de 
 Com base nas verificações realizadas, não há sinais evidentes de malware em execução no sistema neste momento.
 ```
 
+_Mic drop_ =^.^=
+
 ## Conclusões
 
-Com pouquíssimas linhas de código, passamos de zero a uma interface em linguagem natural capaz de inspecionar o funcionamento interno do sistema operacional. Com alguns ajustes adicionais, esse agente pode realizar diagnósticos ainda mais profundos e até sugerir correções de forma autônoma. O Scotty ficaria orgulhoso!
+Eu sei que esse já é um argumento batido a essa altura, mas a IA é um divisor de águas. Com pouquíssimas linhas de código, passamos de zero a uma interface em linguagem natural totalmente funcional para o funcionamento interno do sistema operacional. Com um pouco mais de trabalho, esse agente pode ser aprimorado para realizar diagnósticos ainda mais profundos e, quem sabe, até corrigir problemas de forma autônoma. O Scotty ficaria orgulhoso!
 
 ![Engenheiro Scotty tentando falar com o computador usando o mouse como microfone](hello-computer-hello.gif)
 

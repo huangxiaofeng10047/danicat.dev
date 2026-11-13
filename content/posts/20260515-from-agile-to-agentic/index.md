@@ -98,7 +98,7 @@ But as the [fundamental theorem of software engineering](https://en.wikipedia.or
 
 This year we are seeing the rise of the "Agent Managers": agents responsible for managing other agents. While this concept was first seen in coding (e.g. [Antigravity 2.0]({{< ref "/posts/20260521-the-hitchhikers-guide-to-antigravity-2-0" >}}) and [`scion`](https://github.com/googlecloudplatform/scion)), it has much broader implications.
 
-This creates a bigger issue though: if it is already hard to [review the work of one agent]({{< ref "/posts/20260303-code-reviews-in-2026" >}}), or a few, how can we possible review the work of fleets of agents? There is no easy answer for this question, but in my view we need to work our way to build trust in the multi-agent systems. Or even better, as they say in security: trust but verify.
+This creates a bigger issue though: if it is already hard to [review the work of one agent]({{< ref "/posts/20260303-code-reviews-in-2026" >}}), or a few, how can we possibly review the work of fleets of agents? There is no easy answer for this question, but in my view we need to work our way to build trust in the multi-agent systems. Or even better, as they say in security: trust but verify.
 
 The same way we can increase trust in single agent systems by applying prompting techniques, creating hooks, sandboxes and deterministic tools, we will need to find our way to add quality gates to agent managers. Agent evaluation, auditability and more mature engineering practices will be fundamental to this change.
 

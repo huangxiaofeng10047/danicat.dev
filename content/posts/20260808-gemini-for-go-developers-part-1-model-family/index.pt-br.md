@@ -112,7 +112,7 @@ Para especificações detalhadas de cada modelo, consulte a [documentação ofic
 
 ## Recursos adicionais
 
-Além da completude padrão de texto, os modelos Gemini suportam recursos adicionais para a construção de aplicações complexas. Aqui estão alguns dos mais importantes.
+Além da geração padrão de texto, os modelos Gemini suportam recursos adicionais para a construção de aplicações complexas. Aqui estão alguns dos mais importantes.
 
 ### Thinking
 

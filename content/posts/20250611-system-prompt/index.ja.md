@@ -106,7 +106,7 @@ Context:
   - Only use tables from this list: {tables}
   - You can discover schemas using: PRAGMA table_info(table)
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -233,7 +233,7 @@ Context:
 
 ```
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -259,7 +259,7 @@ Context:
   - Only use tables from this list: {tables}
   - You can discover schemas using: PRAGMA table_info(table)
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -407,7 +407,7 @@ Top 5 Processes by Memory Usage (Resident Size):
 
 [前回の記事]({{< ref "/posts/20250605-vertex-ai-sdk-python" >}}) では、LLM がステートレス（状態を持たない）であること、そして「ターン（Turns）」を使って会話の現在の状態をモデルに「思い出させ」続ける必要があることを説明しました。幸いなことに、LangChain を使えばこれを手作業で行う必要はなく、[チャット履歴（Chat History）](https://python.langchain.com/api_reference/core/chat_history.html) という機能を活用できます。
 
-チャット履歴の素晴らしいところは、[BaseChatMessageHistory](https://python.langchain.com/api_reference/core/chat_history/langchain_core.chat_history.BaseChatMessageHistory.html#langchain_core.chat_history.BaseChatMessageHistory) を実装しているものであれば何でも利用できる点です。自作のものを含め、あらゆる種類のデータストアを利用できます。例えば Vertex AI の公式ドキュメントには、[Firebase、Bigtable、Spanner](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/develop/langchain#chat-history?utm_campaign=CDR_0x72884f69_awareness_b424142426&utm_medium=external&utm_source=blog) を使用する例が掲載されています。
+チャット履歴の素晴らしいところは、[BaseChatMessageHistory](https://python.langchain.com/api_reference/core/chat_history/langchain_core.chat_history.BaseChatMessageHistory.html#langchain_core.chat_history.BaseChatMessageHistory) を実装しているものであれば何でも利用できる点です。自作のものを含め、あらゆる種類のデータストアを利用できます。例えば Vertex AI の公式ドキュメントには、[Firebase、Bigtable、Spanner](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/develop/langchain?utm_campaign=CDR_0x72884f69_awareness_b424142426&utm_medium=external&utm_source=blog#chat-history) を使用する例が掲載されています。
 
 現時点では本格的なデータベースは必要ないため、名前の通りすべてをメモリ上に保存する `InMemoryChatMessageHistory` を採用します。
 
@@ -558,7 +558,7 @@ Context:
   - Only use tables from this list: {tables}
   - You can discover schemas using: PRAGMA table_info(table)
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -634,7 +634,7 @@ if __name__ == "__main__":
 >> is this computer connected to the internet?
 >> why is my computer slow?
 >> take a snapshot of the current performance metrics
->> compare the current perfomance metrics with the previous snapshot
+>> compare the current performance metrics with the previous snapshot
 >> give me a step by step process to fix the issues you found
 >> how many osqueryd processes are in memory?
 >> give me a script to kill all osqueryd processes
@@ -643,4 +643,4 @@ if __name__ == "__main__":
 
 他にも面白いプロンプトを見つけたら、ぜひ下のコメント欄であなたの体験を共有してください。
 
-シリーズの次回作 [Agent Development Kit (ADK) で診断エージェントを作成する]({{< ref "/posts/20251020-diagnostic-agent-with-adk" >}}) では、素の SDK によるボイラープレートから Google の Agent Development Kit (ADK) へのリファクタリングを行い、動的なテーブルスキーマ探索のための Vertex AI RAG を統合します。それでは、また次回お会いしましょう！
+シリーズの次回作 [Agent Development Kit で診断エージェントを作成する方法]({{< ref "/posts/20251020-diagnostic-agent-with-adk" >}}) では、素の SDK によるボイラープレートから Google の Agent Development Kit (ADK) へのリファクタリングを行い、動的なテーブルスキーマ探索のための Vertex AI RAG を統合します。それでは、また次回お会いしましょう！

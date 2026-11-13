@@ -842,7 +842,7 @@ Ao construir com o **Agent Development Kit (ADK)**, especialmente para soluçõe
 Em vez de provisionar bancos de dados e escrever adaptadores manuais de persistência, a plataforma fornece:
 
 * **Persistência Desacoplada de Sessão:** Separação limpa entre o armazenamento duradouro de histórico (`SessionService` no ADK) e os loops efêmeros de streaming (`LiveSession` com recuperação automática em caso de reconexão).
-* **Aterramento Corporativo e Busca Vetorial:** Conectores nativos para fontes de conhecimento corporativo (Google Drive, BigQuery, repositórios internos) e índices do Vertex AI Vector Search para recuperação semântica de alto desempenho.
+* **Aterramento Corporativo e Busca Vetorial:** Conectores nativos para fontes de conhecimento corporativo (Google Drive, BigQuery, repositórios internos) e índices do Vertex AI Vector Search (com camadas otimizadas para armazenamento) para recuperação semântica de alto desempenho.
 * **Execução Segura em Sandbox:** Ambientes isolados onde os agentes podem gerar e executar código dinamicamente (análise de dados, scripts Python/Go) sem expor a infraestrutura hospedeira a riscos.
 * **Protocolos Agente a Agente (A2A):** Protocolos padronizados que permitem a agentes independentes descobrir capacidades, negociar contratos e delegar tarefas entre si através de diferentes áreas da organização.
 * **Segurança, Identidade do Agente e Model Armor:** Permissões granulares de IAM, perímetros de VPC Service Controls e proteção em tempo de execução com o Model Armor contra injeção de prompt, vazamento de dados e violações de política.

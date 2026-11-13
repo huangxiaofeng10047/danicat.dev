@@ -54,7 +54,7 @@ For seasoned developers, this became a huge friction point because suddenly all 
 
 The interactions with the agent should be already familiar to anyone coding with agents in the past year. Once you give it a prompt, it will elaborate an implementation plan, which you can review using in-line comments or a top level prompt, and once approved the agent goes on its own to execute. Depending on how you configure the UI, every now and then it might interrupt you asking for a permission, which you can either give or reject with an optional course correction.
 
-![Agent Manager asking for user input](image-1.png "When you reject a request you can add an steering comment")
+![Agent Manager asking for user input](image-1.png "When you reject a request you can add a steering comment")
 
 In terms of extensibility, agy 2.0 supports common standards we have grown used to in this past year including MCP and Skills, but also its own "Rules" mechanism which was inherited from 1.x (essentially a composable AGENTS.md) and a new plugin system based on the extension system of the former Gemini CLI. Plugins allow you to pack together additional rules, slash commands, MCP servers, skills and sub-agents, and they are backward compatible with Gemini CLI extensions (meaning you can install CLI extensions on agy, but not the other way around).
 

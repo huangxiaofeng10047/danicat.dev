@@ -42,7 +42,7 @@ In order to make Gemini CLI behave in a way that feels more productive to you, o
 
 ## Customising the Gemini CLI with GEMINI.md
 
-The GEMINI.md is a file that is used to provide additional context for the CLI. Once you start the CLI from your terminal, it will look for a GEMINI.md file in the current folder and all of its child folders. These files can be used for all sorts of things, but a typical working structure is to use the root GEMINI.md file to explain your project to the CLI, from it's purpose, to the folder organisation and key instructions like building, testing, etc. It is, in fact, very similar to what a good README.md would look like, with the only difference that this file is written with the AI in mind, so it's more "prompt-like".
+The GEMINI.md is a file that is used to provide additional context for the CLI. Once you start the CLI from your terminal, it will look for a GEMINI.md file in the current folder and all of its child folders. These files can be used for all sorts of things, but a typical working structure is to use the root GEMINI.md file to explain your project to the CLI, from its purpose, to the folder organisation and key instructions like building, testing, etc. It is, in fact, very similar to what a good README.md would look like, with the only difference that this file is written with the AI in mind, so it's more "prompt-like".
 
 The top level GEMINI.md file is also a good place to give the CLI information on how it will operate. Things like "do a plan and ask for confirmation before implementing any task" or "always commit intermediate steps using git" can be added to this file to ensure a more consistent workflow.
 
@@ -66,7 +66,7 @@ The number one complaint I've heard about the GEMINI.md file(s) is that this is 
 
 ## The nuclear option: overriding the system instructions
 
-While one or more GEMINI.md files is the recommended way to customise the CLI, sometimes we need to go for the nuclear option because the [system instructions](https://cloud.google.com/vertex-ai/generative/docs/concepts/system-instructions?utm_campaign=CDR_0x72884f69_default_b432031389&utm_medium=external&utm_source=blog) and our GEMINI.md files are contradicting each other. As I mentioned in the introduction of this article, I'm particularly annoyed when the model tries to be "too proactive" and read things in my prompts that I didn't ask it to do. Deleting a file that I didn't want deleted, amending a commit when it should have created a new one, "cleaning" the repository when I have uncommitted work that I spended a lot of time on... those are some of the real life burns I've had over the past few weeks due to this proactiveness.
+While one or more GEMINI.md files is the recommended way to customise the CLI, sometimes we need to go for the nuclear option because the [system instructions](https://cloud.google.com/vertex-ai/generative/docs/concepts/system-instructions?utm_campaign=CDR_0x72884f69_default_b432031389&utm_medium=external&utm_source=blog) and our GEMINI.md files are contradicting each other. As I mentioned in the introduction of this article, I'm particularly annoyed when the model tries to be "too proactive" and read things in my prompts that I didn't ask it to do. Deleting a file that I didn't want deleted, amending a commit when it should have created a new one, "cleaning" the repository when I have uncommitted work that I spent a lot of time on... those are some of the real life burns I've had over the past few weeks due to this proactiveness.
 
 I tried to play with GEMINI.md to force it to respond very literally to my prompts with little success, which eventually threw me into the rabbit hole of system instructions. My hypothesis was that there was something with higher priority than GEMINI.md that was getting in my way. Thankfully the Gemini CLI is open source, so I could just go to the code and find the prompt to inspect it. Here is a snippet of what I found:
 
@@ -101,10 +101,10 @@ Luckily, by reading the code I stumbled into undocumented environment variables 
 1. `GEMINI_SYSTEM_MD` allows you to override the default system prompt with a custom markdown file. Usage:
     1. `GEMINI_SYSTEM_MD=SYSTEM.md`: reads the system prompt from the custom `SYSTEM.md` file.
     2. `GEMINI_SYSTEM_MD=1`: reads the system prompt from `~/.gemini/system.md`
-    2. `GEMINI_SYSTEM_MD=0` or `GEMINI_SYSTEM_MD=""`: the system prompt is [built during boot time](https://github.com/google-gemini/gemini-cli/blob/main/packages/core/src/core/prompts.ts) (Default)
+    3. `GEMINI_SYSTEM_MD=0` or `GEMINI_SYSTEM_MD=""`: the system prompt is [built during boot time](https://github.com/google-gemini/gemini-cli/blob/main/packages/core/src/core/prompts.ts) (Default)
 2. `GEMINI_WRITE_SYSTEM_MD` allows you to write a system prompt to disk at the given path. Usage:
     1. `GEMINI_WRITE_SYSTEM_MD=SYSTEM.md`: writes the content of the system prompt to a `system.md` file. (capitalisation is not preserved)
-    2. `GEMINI_WRITE_SYSTEM_MD=1`: writes the content of the system prompt to `~/.gemini/system.md`or the location specified by `GEMINI_SYSTEM_MD` if set.
+    2. `GEMINI_WRITE_SYSTEM_MD=1`: writes the content of the system prompt to `~/.gemini/system.md` or the location specified by `GEMINI_SYSTEM_MD` if set.
     3. `GEMINI_WRITE_SYSTEM_MD=0` or `GEMINI_WRITE_SYSTEM_MD=""`: disable write to disk (Default).
 
 Note: there is an open [feature request](https://github.com/google-gemini/gemini-cli/issues/3923) to document these variables.

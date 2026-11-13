@@ -74,7 +74,7 @@ $ uv add google-adk
 ```
 これら2つのアプローチの唯一の違いは、pip の場合は ADK CLI が `adk` コマンドとしてそのまま提供されるのに対し、`uv` の場合はデフォルトで `uv run adk` として呼び出す必要がある点です。
 
-インストールが完了したら、`adk create [agent-name]`（または `uv adk create [agent-name]`）でテンプレートエージェントを作成できます：
+インストールが完了したら、`adk create [agent-name]`（または `uv run adk create [agent-name]`）でテンプレートエージェントを作成できます：
 
 ```sh
 (.venv) $ adk create hello-agent
@@ -110,7 +110,7 @@ Agent created in ~/adk-tutorial/hello-agent:
 
 生成された `agent.py` ファイルの内容は非常にシンプルです。全体像は以下の通りです：
 
-```
+```py
 from google.adk.agents.llm_agent import Agent
 
 root_agent = Agent(
@@ -143,7 +143,7 @@ ADK では、同じフォルダ構造の中に複数のエージェントを配�
 
 ADK の Web インターフェースはすべてのサブフォルダを個別のエージェントとして認識するため、複数存在する場合は画面右上のコンボボックスから切り替えることができます：
 
-![agent selection combo](image.png)
+![エージェント選択コンボボックス](image.png)
 
 それでは、`osquery` を呼び出すために必要なコードと適切なエージェント指示を含めて `agent.py` を更新しましょう：
 
@@ -184,7 +184,7 @@ If the user doesn't give you an immediate command, ask the user 'What's the natu
 
 `adk web` を実行して、いくつかのクエリを送信してエージェントをテストしてみましょう：
 
-!["ADK UI with the query 'show me this machine os, version and uptime'"](image-1.png)
+!["「show me this machine os, version and uptime」というクエリを実行中の ADK UI"](image-1.png)
 
 ## システムプロンプトの再考
 
@@ -235,7 +235,7 @@ If the user doesn't give you an immediate command, ask the user 'What is the nat
 
 ここで再度エージェントを試してみると、「レベル1診断（level 1 diagnostic）」の意味を理解し、レポートを作成するために直ちに多数のツール呼び出しを実行する様子が確認できます：
 
-![ADK UI showing agent running a level 1 diagnostic procedure](image-2.png)
+![レベル1診断手順を実行中のエージェントを示す ADK UI](image-2.png)
 
 ## Vertex AI RAG による回答品質の向上
 
@@ -243,7 +243,7 @@ If the user doesn't give you an immediate command, ask the user 'What is the nat
 
 例えばテスト中、エージェントが私の OS（macOS を使用しています）上で空になっているテーブルに対してクエリを発行してしまう場面によく遭遇しました。これは、このデータとどのようにやり取りすべきかについて、モデルがより多くのコンテキスト知識を必要としている明確なサインです。
 
-![ADK window showing a query with empty results](image-5.png "A common problem: memory_info is empty on MacOS, but the model doesn't know that")
+![空の結果を返したクエリを示す ADK ウィンドウ](image-5.png "よくある問題：macOS では memory_info が空になりますが、モデルはそれを知りません")
 
 基盤モデルの能力を超えてエージェントの知識を補強する方法には、コンテキストエンジニアリング、ツール呼び出し、MCP リソース、検索拡張生成（RAG）、モデルの特化など、いくつかの選択肢があります。
 
@@ -265,7 +265,7 @@ RAG の背後にあるコンセプトは、モデルに対して情報を「必�
 
 コーパスを作成する非常に便利な方法は、[Google Cloud Storage](https://cloud.google.com/storage?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog) や Google ドライブからフォルダをアップロードすることですが、Slack や SharePoint などの他のデータソースも利用できます。Google Cloud Console のコーパス作成ウィザード（Vertex AI -> RAG Engine -> Create corpus）を使うか、Vertex AI SDK を使ってプログラムから作成することも可能です。
 
-![Create corpus wizard in Vertex AI RAG](image-3.png)
+![Vertex AI RAG のコーパス作成ウィザード](image-3.png)
 
 今回のケースでは、osquery の GitHub リポジトリをローカルマシンにクローンし、`specs` フォルダのコピーを Google Cloud Storage バケットに作成した上で、Cloud Console を使ってバケットからコーパスを作成しました。1点注意が必要なのは、`specs` 内のテーブル定義ファイルの拡張子が `.table` になっているため、Vertex AI RAG が認識して処理できるようにすべてのファイルを `.txt` にリネームする必要がある点です。
 
@@ -277,11 +277,11 @@ for f in *.table; do mv -- "$f" "${f%.table}.txt"; done
 
 インポートが完了すると、以下のような画面が表示されるはずです：
 
-![osquery schema corpus in Vertex AI RAG](image-4.png)
+![Vertex AI RAG 内の osquery スキーマコーパス](image-4.png)
 
 次に、エージェントがこのコーパスにアクセスできるようにするためのツール定義を作成する必要があります。
 
-### Schema Discovery Tool
+### スキーマ探索ツール（Schema Discovery Tool）
 
 このツールを動作させるには、作成したコーパスのリソース名が必要です。コンソールのコーパスの「Details」タブに表示されており、形式は `projects/[PROJECT-ID]/locations/[LOCATION]/ragCorpora/[CORPORA_ID]` のようになっています。
 
@@ -333,11 +333,12 @@ root_agent = Agent(
     model='gemini-2.5-flash',
     name='emergency_diagnostic_agent',
     description='A helpful assistant for diagnosing computer problems.',
-    instruction=... # omitted for brevity
+    instruction=..., # omitted for brevity
     tools=[
         FunctionTool(run_osquery),
         FunctionTool(discover_schema), # new tool definition
     ],
+)
 ```
 
 最後に、必須というわけではありませんが、私は自分のエージェントでスキーマ探索を徹底させたいため、指示（instruction）に以下の文言を追加しました：
@@ -350,7 +351,7 @@ You MUST run schema discovery for all requests unless the schema is already know
 
 ここでエージェントを再起動し、`adk web` で再度実行すると、スキーマ探索が実際に動作する様子が確認できるようになります：
 
-![Diagnostic agent with RAG schema discovery enabled](image-6.png)
+![RAG スキーマ探索を有効にした診断エージェント](image-6.png)
 
 スキーマ探索の有無による応答の違いをぜひ実際に動かして比較してみてください。私のテストでは、品質の差は非常に歴然としていました。
 
@@ -358,7 +359,7 @@ You MUST run schema discovery for all requests unless the schema is already know
 
 ずいぶんと長くなってしまいましたが、楽しんで読んでいただけたなら幸いです！もしご自身で診断エージェントをセットアップする際につまずいた点があれば、ぜひ教えてください。イベントで極端に忙しい時を除き、[LinkedIn](https://www.linkedin.com/in/petruzalek) でのご連絡には比較的早く返信しています。また、このエージェントをどのように拡張したかや、試してみた実験などについてもぜひお聞きしたいです。
 
-本シリーズの次回作 [Dev-UIの先へ：ADKエージェントのインターフェースを構築する方法]({{< ref "/posts/20251031-building-aida" >}}) では、標準の `adk web` デバッグ画面から一歩踏み出し、FastAPI によるストリーミング対応のカスタムランタイムと、レトロ風のインタラクティブなアバター UI（AIDA）を構築します。
+本シリーズの次回作 [Dev-UI の先へ：ADK エージェントのカスタムインターフェースを構築する]({{< ref "/posts/20251031-building-aida" >}}) では、標準の `adk web` デバッグ画面から一歩踏み出し、FastAPI によるストリーミング対応のカスタムランタイムと、レトロ風のインタラクティブなアバター UI（AIDA）を構築します。
 
 ## 参考リンク
 

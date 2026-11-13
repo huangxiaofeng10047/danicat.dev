@@ -113,7 +113,7 @@ Embora esse prompt cubra muitos aspectos do jogo, é perfeitamente normal que o 
 
 Quando estivermos satisfeitos com o nível de detalhe do plano, podemos pedir ao agente para começar a codificar, o que encerra o plan mode. A partir daí, o processo não difere de qualquer tarefa comum de desenvolvimento. Após algumas rodadas de interação, temos um jogo funcionando parecido com este:
 
-![Cloud Crush Gameplay Screenshot](cloud-crush-gameplay.png)
+![Captura de tela do gameplay de Cloud Crush](cloud-crush-gameplay.png)
 
 ## Automatizando testes web com o browser agent
 

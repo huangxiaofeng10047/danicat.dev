@@ -113,7 +113,7 @@ adjusted based on text length, not just guess based on estimates.
 
 計画の詳細度に納得したら、エージェントに実装の開始を指示します。これでプランモードは終了します。ここから先は通常のコーディングタスクと何ら変わりません。数ターンの対話を経ることで、次のように動作するゲームが立ち上がります。
 
-![Cloud Crush Gameplay Screenshot](cloud-crush-gameplay.png)
+![Cloud Crush のゲームプレイスクリーンショット](cloud-crush-gameplay.png)
 
 ## ブラウザエージェントによるWebテストの自動化
 

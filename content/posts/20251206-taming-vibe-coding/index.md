@@ -55,7 +55,7 @@ The first skill you need to develop in the vibe coding world is prompting. I've 
 
 LLMs are non-deterministic by nature. Being ambiguous exacerbates this non-determinism. While I sometimes use ambiguity intentionally to force creative solutions, in most cases, you want to minimize it.
 
-Keeping the tone professional also "encourage" the LLM to reciprocate. If you are casual or sloppy, the LLM will mirror that behaviour. Unless you want your API documentation written in slang, be precise and consistent.
+Keeping the tone professional also "encourages" the LLM to reciprocate. If you are casual or sloppy, the LLM will mirror that behaviour. Unless you want your API documentation written in slang, be precise and consistent.
 
 I have been accused of humanising LLMs too much, but I will say it again: since models are trained on human language, the same communication skills you use with colleagues apply here. This becomes even clearer when we look at prompt templates.
 

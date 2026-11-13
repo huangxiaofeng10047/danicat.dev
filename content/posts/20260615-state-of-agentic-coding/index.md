@@ -59,7 +59,7 @@ On the negative side, I am terrible at keeping my skills up to date and organise
 
 While ad-hoc creation of agents allow you to do crazy things like using a prompt to spin up 3 different agents to run things in parallel, I do miss having pre-declared agents in Antigravity as they allow me to pack my "curated" agents in portable ways. Also, parallelising tasks between agents is not a trivial skill to master - in the last year I got used to give tasks to agents, but I haven't really thought much about how to efficiently orchestrate them.
 
-In many ways this is the same muscle as a product owner or team lead exercises when breaking down tasks and thinking about how the team will tackle them, but with sub-agents instead of having a fixed team you can create as many "team members" as you want. Ultimately, I care less about parallelising agents because its "cool", and care more about the question "is this going to produce better outcomes?"
+In many ways this is the same muscle as a product owner or team lead exercises when breaking down tasks and thinking about how the team will tackle them, but with sub-agents instead of having a fixed team you can create as many "team members" as you want. Ultimately, I care less about parallelising agents because it's "cool", and care more about the question "is this going to produce better outcomes?"
 
 If the answer to the question is **no**, then you are better off running one agent at a time, as the effort spent in planning and the mental toil of carefully dividing the tasks will not pay off. This is why I prefer being able to pre-define my agents, as I am just specialising them for when they are needed, but it doesn't really matter to me if they run in parallel or not.
 

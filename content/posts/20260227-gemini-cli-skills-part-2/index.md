@@ -58,9 +58,9 @@ You can activate this skill by asking Gemini CLI to create (or refactor) a skill
 
 Any requests related to "creating skills" should automatically trigger the `skill-creator`, but just in case you are talking with a "grumpy" model, you can also be more explicit:
 
-> *"Use the the skill-creator to write a skill to de-sloppify AI generated texts (please don't take it personally)"*
+> *"Use the skill-creator to write a skill to de-sloppify AI generated texts (please don't take it personally)"*
 
-Gemini CLI might ask you a few details before writing the skill boilerplate. It just recently learned how to ask the user with a [`ask_user` tool](https://geminicli.com/docs/tools/ask-user/#ask_user-ask-user) and it is really cool to see it in action.
+Gemini CLI might ask you a few details before writing the skill boilerplate. It just recently learned how to ask the user with an [`ask_user` tool](https://geminicli.com/docs/tools/ask-user/#ask_user-ask-user) and it is really cool to see it in action.
 
 ## When to create skills
 
@@ -76,7 +76,7 @@ Of course, if you are packaging your skills as part of an extension, there is a 
 There are also two main moments when I create skills:
 
 1. After a painfully long session trying to teach a model to do something for me (e.g. "please consolidate the knowledge of what we just did in a skill that we can use later")
-2. Just after having a new idea of something I believe will help me become more efficient at my job (e.g. "let's write a de-slopify skill to improve your writing capabilities"))
+2. Just after having a new idea of something I believe will help me become more efficient at my job (e.g. "let's write a de-slopify skill to improve your writing capabilities")
 
 In both cases the skill will never be ready on the first try, but as soon as I start using it I'll refine it until the point where I'm confident it brings some value, or kill it and park the idea until I learn more about the problem.
 

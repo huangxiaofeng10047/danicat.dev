@@ -86,7 +86,7 @@ It's not quite at the level of [**Gemini 2.5 Flash**](https://deepmind.google/te
 
 ### Running local models with LiteLLM
 
-To connect Qwen to agent the we use [**LiteLLM**](https://www.litellm.ai/), a library that provides a unified interface for LLM providers. This allows us to swap out the model with a single line of code:
+To connect Qwen to the agent we use [**LiteLLM**](https://www.litellm.ai/), a library that provides a unified interface for LLM providers. This allows us to swap out the model with a single line of code:
 
 ```python
 # aida/agent.py
@@ -176,7 +176,7 @@ It's not pretty, but it works. This should not stay forever in the code, but unb
 
 ### Populating the RAG with osquery schemas
 
-With `sqlite-rag` working, the next step was to ingest the Osquery schema. This is done with a script, `ingest_osquery.py`, that walks through the schema directory and add each `.table` file to the RAG database:
+With `sqlite-rag` working, the next step was to ingest the Osquery schema. This is done with a script, `ingest_osquery.py`, that walks through the schema directory and adds each `.table` file to the RAG database:
 
 ```python
 # ingest_osquery.py

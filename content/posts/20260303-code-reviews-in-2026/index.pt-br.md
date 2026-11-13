@@ -96,7 +96,7 @@ Aquelas que não são seus frameworks principais ou SDKs de clientes. Elas geram
 
 Este não é um protocolo engessado para todas as situações. Há também muito a ser considerado sobre a instrumentação da sua base de código. Code reviews sozinhos não capturam todos os problemas potenciais, e é por isso que defendo veementemente a automação — ainda mais na era do agentic coding.
 
-Agentes de codificação modernos oferecem diversos mecanismos de extensão que permitem restringir o modelo e obter saídas mais determinísticas: [Agent Skills]({{< ref "/posts/20260829-the-pragmatic-guide-to-agent-skills" >}}), [hooks]({{< ref "/posts/20260610-mastering-hooks" >}}), [MCP tools]({{< ref "/posts/20250817-hello-mcp-world/" >}}), políticas, regras... Use essas ferramentas para delimitar com precisão o escopo dos seus agentes e a sua rotina será infinitamente mais tranquila.
+Agentes de codificação modernos oferecem diversos mecanismos de extensão que permitem restringir o modelo e obter saídas mais determinísticas: [Agent Skills]({{< ref "/posts/20260829-the-pragmatic-guide-to-agent-skills" >}}), [hooks]({{< ref "/posts/20260610-mastering-hooks" >}}), [MCP tools]({{< ref "/posts/20250817-hello-mcp-world" >}}), políticas, regras... Use essas ferramentas para delimitar com precisão o escopo dos seus agentes e a sua rotina será infinitamente mais tranquila.
 
 Um carro só pode correr na velocidade em que seus freios conseguem pará-lo. Invista em aprender as barreiras de proteção (*guardrails*) do seu agente de codificação favorito e use seu tempo valioso para revisar aquilo que não pode ser automatizado.
 

@@ -34,7 +34,7 @@ If 2024 was about "playing" with AI, 2025 was the year I started **embracing** i
 
 I realized that "forgetting the code exists" is a trap. Instead, I learned that engineering discipline—clear requirements, context management, and rigorous testing—is *more* critical than ever. So I advocate for a different flavour of vibe coding — vibe coding with discipline. Some people will argue that I should not be using the vibe coding slang at all, but what can I do? The term is "catchy"!
 
-I also built a [modern developer workflow]({{< ref "/posts/20250714-developer-workflow" >}}) where the developer act as the "pilot," steering a fleet of AI agents like the [Gemini CLI](https://geminicli.com/) and [Jules](https://jules.google/).
+I also built a [modern developer workflow]({{< ref "/posts/20250714-developer-workflow" >}}) where the developer acts as the "pilot," steering a fleet of AI agents like the [Gemini CLI](https://geminicli.com/) and [Jules](https://jules.google/).
 
 This shift wasn't just philosophical; it was practical. I "vibe coded" entirely new tools to solve my own problems:
 *   **[GoDoctor]({{< ref "/posts/20250729-how-to-build-an-mcp-server-with-gemini-cli-and-go" >}}):** An MCP server to teach AI how to write better Go code.

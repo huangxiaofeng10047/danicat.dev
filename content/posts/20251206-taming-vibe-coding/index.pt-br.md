@@ -253,7 +253,7 @@ Isso me permite ter diferentes "agentes" para cada linguagem, configurados como 
 
 As personalizações anteriores tratavam do comportamento do agente, mas também precisamos falar sobre extensibilidade. É aqui que o [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) entra em cena: ele permite que pessoas desenvolvedoras criem servidores capazes de se comunicar com diferentes agentes, desde que implementem o padrão MCP.
 
-Como explorei no meu artigo [Hello, MCP World!]({{< ref "/posts/20250817-hello-mcp-world" >}}), esses servidores abastecem os agentes com ferramentas externas (*tools*), prompts e recursos (*resources*). As ferramentas costumam roubar a cena porque conectam o agente ao mundo real, permitindo chamar APIs, fazer buscas na web e manipular o sistema de arquivos.
+Como explorei no meu artigo [Olá, Mundo MCP: Arquitetura Model Context Protocol em Go]({{< ref "/posts/20250817-hello-mcp-world" >}}), esses servidores abastecem os agentes com ferramentas externas (*tools*), prompts e recursos (*resources*). As ferramentas costumam roubar a cena porque conectam o agente ao mundo real, permitindo chamar APIs, fazer buscas na web e manipular o sistema de arquivos.
 
 Existe uma enorme variedade de servidores MCP disponíveis hoje, com opções surgindo a cada dia. Também é surpreendentemente simples criar o seu próprio — e eu recomendo fortemente que você faça isso. Mais adiante falarei sobre software personalizado, mas o fato de podermos usar IA para criar ferramentas que melhoram a própria resposta do modelo é o "hack" mais valioso que aprendi este ano.
 

@@ -54,7 +54,7 @@ I consider myself very lucky to have this opportunity to reskill myself as previ
 
 ![Gophercon UK Keynote](image04.jpg "Gophercon UK Keynote")
 
-## Connecting with the Community
+## Connecting with the community
 
 In such a rapidly changing landscape, it’s easy to feel overwhelmed. My strategy has been to focus on what I do best: staying close to the **Python** and **Go** communities.
 
@@ -68,7 +68,7 @@ My ADHD brain for sure wants to be everywhere, but I find that focus is importan
 
 Being the opening keynote for Python Brazil in 2018 is still one of the highlights of my career, tied right there on top with my keynote at Gophercon (Chicago) in 2024. Talking about Chicago, I'm planning to revisit mutation testing in Go very soon, stay tuned!
 
-## A Personal Victory
+## A personal victory
 
 While the professional achievements are wonderful, my biggest achievement since joining is a personal one: I’m celebrating **16 kg of weight loss** (and counting)!
 
@@ -78,7 +78,7 @@ Given all the free food at the Google office and all those events, this achievem
 
 When you are in a supportive environment, doing work that fulfills you, it has a cascading positive effect on every other aspect of your life.
 
-## Looking Ahead
+## Looking ahead
 
 I'm incredibly proud to be part of Google during such exciting times. We are building the future, and being in the thick of it is a dream come true.
 

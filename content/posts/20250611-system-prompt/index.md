@@ -34,7 +34,7 @@ This is far from the experience we wish from a proper agent. The ideal diagnosti
 
 With these goals in mind, let’s get our hands dirty and start building our Emergency ~~Medical Hologram~~ Diagnostic Agent!
 
-## Setting the Stage
+## Setting the stage
 
 Last time we wrote the code in a Jupyter notebook for the sake of convenience, but this time we are going to write a regular Python program. The same code would also work on Jupyter with minimal changes, but we are doing this so that we can use the diagnostic agent with a proper chat interface.
 
@@ -107,7 +107,7 @@ Context:
   - Only use tables from this list: {tables}
   - You can discover schemas using: PRAGMA table_info(table)
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -162,13 +162,13 @@ What is the nature of your diagnostic emergency?
 
 There are two minor changes when compared to the original code: first, now we have a main loop which will keep the agent running until the user types “exit” or “quit”. This will create our chat interface.
 
-Second, we have tweaked  the system prompt to improve the agent consistency. We are now calling it “Emergency Diagnostic Agent” - this name not only works as a neat [Star Trek easter egg](https://en.wikipedia.org/wiki/The_Doctor_(Star_Trek:_Voyager%29, but more importantly, it sets a tone of urgency that, based on [emerging research](https://arxiv.org/pdf/2307.11760), may encourage it to comply with our requests more diligently. (Also check this [recent interview](https://www.reddit.com/r/singularity/comments/1kv7hm2/sergey_brin_we_dont_circulate_this_too_much_in/))
+Second, we have tweaked the system prompt to improve the agent consistency. We are now calling it “Emergency Diagnostic Agent” - this name not only works as a neat [Star Trek easter egg](https://en.wikipedia.org/wiki/The_Doctor_(Star_Trek:_Voyager%29), but more importantly, it sets a tone of urgency that, based on [emerging research](https://arxiv.org/pdf/2307.11760), may encourage it to comply with our requests more diligently. (Also check this [recent interview](https://www.reddit.com/r/singularity/comments/1kv7hm2/sergey_brin_we_dont_circulate_this_too_much_in/))
 
 We are not going to threaten our poor Emergency Diagnostic Agent - and I can guarantee that no agents were harmed in the making of this text - but, calling it an “Emergency” agent should set the tone so that it will try to comply with our requests to the best of our ability. In the previous version of the system prompt I got cases when the agent refused to do a task because it “thought” it was not capable of doing it, or didn’t know which tables to query.
 
 Of course, calling it an emergency agent is not enough to ensure the desired behaviour, so we added a few more instructions to guide the model behaviour, as we will see below.
 
-## System Instructions
+## System instructions
 
 System instructions, also called system prompt, are a set of instructions that guide the behaviour of the LLM during the entire conversation. System instructions are special as they have higher priority over regular chat interactions. A way to imagine this is as if the system instructions were always repeated together with the prompt you are sending to the model.
 
@@ -178,7 +178,7 @@ For this particular agent, I’ve opted to include the following sections in my 
 
 Now let’s have a look at each section of the prompt.
 
-### System Prompt: Role
+### System prompt: role
 
 A role is nothing more than the reason for the agent to exist. It could be as simple as “you are a software engineer” or “you are a diagnostic agent”, but they can be a bit more elaborate including a detailed description, behavioural rules, restrictions and others. 
 
@@ -195,7 +195,7 @@ Role:
 
 Beyond the straightforward definition (“you are the emergency diagnostic agent”) we added a longer description to set the tone for the model behaviour and hopefully influence it to take our requests “seriously”, as mentioned before, the previous iteration of this agent had the bad tendency of refusing requests.
 
-### System Prompt: Tools
+### System prompt: tools
 
 Tools is the section that explains to the agent its capabilities to interact with external systems beyond its core model. Tools can be of several kinds, but the most common way to provide a tool to the agent is through function calls.
 
@@ -208,7 +208,7 @@ Tools:
   - you can call osquery using the call_osquery function.
 ```
 
-### System Prompt: Context
+### System prompt: context
 
 Next we have the context, which tells the agent how about the environment it operates. I use this section to explicitly call out and correct undesired behaviours that previous iterations of the agent were prone to do. For example, I noticed very early in development that the agent would try to “guess” which tables were available and send queries blindly, resulting in a high error rate. Adding the list of tables to the context helped mitigate that problem.
 
@@ -226,7 +226,7 @@ Context:
 
 Note that tables is a variable that contains all the tables we discovered from osquery before starting the model.
 
-### System Prompt: Task
+### System prompt: task
 
 Finally, the task. This section is used to describe how the agent should interpret your requests and execute them. People usually use this section to lay out the steps required to achieve the task at hand.
 
@@ -234,7 +234,7 @@ In our particular case, we are using this section to roughly lay out the plan, b
 
 ```
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -260,7 +260,7 @@ Context:
   - Only use tables from this list: {tables}
   - You can discover schemas using: PRAGMA table_info(table)
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -269,7 +269,7 @@ Task:
 
 As a side note, I believe that we still have many opportunities to improve it and one of my current areas of interest is how to achieve a self-improving system prompt. This could potentially be achieved by asking, at the end of a session, for the model to summarise its learnings into a new system prompt for its future iteration. The prompt could be stored in a database and loaded on the next session. This of course raises concerns for system prompt degradation or, even worse, attacks using prompt injection, so it is not as trivial as it seems. Nevertheless, it is a fun exercise and I might write about it in the near future.
 
-## Enabling Debug Mode
+## Enabling debug mode
 
 Another concern about the original design is the lack of observability about what the agent is doing under the hood. There are two different approaches we can apply here, one slightly more painful than the other: 1) peek into the “thoughts” of the LLM and try to find the tool calls among them (very painful), or; 2) add some debug functionality to the function itself so it outputs the information we want during runtime (the easiest solution is usually the right one).
 
@@ -403,15 +403,15 @@ Notice that the command issued was “run a level 1 diagnostic procedure **in de
 
 Also notice how the agent initially failed when requesting a user column, but then used the PRAGMA instruction to discover the correct schema and retry the query successfully. This is a perfect demonstration of the agent's ability to recover from errors due to our improved system prompt.
 
-## Preserving the Chat History
+## Preserving the chat history
 
 Our final task today is to ensure the agent remembers what we are talking about so that we can ask clarifying questions and further probe the system following a coherent line of investigation. 
 
 In the [previous article]({{< ref "/posts/20250605-vertex-ai-sdk-python" >}}) we explored how LLMs are stateless and that we need to keep “reminding” them of the current state of the conversation using “turns”. Luckily with LangChain we don’t need to do this manually and we can rely on a feature called [chat history](https://python.langchain.com/api_reference/core/chat_history.html).
 
-The beauty of chat history is that anything that implements [BaseChatMessageHistory](https://python.langchain.com/api_reference/core/chat_history/langchain_core.chat_history.BaseChatMessageHistory.html#langchain_core.chat_history.BaseChatMessageHistory) can be used here, which allows us to use all sorts of data stores, including creating our own. For example, in the official documentation for Vertex AI you can find examples for using [Firebase, Bigtable and Spanner](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/develop/langchain#chat-history?utm_campaign=CDR_0x72884f69_awareness_b424142426&utm_medium=external&utm_source=blog).
+The beauty of chat history is that anything that implements [BaseChatMessageHistory](https://python.langchain.com/api_reference/core/chat_history/langchain_core.chat_history.BaseChatMessageHistory.html#langchain_core.chat_history.BaseChatMessageHistory) can be used here, which allows us to use all sorts of data stores, including creating our own. For example, in the official documentation for Vertex AI you can find examples for using [Firebase, Bigtable and Spanner](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/develop/langchain?utm_campaign=CDR_0x72884f69_awareness_b424142426&utm_medium=external&utm_source=blog#chat-history).
 
-We don’t need a full fledged database for the moment so we are going to settle with `InMemoryChatMessageHistory`, which as the name	suggests, will store everything in memory.
+We don’t need a full fledged database for the moment so we are going to settle with `InMemoryChatMessageHistory`, which as the name suggests, will store everything in memory.
 
 Here is a typical implementation, technically supporting multiple sessions using the `chats_by_session_id` dictionary for lookup (code retrieved from the [langchain documentation](https://python.langchain.com/docs/versions/migrating_memory/chat_history/#chatmessagehistory)):
 
@@ -560,7 +560,7 @@ Context:
   - Only use tables from this list: {tables}
   - You can discover schemas using: PRAGMA table_info(table)
 Task:
-  - Create a plan for which tables to query to fullfill the user request
+  - Create a plan for which tables to query to fulfill the user request
   - Confirm the plan with the user before executing
   - If a query fails due a wrong column name, run schema discovery and try again
   - Query the required table(s)
@@ -621,7 +621,7 @@ In this article we have learned the importance of fine tuning a system prompt to
 
 In the next article of the series we will see how to enable persistence between sessions using a real database, revisit the notion of tokens and discuss the context compression technique.
 
-## Appendix: Fun Things to Try
+## Appendix: Fun things to try
 
 Now that our agent is more robust, use this section as a practical guide to test the new features in action. Notice how it now remembers context between questions and how you can ask it to explain its work.
 
@@ -636,7 +636,7 @@ Now that our agent is more robust, use this section as a practical guide to test
 >> is this computer connected to the internet?
 >> why is my computer slow?
 >> take a snapshot of the current performance metrics
->> compare the current perfomance metrics with the previous snapshot
+>> compare the current performance metrics with the previous snapshot
 >> give me a step by step process to fix the issues you found
 >> how many osqueryd processes are in memory?
 >> give me a script to kill all osqueryd processes

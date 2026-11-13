@@ -19,7 +19,7 @@ Após mais de 20 anos na indústria de tecnologia, percebi que a forma mais efic
 
 Meu nome é Daniela Petruzalek e atualmente trabalho como Developer Relations Engineer no Google. Este blog servirá como uma plataforma para compartilhar narrativas técnicas inspiradas no meu trabalho com desenvolvimento de software, computação em nuvem e IA.
 
-## Propósito e Abordagem
+## Propósito e abordagem
 
 Embora eu já venha compartilhando conteúdo técnico em eventos e plataformas como o GitHub, eu queria um espaço para trazer artigos mais detalhados e estruturados em torno de histórias reais. O objetivo é ir além de tutoriais simplistas e documentar de verdade o processo de construção e aprendizado, incluindo os tropeços e desafios que surgem no caminho.
 

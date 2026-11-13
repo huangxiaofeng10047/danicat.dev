@@ -56,7 +56,7 @@ Does this mean we can go back to writing everything in BASIC? No, because a lang
 
 While one criterion goes out of fashion, new ones appear. In this case, we are going to be paying close attention to how easy it is for the coding agent to generate high quality software in the target language.
 
-For this particular project I choose Go for two main reasons: it is a lightweight language which coding agents handle pretty well (my godoctor MCP also helps!) and it has a mature open source game development ecosystem around ebitengine.
+For this particular project I chose Go for two main reasons: it is a lightweight language which coding agents handle pretty well (my godoctor MCP also helps!) and it has a mature open source game development ecosystem around ebitengine.
 
 Could I have done it in Three.js? Yes. However, I really wanted to get as close to the console / arcade game experience as possible, so a compiled game is a must for me. Also, I only care about 2D, so no need for big engines like Unity or Unreal. Finally, ebitengine has commercial games published on the Nintendo store (for Nintendo Switch), which feeds into my dream of eventually publishing a game (of course, not this one).
 

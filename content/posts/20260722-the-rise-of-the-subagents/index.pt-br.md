@@ -114,7 +114,7 @@ Você pode encontrar a versão atual da skill **swarm coding** no [repositório 
 $ npx skills add github.com/danicat/skills --skill swarm-coding
 ```
 
-> **Nota**: Esta skill é um trabalho em constante evolução; sinta-se à vontade para criar um fork se quiser adaptá-la para um ambiente específico.
+> **Nota**: Esta skill é um trabalho em constante evolução; sinta-se à vontade para criar um fork se quiser fixá-la em alguma implementação específica.
 
 Aqui está um prompt divertido para começar. Experimente rodá-lo no Antigravity CLI:
 

@@ -50,9 +50,9 @@ Essentially the agent is composed by the following components:
 - A python library to allow us to call osquery programmatically
 - A python function wrapper given to Gemini as a tool to call osquery
 
-Given the fact that osquery is multi-platform and its schema can vary depending on the host system, we also added a small optisation of giving the osquery table schema to Gemini in the system prompt.
+Given the fact that osquery is multi-platform and its schema can vary depending on the host system, we also added a small optimisation of giving the osquery table schema to Gemini in the system prompt.
 
-A few notable omissions of the previous implementation is that we never gave the model any specific instructions about each diagnostic procedure we want to perform, and we also never fully specified the schema beyond table names. those are some of the limitations we are going to address in this article, using the power of ADK, [Vertex AI RAG](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog) and a few other tricks. But first, the refactoring!
+A few notable omissions of the previous implementation is that we never gave the model any specific instructions about each diagnostic procedure we want to perform, and we also never fully specified the schema beyond table names. Those are some of the limitations we are going to address in this article, using the power of ADK, [Vertex AI RAG](https://cloud.google.com/vertex-ai/generative-ai/docs/rag-engine/rag-overview?utm_campaign=CDR_0x72884f69_default_b427567312&utm_medium=external&utm_source=blog) and a few other tricks. But first, the refactoring!
 
 ## Refactoring the agent for ADK
 
@@ -76,7 +76,7 @@ $ uv add google-adk
 ```
 The only difference between those two approaches is that with pip the ADK CLI is exposed as the command `adk` but in `uv` by default you will need to call it using `uv run adk`.
 
-Once you are done with the installation, you can create a template agent with `adk create [agent-name]` (or `uv adk create [agent-name]`):
+Once you are done with the installation, you can create a template agent with `adk create [agent-name]` (or `uv run adk create [agent-name]`):
 
 ```sh
 (.venv) $ adk create hello-agent
@@ -112,7 +112,7 @@ The important files are `.env` which contains your environment configuration and
 
 The content of the generated `agent.py` file is quite lean. You can see it in full below:
 
-```
+```py
 from google.adk.agents.llm_agent import Agent
 
 root_agent = Agent(
@@ -125,7 +125,7 @@ root_agent = Agent(
 
 This is a full fledged agent that you can test using the Dev-UI interface from ADK. Just run `adk web` in the command line and it will spin up a web interface on your machine at `http://localhost:8000`. Easy peasy!
 
-## ADK Diagnostics
+## ADK diagnostics
 
 If you have worked with the Vertex AI SDK before you must have already noticed how much leaner the code is. We only need to define one entry point agent `root_agent` and a few configurations to have a fully working agent.
 
@@ -188,7 +188,7 @@ You can test the agent running `adk web` and issuing a few queries:
 
 !["ADK UI with the query 'show me this machine os, version and uptime'"](image-1.png)
 
-## Revisiting the System Prompt
+## Revisiting the system prompt
 
 The system prompt, also often referred to as system instructions, is the core of every agent. The system prompt is the lowest level prompt that gives the agent its mission and personality. So it's critical that we develop a very good system prompt for the agent to respond consistently.
 
@@ -269,7 +269,7 @@ One very convenient way to create a corpus is to upload a folder from [Google Cl
 
 ![Create corpus wizard in Vertex AI RAG](image-3.png)
 
-For this particular case, I cloned the osquery GitHub repository to my machine and made a copy of the `spec` folder to a Google Cloud Storage bucket, and then used the cloud console to create the corpus from the bucket. The only thing you need to be aware of is that since the table definitions in `spec` have the extension `.table` you will need to rename all the files to `.txt` so that Vertex AI RAG will recognise and process them.
+For this particular case, I cloned the osquery GitHub repository to my machine and made a copy of the `specs` folder to a Google Cloud Storage bucket, and then used the cloud console to create the corpus from the bucket. The only thing you need to be aware of is that since the table definitions in `specs` have the extension `.table` you will need to rename all the files to `.txt` so that Vertex AI RAG will recognise and process them.
 
 You can use a simple shell command to perform this bulk-rename operation:
 ```sh
@@ -283,7 +283,7 @@ When it's done importing you should see something like this:
 
 Now we need to create a tool definition to give the agent access to this corpus.
 
-### Schema Discovery Tool
+### Schema discovery tool
 
 For the tool to work you will need the resource name for the corpus you have just created. You can find it on the console under the "Details" tab for the corpus and it will look like this: `projects/[PROJECT-ID]/locations/[LOCATION]/ragCorpora/[CORPORA_ID]`
 
@@ -335,11 +335,12 @@ root_agent = Agent(
     model='gemini-2.5-flash',
     name='emergency_diagnostic_agent',
     description='A helpful assistant for diagnosing computer problems.',
-    instruction=... # omitted for brevity
+    instruction=..., # omitted for brevity
     tools=[
         FunctionTool(run_osquery),
         FunctionTool(discover_schema), # new tool definition
     ],
+)
 ```
 
 Finally, it is not strictly necessary, but I like to enforce schema discovery in my agents, so I added the following phrase to my instructions:
@@ -356,7 +357,7 @@ Now, if you reboot your agent and run it again with `adk web`, you should start 
 
 I highly recommend you to play with it and compare the responses with and without the schema discovery. During my tests the difference in quality was very significant.
 
-## Final Words
+## Final words
 
 Oh my! This was a long one, but hopefully you enjoyed the read! If you have any challenges setting up your own diagnostic agent please let me know. I'm fairly responsive on [LinkedIn](https://www.linkedin.com/in/petruzalek) unless I'm super busy with an event. I would also like to hear how you would extend this agent and about any experiments you have tried.
 

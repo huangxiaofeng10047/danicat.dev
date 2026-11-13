@@ -54,15 +54,15 @@ Let's say I need to implement a new feature for my system. I have two main modes
 
 ![Prioritisation example](image.png "Example of priority features for this blog")
 
-For example, in this very blog I wrote last time how I implemented the "featured post" in the home page. When I started working on it, I knew nothing about how to implement a featured post, but I had an idea of what I wanted to achieve. This is a problem with low technical certainty, because I didn't know which technology to use nor the exact places in code I had to change. At the same time, it had a high business value for me, because my hypothesis is that it would make the blog much more professional and attractive to the readers.
+For example, in this very blog I [wrote last time]({{< ref "/posts/20250703-jules-featured-post" >}}) how I implemented the "featured post" in the home page. When I started working on it, I knew nothing about how to implement a featured post, but I had an idea of what I wanted to achieve. This is a problem with low technical certainty, because I didn't know which technology to use nor the exact places in code I had to change. At the same time, it had a high business value for me, because my hypothesis is that it would make the blog much more professional and attractive to the readers.
 
 Given that, the natural choice would be to have a short feedback loop, so that for every change the AI proposes I can see the results immediately and guide them to the right direction. On the other hand, for things that are lower priority, I'm ok with having a long feedback loop, and so they are more suitable for batch mode.
 
-## Low/Mid Technical Certainty OR High Business Value = Interactive Mode (Sync)
+## Low/mid technical certainty OR high business value = interactive mode (sync)
 
 Problems with lower technical certainty require more supervision to get things done the right way, so I prefer to use an interactive process with a CLI tool. My current tool of choice is [Gemini CLI](https://cloud.google.com/gemini/docs/codeassist/gemini-cli?utm_campaign=CDR_0x72884f69_default_b431747616&utm_medium=external&utm_source=blog), which was released by Google only two weeks ago and it is already taking the development world by storm.
 
-Gemini CLI is an AI-enabled REPL (Repeat Eval Print Loop) kind of command line application. You type a prompt and the CLI will react with a response, which can be not only code and text, but basically anything due to its support for the Model Context Protocol (MCP). Thanks to that you can use the CLI for basically anything, from buying coffee to updating your databases. Of course, the natural use case of the CLI is coding, but you know, people. :)
+Gemini CLI is an AI-enabled REPL (Read-Eval-Print Loop) kind of command line application. You type a prompt and the CLI will react with a response, which can be not only code and text, but basically anything due to its support for the Model Context Protocol (MCP). Thanks to that you can use the CLI for basically anything, from buying coffee to updating your databases. Of course, the natural use case of the CLI is coding, but you know, people. :)
 
 Although the Gemini CLI has an YOLO mode that is designed for automation, honestly I don't trust it well enough to do things without supervision (more on this later), so I prefer to use the CLI when I need to brainstorm and explore the problem space before coming up with a solution. I might ask it to plan a feature for me, to research implementation options or even to implement straight away - only to discard the implementation and redo it again with a clean state based on the learnings from the initial implementation - a.k.a. "prototyping".
 
@@ -70,23 +70,23 @@ It takes a few tries for me to get the prompt right, in the same way it might ta
 
 The main reason to use the CLI for low technical certainty problems is that the feedback loop closes almost immediately. You test your hypothesis, fix any rough edges and iterate. The only lag will be the time for the model to process your request.
 
-## High Technical Certainty AND Low/Mid Business Value = Batch Mode (Async)
+## High technical certainty AND low/mid business value = batch mode (async)
 
 A high technical certainty problem, as said above, is the one where you already know all (or almost all) the steps required to implement it. This makes your life much easier, because if you already know the steps, instead of doing them yourself you can simply instruct the AI to do it for you.
 
 Here would be one case for using the Gemini CLI in YOLO mode, but we actually have a better tool for that called [Jules](https://jules.google/). Jules was launched by Google during I/O earlier this year, and quickly became my favourite tool ever (Gemini CLI comes as a close second).
 
-Jules is an assynchronous agent that you can connect to GitHub to perform tasks in the background. I confess that when I initially discovered Jules I didn't pay enough attention to the fine print and was slightly annoyed how slow it was, but only after a while I realised that the whole point is to put a task to be done in the background so you can disconnect and move on with your life.
+Jules is an asynchronous agent that you can connect to GitHub to perform tasks in the background. I confess that when I initially discovered Jules I didn't pay enough attention to the fine print and was slightly annoyed how slow it was, but only after a while I realised that the whole point is to put a task to be done in the background so you can disconnect and move on with your life.
 
 Because Jules is connected to GitHub, it already has the full context of your project so you can ask it to perform maintenance tasks like "upgrade the version of my dependencies" or "implement unit tests", or even "fix this particular bug". The important note is that because the feedback loop is long - you will not get the result immediately - it is better to reserve this tool for tasks that you have clarity of what to do step by step.
 
-## High Technical Certainty AND High Business Value = Interactive Mode (Sync)
+## High technical certainty AND high business value = interactive mode (sync)
 
 You might have noticed that based on the categories above I singled out that high technical certainty with high business value is always synchronous. The only reason for that is because I care a lot about this result (high business value) so I want to oversee it personally and want to make sure it is ready as fast as possible. For me it is a natural thing because business value will always trump technical certainty if those parameters have the same level.
 
-## Low Technical Certainty AND Low Business Value = Should I really do this?
+## Low technical certainty AND low business value = should I really do this?
 
-These are the ones that usually get lost in the backlog hell. In pre-AI days I would just forget them, but in an AI enabled world if I stumble upon them I would just fire a Jules task to explore some possibilities in the hope of reducing uncertainty and/or increasing the business value. Since the cognitive cost is low, you have literally nothing to lose by firing a Jules task even with the simplest prompt you can think off. The result might not be great, but you would not do it anyway so anything good that comes out of it is a benefit.
+These are the ones that usually get lost in the backlog hell. In pre-AI days I would just forget them, but in an AI enabled world if I stumble upon them I would just fire a Jules task to explore some possibilities in the hope of reducing uncertainty and/or increasing the business value. Since the cognitive cost is low, you have literally nothing to lose by firing a Jules task even with the simplest prompt you can think of. The result might not be great, but you would not do it anyway so anything good that comes out of it is a benefit.
 
 ## Exceptions
 
@@ -99,7 +99,7 @@ In summary - if my options are making zero progress or firing up Jules, I will f
 
 On the other hand, I did not cover so far where the traditional IDEs get into my workflow. It doesn't mean I abandoned them, as in fact I'm currently writing this blog post on VS Code. I reserve IDE / manual editing for the last mile or final polish of my code. Just be VERY careful with minor edits in the middle of a "vibe coding" session as they tend to throw the LLMs off the rails pretty quickly. But if this is the last thing you do, you are pretty much safe.
 
-## Bonus: A note about reducing uncertainty
+## Bonus: a note about reducing uncertainty
 
 Sometimes you just need to explore a topic, but are not even sure how to integrate with your code base yet. While you can try to force Gemini CLI or Jules to do non-coding tasks, it feels like using a hammer to fix a screw to the wall. In this case, when I need to do pure research, I prefer using [Gemini Deep Research](https://gemini.google/overview/deep-research/?hl=en-GB) instead. Just like Jules, Gemini Deep Research is async so you can just trigger a research in the background and get on with your day.
 

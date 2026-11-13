@@ -100,7 +100,7 @@ No cinema, *Akira*, de Katsuhiro Otomo, utiliza mais de 160.000 quadros desenhad
 
 A Wikipédia oferece esta definição abrangente de [arte](https://pt.wikipedia.org/wiki/Arte):
 
-> *"A arte é uma gama diversificada de atividades humanas centradas em obras que utilizam talentos criativos ou imaginativos, que se espera que evoquem uma experiência válida, geralmente através da expressão de poder emocional, ideias conceituais, proficiência técnica ou beleza."*
+> *"A arte é uma gama diversificada de atividades culturais centradas em obras que utilizam talentos criativos ou imaginativos, que se espera que evoquem uma experiência válida, geralmente através da expressão de poder emocional, ideias conceituais, proficiência técnica ou beleza."*
 
 Curiosamente, o parágrafo logo a seguir admite que nem mesmo essa definição é um consenso:
 

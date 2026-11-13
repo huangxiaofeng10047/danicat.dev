@@ -6,7 +6,7 @@ summary: The new autonomous coding agent that every developer needs to know.
 tags:
   - jules
   - vibe-coding
-title: "We need to talk about Jules!"
+title: "We Need to Talk About Jules!"
 slug: "jules-autonomous-coding-agent"
 aliases:
   - "/posts/20250521-jules/"
@@ -25,11 +25,11 @@ It integrates directly with GitHub, so there is very little friction to start us
 
 The unfortunate consequence of Jules announcement yesterday is that the tool is currently under heavy load, so it might take a while after you submit a task to see the results, but Jules will do the work in background and if you have browser notifications enabled it will let you know once it is ready.
 
-Given this fact, I wasn’t able to do any major experiments with it, but one of the things I did was to generate the [README for my blog project on Github](https://github.com/danicat/danicat.dev/pull/1) (the source for this very page you are reading now). I also tried some more complex iterations like adjusting the blog template. [It did generate the correct files](https://github.com/danicat/danicat.dev/pull/2), but it was a bit slow to respond to my requests so I had to do a few changes manually.
+Given this fact, I wasn’t able to do any major experiments with it, but one of the things I did was to generate the [README for my blog project on GitHub](https://github.com/danicat/danicat.dev/pull/1) (the source for this very page you are reading now). I also tried some more complex iterations like adjusting the blog template. [It did generate the correct files](https://github.com/danicat/danicat.dev/pull/2), but it was a bit slow to respond to my requests so I had to do a few changes manually.
 
 ## A new era for IDEs
 
-Not bad for day 1 I would say, and there is a lot of potential to be unlocked over the next few weeks and months. The killer feature is the ability to work on a complete code base instead of that traditional flow of asking Gemini (or ChatGPT) a question, copying the source to the IDE, running, copying and pasting back the results to the LLM and iterating. Of course, tools like Code Assist and CoPilot will provide some of those capabilities without leaving the IDE, but I still feel that the IDE is not the right environment for vibe coding as it feels more like a hack.
+Not bad for day 1 I would say, and there is a lot of potential to be unlocked over the next few weeks and months. The killer feature is the ability to work on a complete code base instead of that traditional flow of asking Gemini (or ChatGPT) a question, copying the source to the IDE, running, copying and pasting back the results to the LLM and iterating. Of course, tools like Code Assist and Copilot will provide some of those capabilities without leaving the IDE, but I still feel that the IDE is not the right environment for vibe coding as it feels more like a hack.
 
 In that spirit, maybe Jules is the injection of inspiration we needed for a new era of IDEs that will unlock the potential of AI for developers all over the world in a more natural way. At least that is what I am hoping for!
 

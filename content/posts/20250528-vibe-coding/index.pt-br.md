@@ -18,7 +18,7 @@ proficiencyLevel: "Beginner"
 
 Você acredita que uma pessoa sem formação em engenharia consegue criar uma aplicação pronta para produção usando apenas "vibe coding"? Essa é a pergunta sobre a qual tenho refletido bastante ultimamente.
 
-O cenário da IA está evoluindo a passos largos, com ferramentas incríveis surgindo praticamente todos os dias. É natural que muita gente fique apreensiva e comece a "profetizar" o fim da carreira de engenharia de software. Veja o [Jules]({{< ref "/posts/20250521-jules/index.md" >}}), por exemplo: um agente de IA capaz de automatizar diversas tarefas rotineiras de engenharia, como atualizar dependências, escrever documentação, refatorar código e até criar testes.
+O cenário da IA está evoluindo a passos largos, com ferramentas incríveis surgindo praticamente todos os dias. É natural que muita gente fique apreensiva e comece a "profetizar" o fim da carreira de engenharia de software. Veja o [Jules]({{< ref "/posts/20250521-jules" >}}), por exemplo: um agente de IA capaz de automatizar diversas tarefas rotineiras de engenharia, como atualizar dependências, escrever documentação, refatorar código e até criar testes.
 
 Se essas fossem as **únicas** contribuições que você traz para a mesa como engenheira ou engenheiro, talvez fizesse sentido se preocupar. Mas o medo não é necessariamente um vilão: ele nos empurra para fora da zona de conforto e nos encoraja a assumir riscos que de outra forma evitaríamos. Na medida certa, o medo impulsiona o autodesenvolvimento e a inovação.
 
@@ -36,7 +36,7 @@ Portanto, sempre que você pensar sobre a carreira de engenharia (e se ela vai m
 
 Mas a *forma* como criamos e aperfeiçoamos as coisas... essa sim, com certeza vai mudar.
 
-## Orquestrar, e Não Apenas Codificar
+## Orquestrar, e não apenas codificar
 
 Acredito que a revolução da IA vai nos libertar do trabalho repetitivo e maçante para que possamos nos concentrar no aspecto mais fascinante do nosso trabalho: arquitetura, design, planejamento e validação de soluções.
 
@@ -52,13 +52,13 @@ O que eu realmente queria era criar uma fonte única de verdade (source of truth
 
 Não seria incrível se pudéssemos abstrair toda essa sobrecarga e simplesmente pedir a uma IA: "gere uma plataforma de blog completa para mim, com tudo pronto para rodar"?
 
-É aqui que a IA vai se tornar absurdamente poderosa. Com o advento da IA Agêntica (Agentic AI), logo teremos centenas de agentes à nossa disposição para orquestrar todas as etapas do ciclo de vida de software. A nós caberá o papel principal de idealizar novas experiências, enquanto a "operacionalização" fica por conta dos agentes. Eles vão codificar, fazer deploys e iterar. Vão pesquisar opções por nós e apresentar caminhos, para que possamos decidir de acordo com a nossa visão.
+É aqui que a IA vai se tornar absurdamente poderosa. Com o advento da IA Agêntica (Agentic AI), logo teremos milhares de agentes à nossa disposição para orquestrar todas as etapas do ciclo de vida de software. A nós caberá o papel principal de idealizar novas experiências, enquanto a "operacionalização" fica por conta dos agentes. Eles vão codificar, fazer deploys e iterar. Vão pesquisar opções por nós e apresentar caminhos, para que possamos decidir de acordo com a nossa visão.
 
 Pode parecer difícil visualizar isso sem um exemplo palpável, e é por isso que sou apaixonada por ficção científica: ela nos permite espiar o futuro. Pense no computador de bordo de Star Trek... Acredito que, em poucos anos, estaremos interagindo com computadores exatamente como [Geordi La Forge faz nesta cena](https://youtu.be/L0mRMp2kbQY?feature=shared): o processo de engenharia se torna um diálogo colaborativo, em vez de um esforço solitário da pessoa engenheira.
 
 Já chegamos lá? Ainda não, mas a IA Agêntica é o próximo salto para transformar o futuro de Star Trek em realidade. Já dá para sentir que a IA será um divisor de águas ainda maior do que foi a própria internet. Como pessoas desenvolvedoras, precisamos nos atualizar para essa "próxima geração" (com todo o trocadilho pretendido).
 
-## Então, Qualquer Pessoa Pode Fazer "Vibe Coding"?
+## Então, qualquer pessoa pode fazer "vibe coding"?
 
 Talvez não *qualquer* pessoa, mas a barreira de entrada está caindo drasticamente. As habilidades fundamentais estão evoluindo, mas o papel da engenharia de conceber, arquitetar e criar continua firme e forte, e continuará por muito tempo.
 

@@ -20,13 +20,13 @@ After more than 20 years in the technology industry, I've found that the most ef
 
 My name is Daniela Petruzalek, and I'm currently a Developer Relations Engineer at Google. This blog will serve as a platform for sharing technical narratives drawn from my work in software development, cloud computing, and AI.
 
-## Purpose and Approach
+## Purpose and approach
 
 While I have shared technical content at events and on platforms like GitHub, I wanted a space to provide more detailed, story-driven articles. The goal is to move beyond simple tutorials and instead document the process of building and learning, including the challenges encountered along the way.
 
 The site itself is built with [Hugo](https://gohugo.io/) and the [Blowfish](https://blowfish.page/) theme. This choice reflects a preference for tools that are fast, simple, and customizable, which is a recurring theme in the technical decisions I often write about.
 
-## What to Expect
+## What to expect
 
 The content on this blog will focus on personal technical journeys. I believe the most complex topics become clearer when presented as a narrative. You can expect articles covering:
 

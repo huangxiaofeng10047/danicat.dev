@@ -29,25 +29,25 @@ I recently decided to update the homepage of my blog to better highlight the mos
 
 This post details our iterative journey, the successes, the (sometimes amusing) misunderstandings, and what I learned about working effectively with AI for web development, especially in bridging skill gaps.
 
-## The Goal: A Featured Post Section
+## The goal: a featured post section
 
 My initial request to Jules was straightforward:
 > "Change the layout of the main page so that it displays the most recent blog post in highlight instead of it being in the recent posts list. The recent posts should contain all other posts except the most recent one. This behaviour should be seen only on the blog landing page (home). If the user clicks on the Blog menu it should still see all the posts in reverse chronological order, including the most recent one."
 
 Jules quickly understood and proposed a plan involving exploring the Hugo codebase, identifying templates, and modifying them.
 
-## Iteration Highlights: The Good, The Bad, and The AI
+## Iteration highlights: the good, the bad, and the AI
 
 Our collaboration involved several iterations to get things just right.
 
-### Iteration 1: Initial Setup - Getting the Basics Right
+### Iteration 1: initial setup - getting the basics right
 Jules correctly identified the Blowfish theme's partials and set up the override structure. The logic to separate the latest post from the others in the "Recent Posts" list was implemented well.
 
 *   **What worked:** Understanding the core Hugo structure, fetching posts, basic template modifications. Jules's ability to navigate the theme and project files was a significant time-saver here.
 
 ![Jules AI task execution and progress waiting screen in terminal](images/image001.png "There was a lot of awaiting in between tasks")
 
-### Iteration 2: Styling with Tailwind - The Trial-and-Error Dance
+### Iteration 2: styling with Tailwind - the trial-and-error dance
 We then focused on the appearance: title, width, and image dimensions. This involved a series of prompts to fine-tune the visuals. For example:
 
 > "Change the featured post title to 'Featured Post'. Adjust its width to be about 80% of the view. The image is too tall/narrow, let's try a 4:3 aspect ratio. That's still not quite right, make it wider/less tall."
@@ -60,7 +60,7 @@ This is where the iterative nature of working with Jules on visual elements beca
 
 *   **Learning:** Fine-tuning visual aesthetics is the least favourite part of my experience, as the instructions will often result to false positives. Clear, descriptive feedback is key, but also recognizing that some back-and-forth is inevitable when I can't directly point at a screen or make micro-adjustments myself in real-time. Jules, however, diligently applied each requested change, which helped bridge my frontend knowledge gap.
 
-### Iteration 3: Custom CSS vs. Tailwind - A Brief Detour
+### Iteration 3: custom CSS vs. Tailwind - a brief detour
 At one point, to get very specific control over the card's dimensions, I prompted:
 
 > "jules, instead of trying to use an existing style class, create an unique style class for the featured post card. This style should use relative width and height of 75% of the container..."
@@ -71,7 +71,7 @@ At one point, to get very specific control over the card's dimensions, I prompte
 
 > "undo the last change and restore the tailwind style of formatting. apply the same style guidelines using tailwind best practices"
 
-### Iteration 4: The Great "Comments" Misunderstanding!
+### Iteration 4: the great "comments" misunderstanding!
 This was perhaps the most illustrative part of the AI-human interaction. I mentioned:
 
 > "the comments are rendering in the featured post. please remove all the comments or make them invisible"
@@ -79,24 +79,24 @@ This was perhaps the most illustrative part of the AI-human interaction. I menti
 *   **Jules's interpretation:** Jules assumed I meant the blog's *user comment system* (like Utterances or Giscus) or metadata like views/likes counts. This led to a series of steps where Jules tried to investigate and then conditionally hide views/likes metadata.
 *   **My Clarification:** After these changes, I clarified by giving it an example:
     > "you are wrong, I never said I wanted to remove the views and likes - I'm referring to the code comments in rendering as {/* Adjusted padding ... */} and {/* Removed prose classes ... */}"
-*   **Resolution:** Once Jules understood I meant *literal Go template/HTML comments* that were incorrectly formatted (using `{/*...*}` which isn't a valid Hugo comment style and thus renders as text) and not `{{/* ... */}}`, the fix was immediate: remove the offending text from the templates.
+*   **Resolution:** Once Jules understood I meant *literal Go template/HTML comments* that were incorrectly formatted (using `{/*...*/}` which isn't a valid Hugo comment style and thus renders as text) and not `{{/* ... */}}`, the fix was immediate: remove the offending text from the templates.
 *   **What worked:** Jules's persistence and systematic approach to debugging the (misunderstood) problem was commendable.
 *   **Challenge & Learning:** This highlighted a crucial aspect of AI interaction: ambiguity in natural language. "Comments" has multiple meanings. My initial report wasn't precise enough.
 
-### Iteration 5: Final Polish
+### Iteration 5: final polish
 After resolving the visible template comments, we made final tweaks:
 
 > "Remove the 'Featured Post' title. Change card width to 50%. Increase title and summary font sizes. Make the image's aspect ratio 16:9."
 
 This led to the final adjustments for the card's width, font sizes, and image aspect ratio. The width % didn't have any effect, but changing the aspect ratio did the trick.
 
-### Bonus Iteration: Jules Drafts This Blog Post
+### Bonus iteration: Jules drafts this blog post
 
 > "This is perfect. No more code changes are needed. Now I want you to create a new blog post entry describing the iteration we just did..."
 
 And here we are! This post itself was drafted with the assistance of Jules, based on our interaction log and my guiding feedback, including the very points you're reading now.
 
-## What Worked Well with Jules
+## What worked well with Jules
 
 *   **Bridging Skill Gaps:** As a backend engineer, Jules was invaluable in tackling frontend tasks involving Hugo templating and Tailwind CSS, areas where I have less day-to-day experience. Jules made up for my lack of deep frontend knowledge, proposing and implementing solutions that I could then guide and refine.
 *   **Speed of Implementation:** For well-understood changes, Jules can modify code, create files, and refactor structures much faster than manual typing.
@@ -104,14 +104,14 @@ And here we are! This post itself was drafted with the assistance of Jules, base
 *   **Systematic Problem Solving:** Even with misunderstandings, Jules often followed a logical process.
 *   **Iterative Refinement:** Jules was consistently receptive to feedback for tweaks.
 
-## Challenges and Learnings
+## Challenges and learnings
 
 *   **Precision of Language:** The "comments" incident underscores how critical precise language is. What's obvious to a human, or shorthand, might be ambiguous to an AI.
 *   **Visual Feedback Loop & Tailwind:** The trial-and-error with Tailwind styling was a key challenge. Without Jules "seeing" the output, describing desired visual outcomes or why a particular set of classes wasn't working as hoped required patience and detailed descriptions. This is inherent in text-based interaction for visual tasks.
 *   **Misinterpretation & Course Correction:** When Jules misunderstood a task, it would proceed diligently down that incorrect path. There wasn't a way to interrupt it mid-task; I had to wait for it to complete its current action sequence before providing corrective feedback.
 *   **Asynchronous Workflow & Pace:** The work is mostly asynchronous. Each request and Jules's implementation could take from a few minutes to sometimes half an hour for more complex sequences. This makes the iterative loop slower than direct coding with instant feedback or live pair programming.
 
-## Suggested Resources
+## Suggested resources
 
 For those interested in learning more about Jules:
 

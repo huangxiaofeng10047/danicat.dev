@@ -168,7 +168,7 @@ Gemini からの回答では、MySQL が PostgreSQL よりコスト効率が良�
 
 UI や Gemini の提案精度にはまだ粗削りな部分が残っているものの、新しいアプリケーションを作るたびにゼロから手作業で Terraform コードを書き起こす手間が省けるだけでも、すでに大きな価値を感じています。
 
-このツールは今後数ヶ月で急速に進化していくはずなので、この記事の内容も早晩アップデートされていくでしょう。最新情報をキャッチアップするには公式の [Application Design Center](https://cloud.google.com/application-design-center/docs/overview?utm_campaign=CDR_0x72884f69_awareness_b428663487&utm_medium=external&utm_source=blog) ドキュメントをチェックしてみてください。もちろん本ブログでも、面白い新機能やアップデートがあれば随時取り上げていきます。
+この記事はいわば「賞味期限付き」ですね。今後数ヶ月でツールが急速に進化していくはずだからです。最新情報をキャッチアップするには公式の [Application Design Center](https://cloud.google.com/application-design-center/docs/overview?utm_campaign=CDR_0x72884f69_awareness_b428663487&utm_medium=external&utm_source=blog) ドキュメントをチェックしてみてください。もちろん本ブログでも、面白い新機能やアップデートがあれば随時取り上げていきます。
 
 プロンプトのアイデアとして、「make it cost effective（コスト効率を高めて）」「make it highly available（高可用性構成にして）」「explain why x instead of y（なぜ Y ではなく X を選んだのか説明して）」「replace x with y（X を Y に置き換えて）」「explain x to me like I’m 5（5歳児にもわかるように説明して）」など、クリエイティブなプロンプトをいろいろ試してみるのがおすすめです。
 
